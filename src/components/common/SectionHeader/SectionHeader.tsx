@@ -10,7 +10,7 @@ const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
       <div ref={ref} className={`section-header ${className}`}>
         {/* Label */}
         <div className="section-header__label-container">
-          <div className="section-header__accent-bar" aria-hidden="true" />
+          <div className="section-header__accent-bar" />
           <span className="section-header__label">{label}</span>
         </div>
 
@@ -25,7 +25,6 @@ const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
                 onClick={props.onViewAll}
                 variant="default"
                 size="default"
-                aria-label={`View all ${title.toLowerCase()}`}
               >
                 View All
               </Button>
@@ -33,32 +32,20 @@ const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
 
             {/* Navigation Arrows */}
             {"onPrevious" in props && props.showNavigation && (
-              <div
-                className="section-header__navigation"
-                role="group"
-                aria-label="Navigation controls"
-              >
+              <div className="section-header__navigation">
                 <button
                   type="button"
                   onClick={props.onPrevious}
                   className="section-header__nav-btn"
-                  aria-label="Previous"
                 >
-                  <ChevronLeft
-                    className="section-header__nav-icon"
-                    aria-hidden="true"
-                  />
+                  <ChevronLeft className="section-header__nav-icon" />
                 </button>
                 <button
                   type="button"
                   onClick={props.onNext}
                   className="section-header__nav-btn"
-                  aria-label="Next"
                 >
-                  <ChevronRight
-                    className="section-header__nav-icon"
-                    aria-hidden="true"
-                  />
+                  <ChevronRight className="section-header__nav-icon" />
                 </button>
               </div>
             )}
