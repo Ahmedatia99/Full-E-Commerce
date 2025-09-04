@@ -19,7 +19,7 @@ const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
           <h2 className="section-header__title">{title}</h2>
 
           <div className="section-header__controls">
-            {/* View All Button */}
+            {/* View All Button - Uses existing Button component */}
             {"onViewAll" in props && props.showViewAll && (
               <Button
                 onClick={props.onViewAll}
@@ -39,18 +39,26 @@ const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
                 aria-label="Navigation controls"
               >
                 <button
+                  type="button"
                   onClick={props.onPrevious}
                   className="section-header__nav-btn"
                   aria-label="Previous"
                 >
-                  <ChevronLeft />
+                  <ChevronLeft
+                    className="section-header__nav-icon"
+                    aria-hidden="true"
+                  />
                 </button>
                 <button
+                  type="button"
                   onClick={props.onNext}
                   className="section-header__nav-btn"
                   aria-label="Next"
                 >
-                  <ChevronRight />
+                  <ChevronRight
+                    className="section-header__nav-icon"
+                    aria-hidden="true"
+                  />
                 </button>
               </div>
             )}
