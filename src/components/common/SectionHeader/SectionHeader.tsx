@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import type { SectionHeaderProps } from "./SectionHeader.types";
 import "./SectionHeader.styles.css";
 
@@ -20,14 +21,14 @@ const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
           <div className="section-header__controls">
             {/* View All Button */}
             {"onViewAll" in props && props.showViewAll && (
-              <button
-                type="button"
+              <Button
                 onClick={props.onViewAll}
-                className="section-header__view-all-btn"
+                variant="default"
+                size="default"
                 aria-label={`View all ${title.toLowerCase()}`}
               >
                 View All
-              </button>
+              </Button>
             )}
 
             {/* Navigation Arrows */}
@@ -38,26 +39,18 @@ const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
                 aria-label="Navigation controls"
               >
                 <button
-                  type="button"
                   onClick={props.onPrevious}
                   className="section-header__nav-btn"
                   aria-label="Previous"
                 >
-                  <ChevronLeft
-                    className="section-header__nav-icon"
-                    aria-hidden="true"
-                  />
+                  <ChevronLeft />
                 </button>
                 <button
-                  type="button"
                   onClick={props.onNext}
                   className="section-header__nav-btn"
                   aria-label="Next"
                 >
-                  <ChevronRight
-                    className="section-header__nav-icon"
-                    aria-hidden="true"
-                  />
+                  <ChevronRight />
                 </button>
               </div>
             )}
