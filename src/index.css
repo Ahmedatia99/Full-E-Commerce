@@ -122,9 +122,6 @@
   --color-main: #db4444;
   --color-btnHover: #e07575;
 }
-
-
-[data-radix-toggle-group] {
-  display: flex !important;
-  flex-wrap: wrap !important;
+@theme inline {
+  --font-sans: "Inter", sans-serif;
 }

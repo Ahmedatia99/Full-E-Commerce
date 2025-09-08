@@ -7,7 +7,11 @@ interface ProductSizesProps {
   setSelectedSize: (val: string) => void;
 }
 
-const ProductSizes: React.FC<ProductSizesProps> = ({ sizes, selectedSize, setSelectedSize }) => {
+const ProductSizes: React.FC<ProductSizesProps> = ({
+  sizes,
+  selectedSize,
+  setSelectedSize,
+}) => {
   if (!sizes?.length) return null;
 
   return (

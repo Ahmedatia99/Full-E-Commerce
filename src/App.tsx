@@ -1,15 +1,39 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ProductsDetails from "./pages/productsDetails";
-import Test from "./pages/test";
-
+// import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
+// import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
+import { Button } from "./components/ui/button";
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/Test" element={<Test />} />
-        <Route path="/products/:id" element={<ProductsDetails />} />
-      </Routes>
-    </Router>
+    <>
+      {/* <Navbar /> */}
+      {/*  */}
+      <Footer />
+      <div className="p-10 flex gap-5">
+        <Button
+          variant="default"
+          size="lg"
+          onClick={() => alert("Button clicked default!")}
+        >
+          click
+        </Button>
+        <Button
+          variant="secondary"
+          size="lg"
+          onClick={() => alert("Button clicked secondary!")}
+        >
+          click
+        </Button>
+        <Button
+          variant="small"
+          size="lg"
+          onClick={() => alert("Button clicked small!")}
+          className=" "
+        >
+          click
+        </Button>
+      </div>
+    </>
   );
 }
 

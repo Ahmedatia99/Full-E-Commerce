@@ -1,0 +1,22 @@
+export interface products {
+  productObject: productObject[];
+}
+
+export interface productObject {
+  id: number;
+  isNew: boolean;
+  title: string; //Must Be short to avoid Height issue
+  price: number;
+  discountPrice: number;
+  ratingCount: number;
+  avgRate: number;
+  colors: colorsVariants[];
+  mainImgSRC: string;
+}
+
+interface colorsVariants {
+  color: string;
+  quantity: number;
+  images: string[];
+  sizes: string[];
+}
