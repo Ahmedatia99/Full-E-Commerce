@@ -122,3 +122,6 @@
   --color-main: #db4444;
   --color-btnHover: #e07575;
 }
+@theme inline {
+  --font-sans: "Inter", sans-serif;
+}
