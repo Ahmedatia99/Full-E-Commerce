@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   SectionHeader Component Styles
+   ============================================================================ */
+
+/* Main container */
+.section-header {
+  @apply w-full;
+}
+
+/* Label container and variants */
+.section-header__label-container {
+  @apply flex items-center;
+}
+
+.section-header__label-container--with-inline-controls {
+  @apply justify-center sm:justify-start;
+}
+
+.section-header__label-container--with-inline-controls .section-header__controls {
+  @apply sm:ml-auto;
+}
+
+.section-header__label-container--with-title {
+  @apply mb-4;
+}
+
+/* Content wrapper - handles flex layout for label and button */
+.section-header__content-wrapper {
+  @apply flex flex-col md:flex-row items-center w-full gap-4 md:gap-0;
+}
+
+/* Only apply right alignment when there's a button */
+.section-header__label-container--with-inline-controls .section-header__content-wrapper {
+  @apply md:justify-end;
+}
+
+/* Label wrapper - keeps accent bar and label together */
+.section-header__label-wrapper {
+  @apply flex items-center;
+}
+
+/* Accent bar */
+.section-header__accent-bar {
+  @apply w-4 h-8 mr-3 rounded-sm;
+  background-color: var(--color-main);
+}
+
+/* Label styles */
+.section-header__label {
+  @apply font-medium tracking-wide;
+}
+
+.section-header__label--large {
+  @apply text-black text-xl;
+}
+
+.section-header__label--small {
+  @apply text-red-500 text-sm;
+}
+
+/* Main content area */
+.section-header__main {
+  @apply flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-between gap-4 sm:gap-0;
+}
+
+/* Title container */
+.section-header__title-container {
+  @apply flex flex-col md:flex-row items-center md:items-end gap-2 md:gap-15;
+}
+
+/* Title */
+.section-header__title {
+  @apply text-2xl md:text-3xl font-bold leading-tight;
+  color: black !important; /* Override global CSS */
+}
+
+/* Countdown timer in section header */
+.section-header__countdown {
+  @apply scale-75 md:scale-100;
+}
+
+/* Controls container */
+.section-header__controls {
+  @apply flex items-center gap-3;
+}
+
+/* Navigation container */
+.section-header__navigation {
+  @apply flex gap-2;
+}
+
+/* Navigation buttons */
+.section-header__nav-btn {
+  @apply w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center cursor-pointer border-0;
+}
+
+.section-header__nav-btn:hover {
+  @apply bg-gray-200;
+}
+
+/* Countdown timer in section header */
+.section-header__countdown {
+  @apply scale-75 sm:scale-100;
+}
+
