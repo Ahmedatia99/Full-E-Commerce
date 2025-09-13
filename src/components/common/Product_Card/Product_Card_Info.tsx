@@ -1,8 +1,6 @@
-import React from "react";
 import StarRating from "./Product_Card_Rating";
 import type { productObject } from "../../../types/product_Type";
-import { GoDotFill } from "react-icons/go";
-import { Pointer } from "lucide-react";
+import { Circle } from "lucide-react";
 
 function Product_Card_Info({
   product,
@@ -18,17 +16,22 @@ function Product_Card_Info({
   return (
     <>
       <div className="mt-4 flex  flex-col gap-2 ">
-        <h3>{product.title}</h3>
+        <h3 itemProp="name">{product.title}</h3>
         <div
           className={`flex gap-4 ${
             ratingAndPriceInRow ? "flex-row" : "flex-col"
           } `}
         >
           {product.discountPrice ? (
-            <div className=" flex gap-4  ">
-              <span className="productPrice text-[#DB4444]">
+            <div
+              itemScope
+              itemType="https://schema.org/Offer"
+              className="flex gap-4"
+            >
+              <span className="productPrice text-[#DB4444]" itemProp="price">
                 {product.discountPrice}
               </span>
+              <meta itemProp="priceCurrency" content="EGP" />
               <del className="text-[#727272]">{product.price}</del>
             </div>
           ) : (
@@ -36,9 +39,24 @@ function Product_Card_Info({
           )}
 
           {hasReview && (
-            <div className="flex items-center gap-2">
+            <div
+              itemProp="aggregateRating"
+              itemScope
+              itemType="https://schema.org/AggregateRating"
+              className="flex items-center gap-2"
+            >
               <StarRating rating={product.avgRate} />
+
               <span className="text-[#727272]">({product.ratingCount})</span>
+
+              <meta
+                itemProp="ratingValue"
+                content={product.avgRate.toString()}
+              />
+              <meta
+                itemProp="reviewCount"
+                content={product.ratingCount.toString()}
+              />
             </div>
           )}
           {/* Colors Section*/}
@@ -50,7 +68,7 @@ function Product_Card_Info({
                 <label key={index}>
                   <input type="radio" name="color" className="peer hidden" />
 
-                  <GoDotFill
+                  <Circle
                     color={colorVariant.color}
                     size={25}
                     className="cursor-pointer rounded-full peer-checked:border-3 peer-checked:border-black"

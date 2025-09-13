@@ -9,30 +9,51 @@ import type {
   ProductCardComponentProps,
   SingleProductCardComponentProps,
 } from "@/types/Components_type";
-import type { productObject } from "@/types/product_Type";
 
 /**
  * Single_Product_Card component
- * Renders a single product card with image, labels, actions, and info.
  *
- * Wrapped with React.memo (at export):
- * - Prevents unnecessary re-renders when props haven't changed.
- * - Useful for lists of cards where only a few items may update.
+ * Represents a single product card with:
+ * - Product image
+ * - Labels (e.g., New, Discount)
+ * - Actions (favorite, view, delete)
+ * - Add to cart button
+ * - Product details (title, price, rating, colors, etc.)
+ *
+ * SEO:
+ * - Wrapped with <article> and schema.org Product metadata
+ *
+ * Performance:
+ * - Exported with React.memo to avoid unnecessary re-renders.
+ * - Useful when rendering lists of products, since only updated cards will re-render.
  */
 const Single_Product_Card = React.memo(function Single_Product_Card({
   componentProps,
   product,
 }: SingleProductCardComponentProps) {
   return (
-    <div className="boxContainer w-[270px]">
+    <article
+      itemScope
+      itemType="https://schema.org/Product"
+      className="boxContainer w-full sm:w-1/2 md:w-1/3 lg:w-[270px]"
+    >
       <div className="group flex flex-col justify-between relative rounded bg-white">
-        {/* Product image */}
-        <ProductImage src={product.mainImgSRC} alt={product.title} />
+        {/* Product image with SEO-friendly "image" + "url" */}
+        <a href={`/product/${product.id}`} itemProp="url">
+          <ProductImage
+            src={product.mainImgSRC}
+            alt={product.title}
+            itemProp="image"
+          />
+        </a>
 
-        {/* Add To Cart Button */}
+        {/* Add to Cart button (configurable: fixed or relative) */}
         <AddToCartButton fixed={componentProps?.AddToCartBtnFixed} />
 
-        {/* Product Labels (NEW or Discount) */}
+        {/* Product labels:
+            - Show "New" if product is new
+            - Show discount percentage if product has a discount
+        */}
         {product.isNew ? (
           <ProductLabel type="new" />
         ) : product.discountPrice ? (
@@ -45,32 +66,33 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
           />
         ) : null}
 
-        {/* Product Actions (Favorite, View, Delete) */}
+        {/* Extra actions (Favorite, Quick View, Delete, etc.) */}
         <ProductActions componentProps={componentProps} />
       </div>
 
-      {/* Product Info (title, price, rating, colors, etc.) */}
+      {/* Product details section (title, price, rating, colors, etc.) */}
       <Product_Card_Info
         product={product}
         hasReview={componentProps?.hasReview}
         hasColors={componentProps?.hasColors}
         ratingAndPriceInRow={componentProps?.ratingAndPriceInRow}
       />
-    </div>
+    </article>
   );
 });
 
 /**
  * Product_Card component
- * Renders a list of product cards by mapping through the products array.
  *
- * Note:
- * - We don't wrap this in React.memo because `products` is usually a new array reference.
- * - Instead, Single_Product_Card is memoized so only changed cards re-render.
+ * Renders a list of products by mapping through the products array.
+ *
+ * Notes:
+ * - Not wrapped with React.memo because the products array reference usually changes.
+ * - Instead, each Single_Product_Card is memoized for better rendering performance.
  */
 function Product_Card({ componentProps, products }: ProductCardComponentProps) {
   return (
-    <div className="ProductsCards flex gap-8 flex-wrap">
+    <div className="ProductsCards flex flex-wrap gap-8 justify-center">
       {products.map((product) => (
         <Single_Product_Card
           key={product.id}

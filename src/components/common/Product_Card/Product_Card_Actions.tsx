@@ -1,8 +1,25 @@
 import { useState } from "react";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { LuEye } from "react-icons/lu";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { Heart, Heart as HeartFilled } from "lucide-react";
+import { Eye } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import type { ProductCardProps } from "../../../types/Components_type";
+
+/**
+ * ProductActions component
+ *
+ * Renders interactive product action buttons:
+ * - Favourite (toggle like/unlike)
+ * - View product (quick view / details)
+ * - Delete (remove product from list/cart)
+ *
+ * Performance:
+ * - Uses lucide-react icons with individual imports
+ * - Reduces unused JavaScript bundle size
+ *
+ * SEO & Accessibility:
+ * - Uses <button> for semantic actions
+ * - Adds aria-label for screen readers
+ */
 const ProductActions = ({
   componentProps,
 }: {
@@ -12,32 +29,39 @@ const ProductActions = ({
 
   return (
     <div className="icons absolute right-2 top-2 flex flex-col gap-3">
+      {/* Favourite button */}
       {componentProps?.hasFavouriteIcon && (
-        <div className="favourite-icon bg-white rounded-full w-7 h-7 flex items-center justify-center">
+        <button
+          aria-label={liked ? "Remove from favourites" : "Add to favourites"}
+          onClick={() => setLiked(!liked)}
+          className="bg-white rounded-full w-7 h-7 flex items-center justify-center"
+        >
           {liked ? (
-            <FaHeart
-              className="cursor-pointer text-red-500"
-              onClick={() => setLiked(false)}
-            />
+            <HeartFilled className="text-red-500" />
           ) : (
-            <FaRegHeart
-              className="cursor-pointer"
-              onClick={() => setLiked(true)}
-            />
+            <Heart className="text-gray-700" />
           )}
-        </div>
+        </button>
       )}
 
+      {/* View button */}
       {componentProps?.hasviewIcon && (
-        <div className="favourite-icon bg-white rounded-full w-7 h-7 flex items-center justify-center">
-          <LuEye className="cursor-pointer " />
-        </div>
+        <button
+          aria-label="View product details"
+          className="bg-white rounded-full w-7 h-7 flex items-center justify-center"
+        >
+          <Eye />
+        </button>
       )}
 
+      {/* Delete button */}
       {componentProps?.hasDeleteIcon && (
-        <div className="favourite-icon bg-white rounded-full w-7 h-7 flex items-center justify-center">
-          <RiDeleteBin6Line className="cursor-pointer " />
-        </div>
+        <button
+          aria-label="Delete product"
+          className="bg-white rounded-full w-7 h-7 flex items-center justify-center"
+        >
+          <Trash2 />
+        </button>
       )}
     </div>
   );
