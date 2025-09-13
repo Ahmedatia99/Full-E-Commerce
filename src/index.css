@@ -118,6 +118,22 @@
     @apply bg-background text-foreground;
   }
 }
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Inter/Inter18pt-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/Inter/Inter18pt-Bold.woff2") format("woff2");
+}
+
 @theme {
   --color-main: #db4444;
   --color-btnHover: #e07575;
