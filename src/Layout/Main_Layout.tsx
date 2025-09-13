@@ -21,7 +21,8 @@ const products: productObject[] = [
     ratingCount: 50,
     avgRate: 5,
     colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
-    mainImgSRC: "/images/products/bag.png",
+    mainImgSRC:
+      "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
   },
 
   {
@@ -33,7 +34,8 @@ const products: productObject[] = [
     ratingCount: 25,
     avgRate: 4,
     colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
-    mainImgSRC: "/images/products/bag.png",
+    mainImgSRC:
+      "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
   },
 
   {
@@ -45,7 +47,8 @@ const products: productObject[] = [
     ratingCount: 3,
     avgRate: 4,
     colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
-    mainImgSRC: "/images/products/bag.png",
+    mainImgSRC:
+      "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
   },
   {
     id: 4,
@@ -56,7 +59,8 @@ const products: productObject[] = [
     ratingCount: 20,
     avgRate: 2,
     colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
-    mainImgSRC: "/images/products/bag.png",
+    mainImgSRC:
+      "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
   },
 
   {
@@ -68,7 +72,8 @@ const products: productObject[] = [
     ratingCount: 10,
     avgRate: 1,
     colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
-    mainImgSRC: "/images/products/bag.png",
+    mainImgSRC:
+      "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
   },
 
   {
@@ -80,7 +85,8 @@ const products: productObject[] = [
     ratingCount: 50,
     avgRate: 3,
     colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
-    mainImgSRC: "/images/products/bag.png",
+    mainImgSRC:
+      "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
   },
 ];
 function Main_Layout() {

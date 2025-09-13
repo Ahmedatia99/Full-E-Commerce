@@ -1,23 +1,38 @@
-import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
+import { Star, StarHalf } from "lucide-react";
 
 interface StarRatingProps {
   rating: number;
   maxRating?: number;
+  className?: string;
 }
-const StarRating: React.FC<StarRatingProps> = ({ rating, maxRating = 5 }) => {
+
+const StarRating: React.FC<StarRatingProps> = ({
+  rating,
+  maxRating = 5,
+  className,
+}) => {
   const stars = [];
 
   for (let i = 1; i <= maxRating; i++) {
     if (rating >= i) {
-      stars.push(<FaStar key={i} className="text-yellow-400" />);
+      // Full star
+      stars.push(
+        <Star key={i} className="text-yellow-400" fill="currentColor" />
+      );
     } else if (rating >= i - 0.5) {
-      stars.push(<FaStarHalfAlt key={i} className="text-yellow-400" />);
+      // Half star
+      stars.push(
+        <StarHalf key={i} className="text-yellow-400" fill="currentColor" />
+      );
     } else {
-      stars.push(<FaRegStar key={i} className="text-yellow-400" />);
+      // Outline star
+      stars.push(<Star key={i} className="text-gray-300" fill="none" />);
     }
   }
 
-  return <div className="flex gap-1 items-center">{stars}</div>;
+  return (
+    <div className={`flex gap-1 items-center ${className || ""}`}>{stars}</div>
+  );
 };
 
 export default StarRating;

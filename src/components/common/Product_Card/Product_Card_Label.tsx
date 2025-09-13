@@ -1,28 +1,40 @@
 import React from "react";
 
-// 🟢 ProductLabel component: renders a label for a product (NEW or Discount)
-// 🟢 Wrapped with React.memo to avoid unnecessary re-renders
+/**
+ * ProductLabel component
+ *
+ * Renders SEO-friendly product labels:
+ * - "NEW" → shown if the product is newly released
+ * - "Discount" → shown if the product has a discount percentage
+ *
+ * SEO:
+ * - Uses <span> with itemProp instead of <button>
+ * - Helps search engines understand product status and offers
+ */
 const ProductLabel = React.memo(
   ({ type, value }: { type: "new" | "discount"; value?: number }) => {
-    // ✅ Case: product is new
     if (type === "new") {
       return (
-        <button className="bg-[#00FF66] text-white rounded absolute top-2 left-3 px-2 py-1">
+        <span
+          itemProp="releaseStatus"
+          className="bg-[#00FF66] text-white rounded absolute top-2 left-3 px-2 py-1 text-sm font-semibold"
+        >
           NEW
-        </button>
+        </span>
       );
     }
 
-    // ✅ Case: product has a discount
-    if (type === "discount") {
+    if (type === "discount" && value) {
       return (
-        <button className="bg-[#DB4444] text-white rounded absolute top-2 left-3 px-4 py-1">
+        <span
+          itemProp="discount"
+          className="bg-[#DB4444] text-white rounded absolute top-2 left-3 px-4 py-1 text-sm font-semibold"
+        >
           -{value}%
-        </button>
+        </span>
       );
     }
 
-    // ❌ Default: no label to render
     return null;
   }
 );
