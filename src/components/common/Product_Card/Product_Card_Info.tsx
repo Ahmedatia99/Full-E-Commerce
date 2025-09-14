@@ -29,7 +29,7 @@ function Product_Card_Info({
               className="flex gap-4"
             >
               <span className="productPrice text-[#DB4444]" itemProp="price">
-                {product.discountPrice}
+                {product.discountPrice}$
               </span>
               <meta itemProp="priceCurrency" content="EGP" />
               <del className="text-[#727272]">{product.price}</del>

@@ -12,6 +12,7 @@ export interface productObject {
   avgRate: number;
   colors: colorsVariants[];
   mainImgSRC: string;
+  description?: string;
 }
 
 interface colorsVariants {
