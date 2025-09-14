@@ -1,14 +1,10 @@
-
-import FlashSales from './../components/HomePage/FlashSales';
-
+import Header from "@/components/HomePage/Header";
+import HomePage from "@/Pages/HomePage";
 
 function Main_Layout() {
   return (
     <>
-      <div className="container mx-auto px-4">
-       
-        <FlashSales />
-      </div>
+      <HomePage />
     </>
   );
 }

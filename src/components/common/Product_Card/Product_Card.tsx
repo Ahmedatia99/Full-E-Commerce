@@ -96,7 +96,7 @@ function Product_Card({
   index,
 }: ProductCardComponentProps) {
   return (
-    <div className="ProductsCards flex flex-wrap gap-8 justify-center">
+    <>
       {products.map((product) => (
         <Single_Product_Card
           key={product.id}
@@ -105,7 +105,7 @@ function Product_Card({
           product={product}
         />
       ))}
-    </div>
+    </>
   );
 }
 
