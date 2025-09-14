@@ -30,6 +30,9 @@ export interface SectionHeaderProps {
   onPrevious?: () => void;
   /** Callback function for next navigation */
   onNext?: () => void;
+
+  canNext?: boolean;
+  canPrev?: boolean;
   /** Target date for countdown timer */
   countdownTarget?: Date;
   /** Callback when countdown reaches zero */

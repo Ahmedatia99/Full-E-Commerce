@@ -90,12 +90,17 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
  * - Not wrapped with React.memo because the products array reference usually changes.
  * - Instead, each Single_Product_Card is memoized for better rendering performance.
  */
-function Product_Card({ componentProps, products }: ProductCardComponentProps) {
+function Product_Card({
+  componentProps,
+  products,
+  index,
+}: ProductCardComponentProps) {
   return (
     <>
       {products.map((product) => (
         <Single_Product_Card
           key={product.id}
+          index={index}
           componentProps={componentProps}
           product={product}
         />
