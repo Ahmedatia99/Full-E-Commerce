@@ -92,7 +92,7 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
  */
 function Product_Card({ componentProps, products }: ProductCardComponentProps) {
   return (
-    <div className="ProductsCards flex flex-wrap gap-8 justify-center">
+    <>
       {products.map((product) => (
         <Single_Product_Card
           key={product.id}
@@ -100,7 +100,7 @@ function Product_Card({ componentProps, products }: ProductCardComponentProps) {
           product={product}
         />
       ))}
-    </div>
+    </>
   );
 }
 
