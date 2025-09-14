@@ -13,9 +13,10 @@ export interface ProductCardProps {
 export interface SingleProductCardComponentProps {
   componentProps?: ProductCardProps;
   product: productObject;
+  index: number;
 }
 export interface ProductCardComponentProps {
   componentProps?: ProductCardProps;
   products: productObject[];
-  index:number;
+  index: number;
 }

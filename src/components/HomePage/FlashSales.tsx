@@ -104,20 +104,17 @@ function FlashSales() {
         <SectionHeader
           label="Today's"
           title="Flash Sales"
-          showNavigation={true}
           onPrevious={prev}
           onNext={next}
           canNext={!canNext}
           canPrev={!canPrev}
-          index={index}
-        >
-          <CountdownTimer
-            targetDate={new Date("2024-12-31T23:59:59")}
-            onComplete={() => console.log("Countdown finished!")}
-          />
-        </SectionHeader>
+        ></SectionHeader>
       </div>
-      <Product_Card products={visibleItems} componentProps={productCardProps} />
+      <Product_Card
+        products={visibleItems}
+        componentProps={productCardProps}
+        index={index}
+      />
     </>
   );
 }
