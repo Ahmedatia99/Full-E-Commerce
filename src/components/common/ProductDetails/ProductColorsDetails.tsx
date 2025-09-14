@@ -2,11 +2,15 @@ import React from "react";
 
 interface ProductColorsProps {
   colors?: { value: string }[];
-  selectedColor: string;
-  setSelectedColor: (color: string) => void;
+  selectedColor?: string; // 👈 optional
+  setSelectedColor: (color: string | undefined) => void; // 👈 يقبل string أو undefined
 }
 
-const ProductColors: React.FC<ProductColorsProps> = ({ colors, selectedColor, setSelectedColor }) => {
+const ProductColors: React.FC<ProductColorsProps> = ({
+  colors,
+  selectedColor,
+  setSelectedColor,
+}) => {
   if (!colors?.length) return null;
 
   return (
@@ -18,7 +22,9 @@ const ProductColors: React.FC<ProductColorsProps> = ({ colors, selectedColor, se
             key={color.value}
             onClick={() => setSelectedColor(color.value)}
             className={`w-7 h-7 rounded-full border-3 transition cursor-pointer ${
-              selectedColor === color.value ? "border-black" : "border-transparent"
+              selectedColor === color.value
+                ? "border-black"
+                : "border-transparent"
             }`}
             style={{ backgroundColor: color.value }}
           />
