@@ -30,6 +30,7 @@ import type {
 const Single_Product_Card = React.memo(function Single_Product_Card({
   componentProps,
   product,
+  index,
 }: SingleProductCardComponentProps) {
   return (
     <article
@@ -97,14 +98,16 @@ function Product_Card({
 }: ProductCardComponentProps) {
   return (
     <>
-      {products.map((product) => (
-        <Single_Product_Card
-          key={product.id}
-          index={index}
-          componentProps={componentProps}
-          product={product}
-        />
-      ))}
+      <div className="ProductsCards flex flex-wrap gap-8 justify-center">
+        {products.map((product) => (
+          <Single_Product_Card
+            key={product.id}
+            index={index}
+            componentProps={componentProps}
+            product={product}
+          />
+        ))}
+      </div>
     </>
   );
 }
