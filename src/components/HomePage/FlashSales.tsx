@@ -99,23 +99,25 @@ function FlashSales() {
   );
   return (
     <>
-      <div className=" mt-10 container mx-auto flex  justify-between w-full mb-6">
-        <SectionHeader
-          label="Today's"
-          title="Flash Sales"
-          onPrevious={prev}
-          onNext={next}
-          canNext={!canNext}
-          canPrev={!canPrev}
-        ></SectionHeader>
-      </div>
-      <div className="container mx-auto">
-        <Product_Card
-          products={visibleItems}
-          componentProps={productCardProps}
-          index={index}
-          className=""
-        />
+      <div>
+        <div className=" mt-10 flex  justify-between w-full mb-6">
+          <SectionHeader
+            label="Today's"
+            title="Flash Sales"
+            onPrevious={prev}
+            onNext={next}
+            canNext={!canNext}
+            canPrev={!canPrev}
+          ></SectionHeader>
+        </div>
+        <div className="container mx-auto">
+          <Product_Card
+            products={visibleItems}
+            componentProps={productCardProps}
+            index={index}
+            className=""
+          />
+        </div>
       </div>
     </>
   );

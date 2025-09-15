@@ -1,12 +1,15 @@
-import HomePage from "@/Pages/HomePage";
-import { Route, Routes } from "react-router-dom";
+import Footer from "@/components/common/Footer";
+import Header from "@/components/HomePage/Header";
+import NavBar from "@/components/HomePage/NavBar/NavBar";
+import { Outlet } from "react-router-dom";
 
 function Main_Layout() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-      </Routes>
+      <Header />
+      <NavBar />
+      <Outlet />
+      <Footer />
     </>
   );
 }
