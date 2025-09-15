@@ -1,7 +1,7 @@
 import Product_Card from "@/components/common/Product_Card/Product_Card";
 import type { productObject } from "@/types/product_Type";
 import SectionHeader from "./../common/SectionHeader/SectionHeader";
-import CountdownTimer from "./../common/CountdownTimer/CountdownTimer";
+// import CountdownTimer from "./../common/CountdownTimer/CountdownTimer";
 import { useSlider } from "../hooks/navigateSliderArrow.ts";
 
 function FlashSales() {
@@ -93,10 +93,8 @@ function FlashSales() {
     },
   ];
 
-  const { index, next, prev, canNext, canPrev, visibleItems } = useSlider(
-    products,
-    5
-  );
+  const { index, next, prev, canNext, canPrev, visibleItems, perView } =
+    useSlider(products);
   return (
     <>
       <div className=" mt-10 container mx-auto flex  justify-between w-full mb-6">

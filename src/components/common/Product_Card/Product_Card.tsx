@@ -30,7 +30,6 @@ import type {
 const Single_Product_Card = React.memo(function Single_Product_Card({
   componentProps,
   product,
-  index,
 }: SingleProductCardComponentProps) {
   return (
     <article
@@ -100,10 +99,10 @@ function Product_Card({
   return (
     <>
       <div className={`flex justify-between  ${className}`}>
-        {products.map((product) => (
+        {products.map((product, i) => (
           <Single_Product_Card
             key={product.id}
-            index={index}
+            index={index + i}
             componentProps={componentProps}
             product={product}
           />
