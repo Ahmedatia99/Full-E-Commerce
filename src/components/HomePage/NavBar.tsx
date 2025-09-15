@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Heart, ShoppingCart, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,27 +17,30 @@ function NavBar() {
           {/* Menu - Desktop */}
           <ul className="hidden md:flex gap-10  items-center text-black font-medium">
             <li>
-              <a href="#home" className="hover:text-gray-900 hover:font-bold">
+              <Link to="/" className="hover:text-gray-900 hover:font-bold">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="hover:text-gray-900 hover:font-bold"
               >
                 Contact
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#about" className="hover:text-gray-900 hover:font-bold">
+              <Link to="/about" className="hover:text-gray-900 hover:font-bold">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#signup" className="hover:text-gray-900 hover:font-bold">
+              <Link
+                to="/signup"
+                className="hover:text-gray-900 hover:font-bold"
+              >
                 Sign Up
-              </a>
+              </Link>
             </li>
           </ul>
 

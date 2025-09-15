@@ -6,8 +6,7 @@ import { useSlider } from "../hooks/navigateSliderArrow.ts";
 
 function FlashSales() {
   const productCardProps = {
-    AddToCartBtnFixed: true,
-    hasFavouriteIcon: false,
+    hasFavouriteIcon: true,
     hasviewIcon: true,
     hasDeleteIcon: false,
     hasReview: true,
@@ -96,7 +95,7 @@ function FlashSales() {
 
   const { index, next, prev, canNext, canPrev, visibleItems } = useSlider(
     products,
-    4
+    5
   );
   return (
     <>
@@ -110,11 +109,14 @@ function FlashSales() {
           canPrev={!canPrev}
         ></SectionHeader>
       </div>
-      <Product_Card
-        products={visibleItems}
-        componentProps={productCardProps}
-        index={index}
-      />
+      <div className="container mx-auto">
+        <Product_Card
+          products={visibleItems}
+          componentProps={productCardProps}
+          index={index}
+          className=""
+        />
+      </div>
     </>
   );
 }
