@@ -37,9 +37,9 @@ const ProductActions = ({
           className="bg-white rounded-full w-7 h-7 flex items-center justify-center"
         >
           {liked ? (
-            <HeartFilled className="text-red-500" />
+            <HeartFilled className="fill-red-500 cursor-pointer" />
           ) : (
-            <Heart className="text-gray-700" />
+            <Heart className="text-gray-700 cursor-pointer" />
           )}
         </button>
       )}
