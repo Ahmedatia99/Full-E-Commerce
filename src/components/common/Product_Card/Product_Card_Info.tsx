@@ -15,8 +15,10 @@ function Product_Card_Info({
 }) {
   return (
     <>
-      <div className="mt-4 flex  flex-col gap-2 ">
-        <h3 itemProp="name">{product.title}</h3>
+      <div className="mt-4 flex  flex-col gap-2 ml-3 md:ml-0">
+        <h3 itemProp="name" className="font-semibold">
+          {product.title}
+        </h3>
         <div
           className={`flex gap-4 ${
             ratingAndPriceInRow ? "flex-row" : "flex-col"
@@ -28,14 +30,19 @@ function Product_Card_Info({
               itemType="https://schema.org/Offer"
               className="flex gap-4"
             >
-              <span className="productPrice text-[#DB4444]" itemProp="price">
+              <span
+                className="productPrice text-[#DB4444] font-medium"
+                itemProp="price"
+              >
                 {product.discountPrice}$
               </span>
               <meta itemProp="priceCurrency" content="EGP" />
-              <del className="text-[#727272]">{product.price}</del>
+              <del className="text-[#727272] font-medium">{product.price}</del>
             </div>
           ) : (
-            <span className="productPrice text-[#DB4444]">{product.price}</span>
+            <span className="productPrice text-[#DB4444] font-medium">
+              {product.price}
+            </span>
           )}
 
           {hasReview && (
@@ -47,7 +54,9 @@ function Product_Card_Info({
             >
               <StarRating rating={product.avgRate} />
 
-              <span className="text-[#727272]">({product.ratingCount})</span>
+              <span className="text-[#727272] font-medium">
+                ({product.ratingCount})
+              </span>
 
               <meta
                 itemProp="ratingValue"

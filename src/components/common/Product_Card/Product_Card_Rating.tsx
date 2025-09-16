@@ -31,7 +31,9 @@ const StarRating: React.FC<StarRatingProps> = ({
   }
 
   return (
-    <div className={`flex gap-1 items-center ${className || ""}`}>{stars}</div>
+    <div className={` flex gap-1 items-center ${className || " "}`}>
+      {stars}
+    </div>
   );
 };
 

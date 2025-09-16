@@ -8,7 +8,7 @@ type ProductImageProps = {
 
 const ProductImage = ({ src, alt, itemProp }: ProductImageProps) => (
   <>
-    <div className=" px-10 py-7 ">
+    <div className=" px-10 py-7 flex justify-center mt-4 ">
       <img
         src={`${src}?f_auto&fit=clip&w=190&h=138&q=auto:good`}
         srcSet={`

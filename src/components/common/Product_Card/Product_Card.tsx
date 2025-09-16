@@ -101,7 +101,7 @@ function Product_Card({
 }: ProductCardComponentProps) {
   return (
     <>
-      <div className={`flex justify-between  ${className}`}>
+      <div className={`flex  justify-between gap-5 ${className}`}>
         {products.map((product, i) => (
           <Single_Product_Card
             key={product.id}
