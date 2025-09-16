@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { mockProducts } from "./mockProduct";
-
-
 import ProductImages from "./ProductImagesDetails";
 import ProductInfo from "./ProductInfoDetails";
 import ProductColors from "./ProductColorsDetails";
@@ -27,8 +25,10 @@ function HeroProductDetails() {
 
   // states
   const [liked, setLiked] = useState(product?.liked ?? false);
-  const [selectedColor, setSelectedColor] = useState(
-    product?.colors?.[0]?.value ?? ""
+  const [selectedColor, setSelectedColor] = useState<string | undefined>(
+    product?.colors && product.colors.length > 0
+      ? product.colors[0].value
+      : undefined
   );
   const [selectedSize, setSelectedSize] = useState<string | undefined>(
     product?.sizes && product.sizes.length > 0 ? product.sizes[0] : undefined
@@ -64,6 +64,9 @@ function HeroProductDetails() {
 
     if (selectedSize) {
       orderData.selectedSize = selectedSize;
+    }
+    if (selectedColor) {
+      orderData.selectedColor = selectedColor;
     }
 
     console.log("🛒 Order Data:", orderData);
