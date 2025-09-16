@@ -1,13 +1,12 @@
 import Product_Card from "@/components/common/Product_Card/Product_Card";
 import type { productObject } from "@/types/product_Type";
 import SectionHeader from "./../common/SectionHeader/SectionHeader";
-import CountdownTimer from "./../common/CountdownTimer/CountdownTimer";
+// import CountdownTimer from "./../common/CountdownTimer/CountdownTimer";
 import { useSlider } from "../hooks/navigateSliderArrow.ts";
 
 function FlashSales() {
   const productCardProps = {
-    AddToCartBtnFixed: true,
-    hasFavouriteIcon: false,
+    hasFavouriteIcon: true,
     hasviewIcon: true,
     hasDeleteIcon: false,
     hasReview: true,
@@ -94,27 +93,30 @@ function FlashSales() {
     },
   ];
 
-  const { index, next, prev, canNext, canPrev, visibleItems } = useSlider(
-    products,
-    4
-  );
+  const { index, next, prev, canNext, canPrev, visibleItems, perView } =
+    useSlider(products);
   return (
     <>
-      <div className=" mt-10 container mx-auto flex  justify-between w-full mb-6">
-        <SectionHeader
-          label="Today's"
-          title="Flash Sales"
-          onPrevious={prev}
-          onNext={next}
-          canNext={!canNext}
-          canPrev={!canPrev}
-        ></SectionHeader>
+      <div>
+        <div className=" mt-10 flex  justify-between w-full mb-6">
+          <SectionHeader
+            label="Today's"
+            title="Flash Sales"
+            onPrevious={prev}
+            onNext={next}
+            canNext={!canNext}
+            canPrev={!canPrev}
+          ></SectionHeader>
+        </div>
+        <div className="container mx-auto">
+          <Product_Card
+            products={visibleItems}
+            componentProps={productCardProps}
+            index={index}
+            className=""
+          />
+        </div>
       </div>
-      <Product_Card
-        products={visibleItems}
-        componentProps={productCardProps}
-        index={index}
-      />
     </>
   );
 }

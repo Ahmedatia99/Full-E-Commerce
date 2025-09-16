@@ -30,7 +30,6 @@ import type {
 const Single_Product_Card = React.memo(function Single_Product_Card({
   componentProps,
   product,
-  index,
 }: SingleProductCardComponentProps) {
   return (
     <article
@@ -38,7 +37,7 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
       itemType="https://schema.org/Product"
       className="boxContainer w-full sm:w-1/2 md:w-1/3 lg:w-[270px]"
     >
-      <div className="group flex flex-col justify-between relative rounded bg-white">
+      <div className="group flex flex-col justify-between relative rounded bg-[#f5f5f5]">
         {/* Product image with SEO-friendly "image" + "url" */}
         <a href={`/product/${product.id}`} itemProp="url">
           <ProductImage
@@ -95,14 +94,15 @@ function Product_Card({
   componentProps,
   products,
   index,
+  className,
 }: ProductCardComponentProps) {
   return (
     <>
-      <div className="ProductsCards flex flex-wrap gap-8 justify-center">
-        {products.map((product) => (
+      <div className={`flex justify-between  ${className}`}>
+        {products.map((product, i) => (
           <Single_Product_Card
             key={product.id}
-            index={index}
+            index={index + i}
             componentProps={componentProps}
             product={product}
           />

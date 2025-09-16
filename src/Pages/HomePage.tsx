@@ -1,15 +1,13 @@
 import FlashSales from "@/components/HomePage/FlashSales";
-import Header from "@/components/HomePage/Header";
-import Hero from "@/components/HomePage/Hero";
-import NavBar from "@/components/HomePage/NavBar";
+import Hero from "@/components/HomePage/HeroSection.tsx/Hero";
 
 function HomePage() {
   return (
     <>
-      <Header />
-      <NavBar />
-      <Hero />
-      <FlashSales />
+      <div className="flex flex-col gap-15 container mx-auto">
+        <Hero />
+        <FlashSales />
+      </div>
     </>
   );
 }

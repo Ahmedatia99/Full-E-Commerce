@@ -1,9 +1,15 @@
-import HomePage from "@/Pages/HomePage";
+import Footer from "@/components/common/Footer";
+import Header from "@/components/HomePage/Header";
+import NavBar from "@/components/HomePage/NavBar/NavBar";
+import { Outlet } from "react-router-dom";
 
 function Main_Layout() {
   return (
     <>
-      <HomePage />
+      <Header />
+      <NavBar />
+      <Outlet />
+      <Footer />
     </>
   );
 }

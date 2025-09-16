@@ -69,11 +69,11 @@ function Footer() {
               Subscribe to our newsletter and get <strong>10% off</strong> your
               first order.
             </p>
-            <div class="max-w-[200px] mt-4">
-              <div class="relative">
+            <div className="max-w-[200px] mt-4">
+              <div className="relative">
                 <input
                   type="text"
-                  class="w-full pl-3 pr-10 py-2 bg-transparent placeholder:text-gray-400 text-gray-600 text-sm border-2 border-gray-200 rounded-xs transition duration-300 ease focus:outline-none focus:border-gray-400 hover:border-gray-300"
+                  className="w-full pl-3 pr-10 py-2 bg-transparent placeholder:text-gray-400 text-gray-600 text-sm border-2 border-gray-200 rounded-xs transition duration-300 ease focus:outline-none focus:border-gray-400 hover:border-gray-300"
                   placeholder="Enter your email"
                 />
 
