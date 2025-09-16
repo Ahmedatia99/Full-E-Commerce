@@ -6,6 +6,7 @@ import { useSlider } from "../hooks/navigateSliderArrow.ts";
 
 function FlashSales() {
   const productCardProps = {
+    AddToCartBtnFixed: true,
     hasFavouriteIcon: true,
     hasviewIcon: true,
     hasDeleteIcon: false,
@@ -93,12 +94,12 @@ function FlashSales() {
     },
   ];
 
-  const { index, next, prev, canNext, canPrev, visibleItems, perView } =
+  const { index, next, prev, canNext, canPrev, visibleItems } =
     useSlider(products);
   return (
     <>
-      <div>
-        <div className=" mt-10 flex  justify-between w-full mb-6">
+      <div className="">
+        <div className=" flex   w-full mb-6">
           <SectionHeader
             label="Today's"
             title="Flash Sales"
@@ -108,12 +109,11 @@ function FlashSales() {
             canPrev={!canPrev}
           ></SectionHeader>
         </div>
-        <div className="container mx-auto">
+        <div className="w-full ">
           <Product_Card
             products={visibleItems}
             componentProps={productCardProps}
             index={index}
-            className=""
           />
         </div>
       </div>
