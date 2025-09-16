@@ -19,4 +19,5 @@ export interface ProductCardComponentProps {
   componentProps?: ProductCardProps;
   products: productObject[];
   index: number;
+  className?: string;
 }
