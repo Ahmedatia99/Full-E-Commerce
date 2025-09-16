@@ -6,7 +6,7 @@ import Search_Input from "./Search_Input";
 
 function NavBar() {
   return (
-    <nav className="bg-white shadow-sm   flex-col  justify-between items-center w-full">
+    <nav className="bg-white  border-b  flex-col  justify-between items-center w-full">
       <div className=" w-full">
         <Search_Input className="sm:hidden" />
       </div>
