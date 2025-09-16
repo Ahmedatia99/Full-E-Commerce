@@ -41,7 +41,7 @@ export default function Hero() {
   return (
     <section className="flex flex-col md:flex-row ">
       <SidebarCategories />
-      <div className=" w-full bg-black text-white relative flex flex-col md:flex-row items-center justify-between flex-col-reverse md-flex-col  md:mt-8 md:ml-4 px-6 md:px-10 py-6  h-[85vh] md:h-80 overflow-hidden">
+      <div className=" w-full bg-black text-white relative flex flex-col md:flex-row items-center justify-between flex-col-reverse md-flex-col  md:mt-8 md:ml-4 px-6 md:px-10 py-6  h-[85vh] md:h-[500px] overflow-hidden">
         <HeroContent slide={slides[current]} />
         <HeroImage slide={slides[current]} />
         <CarouselDots

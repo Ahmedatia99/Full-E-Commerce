@@ -13,9 +13,11 @@ export interface productObject {
   colors: colorsVariants[];
   mainImgSRC: string;
   description?: string;
+  returnDelivery?: number;
+  DeliveryPostalCode?: number[];
 }
 
-interface colorsVariants {
+export interface colorsVariants {
   color: string;
   quantity: number;
   images: string[];

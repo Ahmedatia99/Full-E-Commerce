@@ -35,20 +35,23 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
     <article
       itemScope
       itemType="https://schema.org/Product"
-      className="boxContainer w-full sm:w-1/2 md:w-1/3 lg:w-[270px]"
+      className="boxContainer w-full sm:w-1/2 md:w-1/3 lg:w-[270px] "
     >
-      <div className="group flex flex-col justify-between relative rounded bg-[#f5f5f5]">
+      <div className="group flex flex-col justify-between relative rounded bg-[#f5f5f5] ">
         {/* Product image with SEO-friendly "image" + "url" */}
-        <a href={`/product/${product.id}`} itemProp="url">
-          <ProductImage
-            src={product.mainImgSRC}
-            alt={product.title}
-            itemProp="image"
-          />
-        </a>
+        <div>
+          <a href={`/product/${product.id}`} itemProp="url">
+            <ProductImage
+              src={product.mainImgSRC}
+              alt={product.title}
+              itemProp="image"
+            />
+          </a>
+        </div>
 
         {/* Add to Cart button (configurable: fixed or relative) */}
-        <AddToCartButton fixed={componentProps?.AddToCartBtnFixed} />
+
+        <AddToCartButton fixed={false} />
 
         {/* Product labels:
             - Show "New" if product is new
@@ -98,7 +101,7 @@ function Product_Card({
 }: ProductCardComponentProps) {
   return (
     <>
-      <div className={`flex justify-between  ${className}`}>
+      <div className={`flex  justify-between gap-5 ${className}`}>
         {products.map((product, i) => (
           <Single_Product_Card
             key={product.id}
