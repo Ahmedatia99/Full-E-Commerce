@@ -5,16 +5,15 @@ export interface products {
 export interface productObject {
   id: number;
   isNew: boolean;
-  title: string; //Must Be short to avoid Height issue
+  title: string;
   price: number;
-  discountPrice: number;
+  discountPrice?: number;
   ratingCount: number;
   avgRate: number;
   colors: colorsVariants[];
   mainImgSRC: string;
-  description?: string;
+  description: string;
   returnDelivery?: number;
-  DeliveryPostalCode?: number[];
 }
 
 export interface colorsVariants {
@@ -23,3 +22,12 @@ export interface colorsVariants {
   images: string[];
   sizes: string[];
 }
+
+export type cartProduct = {
+  id: number;
+  title: string;
+  price: number;
+  quantity: number;
+  color: string;
+  key: string;
+};
