@@ -36,7 +36,7 @@ const ProductImages: React.FC<ProductImagesProps> = ({
             aria-label={`Select product image ${idx + 1}`}
             tabIndex={0}
             onClick={() => setMainImage(img)}
-            className={`border-2 rounded-md flex w-full max-[1024px]:h-full max-[1350px]:h-30 min-[1350px]:h-35 items-center justify-center bg-[#F5F5F5] transition ${
+            className={`cursor-pointer border-1 rounded-md flex w-full max-[1024px]:h-full max-[1350px]:h-30 min-[1350px]:h-35 items-center justify-center bg-[#F5F5F5] transition ${
               mainImage === img
                 ? "border-gray-700 ring-2 ring-gray-700"
                 : "border-transparent"
@@ -46,7 +46,7 @@ const ProductImages: React.FC<ProductImagesProps> = ({
               src={img}
               alt={`Thumbnail of ${title} - image ${idx + 1}`}
               loading="lazy"
-              className="w-full h-full object-contain max-[325px]:p-0 p-2 sm:p-5"
+              className="w-full h-full object-contain max-[325px]:p-1 p-2 sm:p-5"
             />
           </button>
         ))}
