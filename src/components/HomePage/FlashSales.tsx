@@ -1,20 +1,14 @@
+import { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import SectionHeader from "../common/SectionHeader/SectionHeader";
 import Product_Card from "@/components/common/Product_Card/Product_Card";
-import type { productObject } from "@/types/product_Type";
-import SectionHeader from "./../common/SectionHeader/SectionHeader";
-// import CountdownTimer from "./../common/CountdownTimer/CountdownTimer";
-import { useSlider } from "../hooks/navigateSliderArrow.ts";
+import type SwiperType from "swiper/types/swiper-class";
 
-function FlashSales() {
-  const productCardProps = {
-    AddToCartBtnFixed: true,
-    hasFavouriteIcon: true,
-    hasviewIcon: true,
-    hasDeleteIcon: false,
-    hasReview: true,
-    hasColors: false,
-    ratingAndPriceInRow: false,
-  };
-
+const FlashSales = () => {
+const swiperRef = useRef<SwiperType | null>(null);
   const products: productObject[] = [
     {
       id: 1,
@@ -92,33 +86,65 @@ function FlashSales() {
       mainImgSRC:
         "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
     },
+    {
+      id: 7,
+      isNew: true,
+      title: "Gucci duffle bag",
+      price: 11,
+      discountPrice: 1,
+      ratingCount: 50,
+      avgRate: 3,
+      colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
+      mainImgSRC:
+        "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
+    },
+    {
+      id: 8,
+      isNew: true,
+      title: "Gucci duffle bag",
+      price: 11,
+      discountPrice: 1,
+      ratingCount: 50,
+      avgRate: 3,
+      colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
+      mainImgSRC:
+        "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
+    },
+    {
+      id: 9,
+      isNew: true,
+      title: "Gucci duffle bag",
+      price: 11,
+      discountPrice: 1,
+      ratingCount: 50,
+      avgRate: 3,
+      colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
+      mainImgSRC:
+        "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
+    },
   ];
-
-  const { index, next, prev, canNext, canPrev, visibleItems } =
-    useSlider(products);
   return (
-    <>
-      <div className="">
-        <div className=" flex   w-full mb-6">
-          <SectionHeader
-            label="Today's"
-            title="Flash Sales"
-            onPrevious={prev}
-            onNext={next}
-            canNext={!canNext}
-            canPrev={!canPrev}
-          ></SectionHeader>
-        </div>
-        <div className="w-full ">
-          <Product_Card
-            products={visibleItems}
-            componentProps={productCardProps}
-            index={index}
-          />
-        </div>
-      </div>
-    </>
+    <div>
+      <SectionHeader
+        label="Today's"
+        title="Flash Sales"
+        swiperRef={swiperRef}
+        className="mb-10"
+      />
+      <Swiper
+        modules={[Navigation]}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        spaceBetween={16}
+        slidesPerView={5}
+      >
+        {products.map((p) => (
+          <SwiperSlide key={p.id}>
+            <Product_Card products={[p]} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
-}
+};
 
 export default FlashSales;

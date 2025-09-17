@@ -10,6 +10,7 @@ function HomePage() {
           <Hero />
           <div className="mx-4">
             <FlashSales />
+            <Categories />
           </div>
         </div>
       </div>
