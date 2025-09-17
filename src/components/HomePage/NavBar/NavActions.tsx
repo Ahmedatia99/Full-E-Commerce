@@ -17,10 +17,10 @@ function NavActions() {
     <div className="NavActions flex items-center gap-5">
       <Search_Input className="sm:block hidden ml-5" />
       <div className="icons flex gap-4">
-        <Link to={"/"}>
+        <Link to={"/Cart"}>
           <ShoppingCart className="transition-transform duration-300 hover:scale-110" />
         </Link>
-        <Link to={"/"}>
+        <Link to={"/Favourites"}>
           <Heart className="transition-transform duration-300 hover:scale-110" />
         </Link>
         <DropdownMenu>
@@ -31,8 +31,17 @@ function NavActions() {
           </DropdownMenuTrigger>
 
           <DropdownMenuContent align="end" sideOffset={5} className="w-40 ">
-            <DropdownMenuItem>Login</DropdownMenuItem>
-            <DropdownMenuItem>Sign Up</DropdownMenuItem>
+            <Link to={"/Login"}>
+              <DropdownMenuItem className="cursor-pointer">
+                Login
+              </DropdownMenuItem>
+            </Link>
+
+            <Link to={"/SignUp"}>
+              <DropdownMenuItem className="cursor-pointer">
+                Sign Up
+              </DropdownMenuItem>
+            </Link>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

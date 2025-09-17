@@ -13,7 +13,7 @@ const LikeButtonDetails: React.FC<LikeButtonProps> = ({ liked, setLiked }) => {
       onClick={() => setLiked(!liked)}
       aria-label={liked ? "Remove from wishlist" : "Add to wishlist"}
       aria-pressed={liked}
-      className={`h-15 flex justify-center items-center rounded-[7px] w-15 border-2 border-[#00000080] transition-colors duration-200 ${
+      className={` cursor-pointer h-15 flex justify-center items-center rounded-[7px] w-15 border-2 border-[#00000080] transition-colors duration-200 ${
         liked ? "bg-[#DB4444] border-[#DB4444]" : "bg-white"
       }`}
     >

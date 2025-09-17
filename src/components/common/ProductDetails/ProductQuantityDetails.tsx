@@ -34,7 +34,7 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
         onClick={decrease}
         disabled={quantity === 1}
         aria-label="Decrease quantity"
-        className={`w-full flex justify-center items-center text-4xl border-r-2 border-r-[#00000080] rounded-l-[5px] h-full transition-colors duration-200
+        className={` cursor-pointer w-full flex justify-center items-center text-4xl border-r-2 border-r-[#00000080] rounded-l-[5px] h-full transition-colors duration-200
           ${
             quantity === 1
               ? "opacity-50 cursor-not-allowed"
@@ -58,7 +58,7 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
         onClick={increase}
         disabled={quantity === stock}
         aria-label="Increase quantity"
-        className={`flex justify-center items-center text-4xl w-full h-full border-l-2 border-l-[#00000080] rounded-r-[5px] transition-colors duration-200
+        className={` cursor-pointer flex justify-center items-center text-4xl w-full h-full border-l-2 border-l-[#00000080] rounded-r-[5px] transition-colors duration-200
           ${
             quantity === stock
               ? "opacity-50 cursor-not-allowed"
