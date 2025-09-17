@@ -71,7 +71,7 @@ const ProductDeliveryInfo: React.FC<ProductDeliveryInfoProps> = ({
               <>
                 <button
                   type="button"
-                  className="text-black underline font-semibold text-left"
+                  className=" cursor-pointer text-black underline font-semibold text-left"
                   onClick={() => setShowInput((v) => !v)}
                 >
                   Enter your postal code for Delivery Availability

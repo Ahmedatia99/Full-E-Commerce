@@ -132,4 +132,103 @@ export const mockProducts: productObject[] = [
     mainImgSRC:
       "https://res.cloudinary.com/dtf9brzuu/image/upload/v1758009080/image_63_1_yty6fn.png",
   },
+  {
+    id: 5,
+    isNew: false,
+    title: "Apple Watch",
+    price: 99,
+    discountPrice: 10,
+    ratingCount: 200,
+    avgRate: 4.8,
+    description: "ساعة أبل الذكية، تدعم تتبع اللياقة والصحة، شاشة Retina.",
+    returnDelivery: 30,
+    DeliveryPostalCode: [12345, 67890, 11223, 44556, 78901],
+
+    colors: [
+      {
+        color: "silver",
+        quantity: 8,
+        images: [
+          "https://res.cloudinary.com/demo/image/upload/v1610000000/apple-watch-silver.png",
+        ],
+        sizes: ["XL", "L"],
+      },
+      {
+        color: "gold",
+        quantity: 3,
+        images: [
+          "https://res.cloudinary.com/demo/image/upload/v1610000000/apple-watch-gold.png",
+        ],
+        sizes: ["L"],
+      },
+    ],
+    mainImgSRC:
+      "https://res.cloudinary.com/dtf9brzuu/image/upload/v1758009080/image_63_1_yty6fn.png",
+  },
+  {
+    id: 6,
+    isNew: false,
+    title: "Apple Watch",
+    price: 99,
+    discountPrice: 10,
+    ratingCount: 200,
+    avgRate: 4.8,
+    description: "ساعة أبل الذكية، تدعم تتبع اللياقة والصحة، شاشة Retina.",
+    returnDelivery: 30,
+    DeliveryPostalCode: [12345, 67890, 11223, 44556, 78901],
+
+    colors: [
+      {
+        color: "silver",
+        quantity: 8,
+        images: [
+          "https://res.cloudinary.com/demo/image/upload/v1610000000/apple-watch-silver.png",
+        ],
+        sizes: ["XL", "L"],
+      },
+      {
+        color: "gold",
+        quantity: 3,
+        images: [
+          "https://res.cloudinary.com/demo/image/upload/v1610000000/apple-watch-gold.png",
+        ],
+        sizes: ["L"],
+      },
+    ],
+    mainImgSRC:
+      "https://res.cloudinary.com/dtf9brzuu/image/upload/v1758009080/image_63_1_yty6fn.png",
+  },
+  {
+    id: 7,
+    isNew: false,
+    title: "Apple Watch",
+    price: 99,
+    discountPrice: 10,
+    ratingCount: 200,
+    avgRate: 4.8,
+    description: "ساعة أبل الذكية، تدعم تتبع اللياقة والصحة، شاشة Retina.",
+    returnDelivery: 30,
+    DeliveryPostalCode: [12345, 67890, 11223, 44556, 78901],
+
+    colors: [
+      {
+        color: "silver",
+        quantity: 8,
+        images: [
+          "https://res.cloudinary.com/demo/image/upload/v1610000000/apple-watch-silver.png",
+        ],
+        sizes: ["XL", "L"],
+      },
+      {
+        color: "gold",
+        quantity: 3,
+        images: [
+          "https://res.cloudinary.com/demo/image/upload/v1610000000/apple-watch-gold.png",
+        ],
+        sizes: ["L"],
+      },
+    ],
+    mainImgSRC:
+      "https://res.cloudinary.com/dtf9brzuu/image/upload/v1758009080/image_63_1_yty6fn.png",
+  },
 ];
