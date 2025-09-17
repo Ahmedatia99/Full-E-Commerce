@@ -1,6 +1,7 @@
 import StarRating from "./Product_Card_Rating";
 import type { productObject } from "../../../types/product_Type";
 import { Circle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Product_Card_Info({
   product,
@@ -16,9 +17,14 @@ function Product_Card_Info({
   return (
     <>
       <div className="mt-4 flex  flex-col gap-2 ml-3 md:ml-0">
-        <h3 itemProp="name" className="font-semibold">
-          {product.title}
-        </h3>
+        <Link to={`/product/${product.id}`}>
+          <h3 itemProp="name" className="font-semibold" title={product.title}>
+            {product.title.length > 20
+              ? product.title.slice(0, 20) + "..."
+              : product.title}
+          </h3>
+        </Link>
+
         <div
           className={`flex gap-4 ${
             ratingAndPriceInRow ? "flex-row" : "flex-col"

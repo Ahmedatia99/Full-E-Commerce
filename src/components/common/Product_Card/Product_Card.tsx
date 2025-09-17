@@ -70,7 +70,7 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
         ) : null}
 
         {/* Extra actions (Favorite, Quick View, Delete, etc.) */}
-        <ProductActions componentProps={componentProps} />
+        <ProductActions componentProps={componentProps} product={product} />
       </div>
 
       {/* Product details section (title, price, rating, colors, etc.) */}
