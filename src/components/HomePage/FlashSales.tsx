@@ -6,9 +6,15 @@ import "swiper/css/navigation";
 import SectionHeader from "../common/SectionHeader/SectionHeader";
 import Product_Card from "@/components/common/Product_Card/Product_Card";
 import type SwiperType from "swiper/types/swiper-class";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const FlashSales = () => {
-const swiperRef = useRef<SwiperType | null>(null);
+  const navigate = useNavigate();
+  const toSalesPage = () => {
+    navigate("/sales");
+  };
+  const swiperRef = useRef<SwiperType | null>(null);
   const products: productObject[] = [
     {
       id: 1,
@@ -123,6 +129,7 @@ const swiperRef = useRef<SwiperType | null>(null);
         "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
     },
   ];
+  const previewProducts = products.slice(0, 15);
   return (
     <div>
       <SectionHeader
@@ -134,15 +141,23 @@ const swiperRef = useRef<SwiperType | null>(null);
       <Swiper
         modules={[Navigation]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-        spaceBetween={16}
-        slidesPerView={5}
+        spaceBetween={20}
+        slidesPerView={1}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+        }}
       >
-        {products.map((p) => (
+        {previewProducts.map((p) => (
           <SwiperSlide key={p.id}>
             <Product_Card products={[p]} />
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className="flex justify-center mt-8">
+        <Button onClick={toSalesPage}>view all products</Button>
+      </div>
     </div>
   );
 };

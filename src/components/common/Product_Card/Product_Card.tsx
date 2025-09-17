@@ -35,7 +35,7 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
     <article
       itemScope
       itemType="https://schema.org/Product"
-      className="boxContainer w-full sm:w-1/2 md:w-1/3 lg:w-[270px] "
+      className="boxContainer w-full"
     >
       <div className="group flex flex-col justify-between relative rounded bg-[#f5f5f5] ">
         {/* Product image with SEO-friendly "image" + "url" */}
