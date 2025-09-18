@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Heart, ShoppingCart, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,11 +10,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import Search_Input from "./Search_Input";
-import { CartContext } from "../../hooks/cartContext";
+import { CartContext } from "../../hooks/CartContext";
 
 function NavActions() {
   const cartContext = useContext(CartContext);
   const totalItems = cartContext?.cartCount() || 0;
+  const { t } = useTranslation();
 
   return (
     <div className="NavActions flex items-center gap-5">
@@ -45,13 +47,13 @@ function NavActions() {
           <DropdownMenuContent align="end" sideOffset={5} className="w-40">
             <Link to={"/Login"}>
               <DropdownMenuItem className="cursor-pointer">
-                Login
+                {t("login")}
               </DropdownMenuItem>
             </Link>
 
             <Link to={"/SignUp"}>
               <DropdownMenuItem className="cursor-pointer">
-                Sign Up
+                {t("signUp")}
               </DropdownMenuItem>
             </Link>
           </DropdownMenuContent>

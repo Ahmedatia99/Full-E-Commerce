@@ -2,12 +2,14 @@ import React from "react";
 import { Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
+import { useTranslation } from "react-i18next";
 
 function Contact() {
-  const handleSubmit = (e) => {
+  const { t } = useTranslation();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     console.log("Form Data:", data);
     // TODO: Send form data to API or email service
@@ -37,13 +39,13 @@ function Contact() {
                   <Phone color="white" />
                 </div>
                 <h2 id="contact-title" className="font-semibold text-lg">
-                  Call To Us
+                  {t("callToUs")}
                 </h2>
               </div>
               <div className="flex flex-col gap-1 font-medium text-sm">
-                <p>We are available 24/7, 7 days a week.</p>
+                <p>{t("available247")}</p>
                 <p>
-                  Phone:{" "}
+                  {t("phone")}:{" "}
                   <a
                     href="tel:+8801611112222"
                     className="text-blue-600 underline"
@@ -66,14 +68,12 @@ function Contact() {
                 >
                   <Mail color="white" />
                 </div>
-                <h2 className="font-semibold text-lg">Write To Us</h2>
+                <h2 className="font-semibold text-lg">{t("writeToUs")}</h2>
               </div>
               <div className="flex flex-col gap-1 font-medium text-sm">
+                <p>{t("fillFormContact")}</p>
                 <p>
-                  Fill out our form and we will contact you within 24 hours.
-                </p>
-                <p>
-                  Email:{" "}
+                  {t("email")}:{" "}
                   <a
                     href="mailto:customer@exclusive.com"
                     className="text-blue-600 underline"
@@ -82,7 +82,7 @@ function Contact() {
                   </a>
                 </p>
                 <p>
-                  Email:{" "}
+                  {t("email")}:{" "}
                   <a
                     href="mailto:support@exclusive.com"
                     className="text-blue-600 underline"
@@ -106,21 +106,21 @@ function Contact() {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Your Name *"
+                  placeholder={t("yourName") + " *"}
                   className="bg-[#F5F5F5] rounded-sm py-3 px-4 w-full"
                   required
                 />
                 <input
                   type="email"
                   name="email"
-                  placeholder="Your Email *"
+                  placeholder={t("yourEmail") + " *"}
                   className="bg-[#F5F5F5] rounded-sm py-3 px-4 w-full"
                   required
                 />
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Your Phone *"
+                  placeholder={t("yourPhone") + " *"}
                   className="bg-[#F5F5F5] rounded-sm py-3 px-4 w-full"
                   required
                 />
@@ -129,7 +129,7 @@ function Contact() {
               {/* Message */}
               <textarea
                 name="message"
-                placeholder="Your Message *"
+                placeholder={t("yourMessage") + " *"}
                 className="bg-[#F5F5F5] rounded-sm py-3 px-4 w-full min-h-[250px] max-h-[400px]"
                 required
               />
@@ -137,7 +137,7 @@ function Contact() {
               {/* Submit Button */}
               <div className="flex justify-center md:justify-end">
                 <Button type="submit" className="py-7">
-                  Send Message
+                  {t("sendMessage")}
                 </Button>
               </div>
             </form>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type BurgerMenuProps = {
   className?: string;
@@ -8,6 +9,7 @@ type BurgerMenuProps = {
 
 function BurgerNavMenu({ className }: BurgerMenuProps) {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div className={`relative ${className}`}>
@@ -21,12 +23,12 @@ function BurgerNavMenu({ className }: BurgerMenuProps) {
 
       {/* Side Menu*/}
       {open && (
-        <ul className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-md flex flex-col gap-2 p-2 z-50">
+        <ul className="absolute ltr:left-0 rtl:right-0 mt-2 w-40 bg-white shadow-lg rounded-md flex flex-col gap-2 p-2 z-50">
           {[
-            { to: "/", label: "Home" },
-            { to: "/Contact", label: "Contact" },
-            { to: "/About", label: "About" },
-            { to: "/SignUp", label: "Sign Up" },
+            { to: "/", label: t("home") },
+            { to: "/Contact", label: t("contact") },
+            { to: "/About", label: t("about") },
+            { to: "/SignUp", label: t("signUp") },
           ].map((item) => (
             <li key={item.to}>
               <Link
