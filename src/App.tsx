@@ -7,6 +7,8 @@ import Login from "./pages/Login";
 import AccountPage from "./pages/AccountPage";
 import NotFound404Page from "./Pages/NotFound404Page";
 import Contact from "./Pages/Contact";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
   return (
@@ -20,6 +22,11 @@ function App() {
           <Route path="account" element={<AccountPage />} />
           <Route path="*" element={<NotFound404Page />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/Cart" element={<CartPage />} />
+          <Route path="/Checkout" element={<CheckoutPage />} />
+
+
+          
         </Route>
       </Routes>
     </>

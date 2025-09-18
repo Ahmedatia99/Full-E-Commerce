@@ -24,7 +24,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ stock, onBuyNow }) => {
             : "bg-[#DB4444] hover:bg-[#b83737] text-white cursor-pointer"
         }`}
       >
-        {isOutOfStock ? "Out of Stock" : "Buy Now"}
+        {isOutOfStock ? "Out of Stock" : "Add to Cart"}
       </button>
     </div>
   );
