@@ -23,3 +23,14 @@ export interface colorsVariants {
   images: string[];
   sizes: string[];
 }
+
+export type cartProduct = {
+  id: number;
+
+  mainImage: string;
+  title: string;
+  price: number;
+  quantity: number;
+  color: string | undefined;
+  key: string;
+};
