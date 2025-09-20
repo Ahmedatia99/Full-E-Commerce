@@ -10,7 +10,7 @@ function ProductsDetails() {
   const { index, next, prev, canNext, canPrev, visibleItems } =
     useSlider(dataDetails);
   return (
-    <div className="container px-3  mx-auto flex flex-col gap-10 ">
+    <div className="container   mx-auto flex flex-col gap-10 ">
       <Breadcrumbs />
       <HeroProductDetails />
       <SectionHeader

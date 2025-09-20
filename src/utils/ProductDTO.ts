@@ -2,7 +2,7 @@ import type { cartProduct, productObject } from "@/types/product_Type";
 
 export function toCartProduct(
   product: productObject,
-  color: string,
+  color: string | undefined,
   quantity: number = 1
 ): cartProduct {
   return {
@@ -12,5 +12,7 @@ export function toCartProduct(
     quantity,
     color: color,
     key: `${product.id}-${color}`,
+    mainImage: product.mainImgSRC,
+
   };
 }

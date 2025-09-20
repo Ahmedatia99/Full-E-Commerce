@@ -24,10 +24,12 @@ export interface colorsVariants {
 }
 
 export type cartProduct = {
-  id: number;
+
+    id: number;
+    mainImage: string;
   title: string;
   price: number;
   quantity: number;
-  color: string;
+  color: string | undefined;
   key: string;
 };

@@ -3,6 +3,8 @@ import Main_Layout from "./Layout/Main_Layout";
 
 import NotFound404Page from "./Pages/NotFound404Page";
 import Contact from "./Pages/Contact";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
 import ProductsDetails from "./Pages/productsDetails";
 import HomePage from "./Pages/HomePage";
 import SignUp from "./Pages/SignUp";
@@ -24,6 +26,11 @@ function App() {
           <Route path="account" element={<AccountPage />} />
           <Route path="*" element={<NotFound404Page />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/Cart" element={<CartPage />} />
+          <Route path="/Checkout" element={<CheckoutPage />} />
+
+
+          
         </Route>
       </Routes>
     </>
