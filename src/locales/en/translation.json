@@ -40,5 +40,14 @@
   "alreadyhaveaccount?": "Already have an account? ",
   "loginToExclusive": "Log in to Exclusive",
   "forgetPassword": "Forget Password?",
-  "login": "Login"
+  "aboutTitle": "About Our Store",
+  "aboutDesc": "Welcome to our store! We offer the best products, fast shipping, and excellent customer service. Discover our story and why customers love shopping with us.",
+  "aboutStore": "Our Story",
+  "aboutStoreDesc": "Founded with passion, our store brings you the latest trends and quality products.",
+  "aboutShipping": "Fast Shipping",
+  "aboutShippingDesc": "We deliver quickly and safely to your doorstep, wherever you are.",
+  "aboutSupport": "Customer Support",
+  "aboutSupportDesc": "Our team is always ready to help you with any questions or issues.",
+  "aboutQuality": "Quality Guarantee",
+  "aboutQualityDesc": "We guarantee the quality of every product you buy from us."
 }

@@ -9,10 +9,13 @@ import type SwiperType from "swiper/types/swiper-class";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
+
+
 const FlashSales = () => {
   const navigate = useNavigate();
   const toSalesPage = () => {
     navigate("/sales");
+
   };
   const productCardProps = {
   AddToCartBtnFixed: false,
@@ -29,11 +32,15 @@ const FlashSales = () => {
       id: 1,
       isNew: false,
       title: "Gucci duffle bag",
+      description: "eeeeeeee",
       price: 10,
       discountPrice: 2.7,
       ratingCount: 50,
       avgRate: 5,
-      colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
+      colors: [
+        { color: "red", quantity: 20, images: [], sizes: [] },
+        { color: "black", quantity: 20, images: [], sizes: [] },
+      ],
       mainImgSRC:
         "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
     },
@@ -43,10 +50,15 @@ const FlashSales = () => {
       isNew: false,
       title: "Gucci duffle bag",
       price: 11,
+      description: "eeeeeeee",
+
       discountPrice: 1,
       ratingCount: 25,
       avgRate: 4,
-      colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
+      colors: [
+        { color: "red", quantity: 20, images: [], sizes: [] },
+        { color: "black", quantity: 20, images: [], sizes: [] },
+      ],
       mainImgSRC:
         "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
     },
@@ -56,6 +68,8 @@ const FlashSales = () => {
       isNew: false,
       title: "Gucci duffle bag",
       price: 15,
+      description: "eeeeeeee",
+
       discountPrice: 0,
       ratingCount: 3,
       avgRate: 4,
@@ -70,6 +84,8 @@ const FlashSales = () => {
       price: 11,
       discountPrice: 1,
       ratingCount: 20,
+      description: "eeeeeeee",
+
       avgRate: 2,
       colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
       mainImgSRC:
@@ -80,6 +96,8 @@ const FlashSales = () => {
       id: 5,
       isNew: true,
       title: "Gucci duffle bag",
+      description: "eeeeeeee",
+
       price: 11,
       discountPrice: 1,
       ratingCount: 10,
@@ -93,6 +111,8 @@ const FlashSales = () => {
       id: 6,
       isNew: true,
       title: "Gucci duffle bag",
+      description: "eeeeeeee",
+
       price: 11,
       discountPrice: 1,
       ratingCount: 50,

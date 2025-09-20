@@ -32,7 +32,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setProducts(items);
     localStorage.setItem("GuestCart", JSON.stringify(items));
   };
-
   const addToCart = (product: cartProduct) => {
     console.log("Added");
     const exists = cartProducts.find(
@@ -44,7 +43,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       saveToStorage([...cartProducts, product]);
     }
   };
-
   const editQuantity = (productKey: string, newQuantity: number) => {
     saveToStorage(
       cartProducts.map((productCart) =>
@@ -54,24 +52,20 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       )
     );
   };
-
   const getTotalPrice = () => {
     return cartProducts.reduce(
       (total, productCart) => total + productCart.price * productCart.quantity,
       0
     );
   };
-
   const clearCart = () => {
     saveToStorage([]);
   };
-
   const deleteFromCart = (key: string) => {
     saveToStorage(
       cartProducts.filter((productCart) => productCart.key !== key)
     );
   };
-
   const cartCount = () => {
     return cartProducts.length;
   };

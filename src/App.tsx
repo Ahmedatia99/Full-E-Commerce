@@ -11,6 +11,7 @@ import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
 import AccountPage from "./Pages/AccountPage";
 import { useTranslation } from "react-i18next";
+import About from "./Pages/About";
 
 function App() {
   const { t } = useTranslation();
@@ -26,11 +27,10 @@ function App() {
           <Route path="account" element={<AccountPage />} />
           <Route path="*" element={<NotFound404Page />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/About" element={<About />} />
           <Route path="/Cart" element={<CartPage />} />
           <Route path="/Checkout" element={<CheckoutPage />} />
 
-
-          
         </Route>
       </Routes>
     </>

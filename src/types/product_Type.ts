@@ -24,9 +24,9 @@ export interface colorsVariants {
 }
 
 export type cartProduct = {
+  id: number;
+  mainImage: string;
 
-    id: number;
-    mainImage: string;
   title: string;
   price: number;
   quantity: number;
