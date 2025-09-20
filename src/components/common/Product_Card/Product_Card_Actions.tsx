@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { Heart, Heart as HeartFilled, Eye, Trash2 } from "lucide-react";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -50,7 +51,7 @@ const ProductActions = ({
           </DialogTrigger>
 
           <DialogContent className="max-w-4xl">
-            <DialogHeader>
+            <DialogHeader className="">
               <DialogTitle>{product.title}</DialogTitle>
             </DialogHeader>
 
@@ -101,9 +102,6 @@ const ProductActions = ({
                   ? `${product.discountPrice}$  (was ${product.price}$)`
                   : `${product.price}$`}
               </p>
-              {product.description && (
-                <p className="text-sm text-gray-600">{product.description}</p>
-              )}
             </div>
           </DialogContent>
         </Dialog>
@@ -122,4 +120,4 @@ const ProductActions = ({
   );
 };
 
-export default ProductActions;
+export default memo(ProductActions);

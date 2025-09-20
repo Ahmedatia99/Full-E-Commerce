@@ -6,22 +6,33 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react"; // ⬅️ استدعاء الأيقونة
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang).then(() => {
+      localStorage.setItem("i18nextLng", lang);
+      console.log("Language changed to", i18n.language);
+    });
+  };
+  useEffect(() => {
+    document.body.dir = i18n.language === "ar" ? "rtl" : "ltr";
+  }, [i18n.language]);
 
   return (
     <header className="bg-black text-white py-2">
       <div className="container mx-auto flex flex-col gap-3 items-center justify-between px-4 md:flex-row">
         {/* Left / Centered Text */}
         <h2 className="text-sm sm:text-base text-center flex-1">
-          Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+          {t("summerSale")}
           <Link
             to={"/"}
-            className="underline font-bold hover:text-gray-200 transition-colors ml-3"
+            className="underline font-bold hover:text-gray-200 transition-colors mx-3"
           >
-            Shop Now
+            {t("shopNow")}
           </Link>
         </h2>
 
@@ -30,7 +41,7 @@ function Header() {
           <DropdownMenu onOpenChange={(isOpen) => setOpen(isOpen)}>
             <DropdownMenuTrigger asChild>
               <button className="flex items-center text-sm font-semibold cursor-pointer hover:text-gray-200 transition-colors">
-                English
+                {i18n.language === "ar" ? "العربية" : "English"}
                 <ChevronDown
                   className={`ml-1 h-4 w-4 transition-transform ${
                     open ? "rotate-180" : "rotate-0"
@@ -39,9 +50,12 @@ function Header() {
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-28">
-              <DropdownMenuItem>English</DropdownMenuItem>
-              <DropdownMenuItem>العربية</DropdownMenuItem>
-              <DropdownMenuItem>Français</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage("en")}>
+                English
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage("ar")}>
+                العربية
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

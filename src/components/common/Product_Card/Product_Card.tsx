@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductImage from "./Product_Card_Img";
 import ProductActions from "./Product_Card_Actions";
 import AddToCartButton from "./Prodct_Card_Add_To_Cart_Btn";
@@ -9,6 +9,7 @@ import type {
   ProductCardComponentProps,
   SingleProductCardComponentProps,
 } from "@/types/Components_type";
+import { toCartProduct } from "@/utils/ProductDTO";
 
 /**
  * Single_Product_Card component
@@ -31,6 +32,7 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
   componentProps,
   product,
 }: SingleProductCardComponentProps) {
+  const [selectedColor, setSelectedColor] = useState(product.colors[0].color);
   return (
     <article
       itemScope
@@ -51,7 +53,10 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
 
         {/* Add to Cart button (configurable: fixed or relative) */}
 
-        <AddToCartButton fixed={false} />
+        <AddToCartButton
+          fixed={componentProps?.AddToCartBtnFixed}
+          ProductToAdd={toCartProduct(product, selectedColor)}
+        />
 
         {/* Product labels:
             - Show "New" if product is new
@@ -79,6 +84,8 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
         hasReview={componentProps?.hasReview}
         hasColors={componentProps?.hasColors}
         ratingAndPriceInRow={componentProps?.ratingAndPriceInRow}
+        selectedColor={selectedColor}
+        onColorSelect={setSelectedColor}
       />
     </article>
   );

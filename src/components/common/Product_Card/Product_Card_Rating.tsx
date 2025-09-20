@@ -1,4 +1,5 @@
 import { Star, StarHalf } from "lucide-react";
+import React from "react";
 
 interface StarRatingProps {
   rating: number;
@@ -6,7 +7,7 @@ interface StarRatingProps {
   className?: string;
 }
 
-const StarRating: React.FC<StarRatingProps> = ({
+const StarRatingComponent: React.FC<StarRatingProps> = ({
   rating,
   maxRating = 5,
   className,
@@ -31,10 +32,10 @@ const StarRating: React.FC<StarRatingProps> = ({
   }
 
   return (
-    <div className={` flex gap-1 items-center ${className || " "}`}>
-      {stars}
-    </div>
+    <div className={`flex gap-1 items-center ${className || ""}`}>{stars}</div>
   );
 };
+
+const StarRating = React.memo(StarRatingComponent);
 
 export default StarRating;

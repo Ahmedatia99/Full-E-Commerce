@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const SignUpForm: React.FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     emailOrPhone: "",
@@ -21,16 +24,16 @@ const SignUpForm: React.FC = () => {
     <div className="lg:w-[60%] sm:w-[60%] w-[100%] lg:ml-30  gap-5 ml:0 mx-auto p-6  ">
       {/* Title */}
       <h1 className="sm:text-4xl text-3xl font-medium tracking-wide">
-        Create an account
+        {t("createAccount")}
       </h1>
-      <p className="text-gray-600 mt-5 mb-6">Enter your details below</p>
+      <p className="text-gray-600 mt-5 mb-6">{t("enterDetailsBelow")}</p>
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-7">
         <input
           type="text"
           name="name"
-          placeholder="Name"
+          placeholder={t("yourName")}
           value={formData.name}
           onChange={handleChange}
           className="w-full border-b-2 border-gray-300 focus:border-black outline-none py-2 text-lg"
@@ -40,7 +43,7 @@ const SignUpForm: React.FC = () => {
         <input
           type="text"
           name="emailOrPhone"
-          placeholder="Email or Phone Number"
+          placeholder={t("emailOrPhone")}
           value={formData.emailOrPhone}
           onChange={handleChange}
           className="w-full border-b-2 border-gray-300 focus:border-black outline-none py-2 text-lg"
@@ -50,7 +53,7 @@ const SignUpForm: React.FC = () => {
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder={t("password")}
           value={formData.password}
           onChange={handleChange}
           className="w-full border-b-2 border-gray-300 focus:border-black outline-none py-2 text-lg"
@@ -62,7 +65,7 @@ const SignUpForm: React.FC = () => {
           type="submit"
           className="w-full bg-[#DB4444] text-white py-3 rounded-md text-lg font-medium hover:bg-red-600 transition"
         >
-          Create Account
+          {t("createAccount")}
         </button>
       </form>
 
@@ -73,15 +76,15 @@ const SignUpForm: React.FC = () => {
           alt="Google"
           className="w-5 h-5"
         />
-        <span>Sign up with Google</span>
+        <span>{t("signUpWithGoogle")}</span>
       </button>
 
       {/* Already have account */}
       <p className="text-center text-gray-600 mt-6">
-        Already have account?{" "}
-        <a href="/login" className="text-black font-medium underline">
-          Log in
-        </a>
+        {t("alreadyhaveaccount?")}
+        <Link to="/login" className="text-black font-medium underline">
+          {t("login")}
+        </Link>
       </p>
     </div>
   );
