@@ -1,7 +1,7 @@
 import { type ReactElement } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import CountdownTimer from "../CountdownTimer";
+import CountdownTimer from "../../HomePage/CountdownTimer";
 import type { SectionHeaderProps } from "./SectionHeader.types";
 import "./SectionHeader.styles.css";
 

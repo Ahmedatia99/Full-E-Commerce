@@ -51,7 +51,10 @@ const footerSections = [
 
 function Footer() {
   return (
-    <footer className="bg-black text-white overflow-hidden" role="contentinfo">
+    <footer
+      className="bg-black text-white overflow-hidden mt-20"
+      role="contentinfo"
+    >
       <div className=" container mx-auto px-2 pt-16 pb-6 sm:px-2 lg:px-8 lg:pt-24">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           {/* Brand & Social */}

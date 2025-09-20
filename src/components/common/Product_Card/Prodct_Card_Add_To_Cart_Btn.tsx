@@ -1,6 +1,6 @@
 import { memo, useContext, useState } from "react";
 import { ShoppingCart, Check } from "lucide-react";
-import { CartContext } from "../../hooks/CartContext";
+import { CartContext } from "../../../hooks/CartContext";
 import type { cartProduct } from "@/types/product_Type";
 
 const AddToCartButton = ({

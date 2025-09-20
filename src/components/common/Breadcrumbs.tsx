@@ -1,8 +1,8 @@
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { mockProducts } from "../common/ProductDetails/mockProduct";
 import { mockUser } from "../common/mockUser";
+import { mockProducts } from "../Product-Details-Page/mockProduct";
 
 function Breadcrumbs() {
   const location = useLocation();

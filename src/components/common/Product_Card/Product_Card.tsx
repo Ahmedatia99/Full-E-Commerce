@@ -103,16 +103,14 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
 function Product_Card({
   componentProps,
   products,
-  index,
   className,
 }: ProductCardComponentProps) {
   return (
     <>
       <div className={`flex  justify-between gap-5 ${className}`}>
-        {products.map((product, i) => (
+        {products.map((product) => (
           <Single_Product_Card
             key={product.id}
-            index={index + i}
             componentProps={componentProps}
             product={product}
           />
