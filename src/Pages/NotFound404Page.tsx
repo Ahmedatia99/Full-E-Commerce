@@ -9,12 +9,13 @@ function NotFound404Page() {
   return (
     <>
       <div className="container mx-auto px-5">
-        <Breadcrumbs />
-
         <div className="flex items-center justify-center  flex-col text-center mt-20">
-          <h1 className="font-bold text-[30px] md:text-[70px]">
-            404 {t("notFound")}
-          </h1>
+          <img
+            src="public\assets\404.png"
+            alt="404 Error"
+            className="w-100 h-100 object-contain mb-6 drop-shadow-lg"
+          />
+
           <p>{t("notFoundMsg")}</p>
           <Button className="py-7 mt-18 mb-10">
             <Link className="" to="/">

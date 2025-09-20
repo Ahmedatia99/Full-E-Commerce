@@ -12,5 +12,6 @@ export function toCartProduct(
     quantity,
     color: color,
     key: `${product.id}-${color}`,
+    mainImage: product.mainImgSRC,
   };
 }

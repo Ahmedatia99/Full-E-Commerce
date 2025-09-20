@@ -16,7 +16,6 @@ function NavActions() {
   const cartContext = useContext(CartContext);
   const totalItems = cartContext?.cartCount() || 0;
   const { t } = useTranslation();
-
   return (
     <div className="NavActions flex items-center gap-5">
       <Search_Input className="sm:block hidden ml-5" />
