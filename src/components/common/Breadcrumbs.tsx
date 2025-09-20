@@ -2,17 +2,17 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { mockProducts } from "../common/ProductDetails/mockProduct";
-import { mockUser } from "../common/mockUser"; // بيانات وهمية لليوزر
+import { mockUser } from "../common/mockUser";
 
 function Breadcrumbs() {
   const location = useLocation();
   const { id } = useParams<{ id?: string }>();
   const { t } = useTranslation();
 
-  // تقسيم الباث مثلا: "/products/1" → ["products", "1"]
+  // "/products/1" → ["products", "1"]
   const paths = location.pathname.split("/").filter(Boolean);
 
-  // دالة مساعدة تجيب الاسم بناءً على النوع (products / user)
+  //(products / user)
   const getEntityName = (type: string, id: string): string | undefined => {
     if (type === "product") {
       const numericId = Number(id);
@@ -26,10 +26,9 @@ function Breadcrumbs() {
     return undefined;
   };
 
-  // نجيب الاسم بالـ useMemo عشان الأداء
   const entityName = useMemo(() => {
     if (!id || paths.length < 2) return undefined;
-    const type = paths[0]; // أول جزء من الباث (products أو user)    remove memo
+    const type = paths[0]; //(products أو user)    remove memo
     return getEntityName(type, id);
   }, [id, paths]);
 
@@ -56,7 +55,7 @@ function Breadcrumbs() {
           const fullPath = "/" + paths.slice(0, index + 1).join("/");
           const isLast = index === paths.length - 1;
 
-          // لو الباث هو id والاسم متجاب → نعرض الاسم بدل الـ id
+          //  id
           const name = id && path === id && entityName ? entityName : path;
 
           return (

@@ -5,42 +5,15 @@ import CountdownTimer from "../CountdownTimer";
 import type { SectionHeaderProps } from "./SectionHeader.types";
 import "./SectionHeader.styles.css";
 
-// ============================================================================
-// COMPONENT
-// ============================================================================
+import type SwiperType from "swiper/types/swiper-class";
+import type { RefObject } from "react";
 
-/**
- * SectionHeader - A flexible section header component with customizable layouts
- *
- * @param props - Component props
- * @returns JSX element
- *
- * @example
- * ```tsx
- * // Basic usage
- * <SectionHeader
- *   label="Categories"
- *   title="Browse By Category"
- * />
- *
- * // With inline button
- * <SectionHeader
- *   label="Wishlist"
- *   title=""
- *   buttonPosition="inline"
- *   onButtonClick={() => console.log('clicked')}
- * />
- *
- * // With navigation
- * <SectionHeader
- *   label="Today's"
- *   title="Flash Sales"
- *   showNavigation={true}
- *   onPrevious={() => console.log('prev')}
- *   onNext={() => console.log('next')}
- * />
- * ```
- */
+// Props for SectionHeader with optional swiperRef for navigation
+interface SectionHeaderWithSwiperProps extends SectionHeaderProps {
+  swiperRef?: RefObject<SwiperType | null>;
+}
+
+// Main SectionHeader component
 function SectionHeader({
   label,
   title,
@@ -57,52 +30,24 @@ function SectionHeader({
   canPrev,
   countdownTarget,
   onCountdownComplete,
-}: SectionHeaderProps) {
-  // ========================================================================
-  // DEFAULT VALUES
-  // ========================================================================
-
+  swiperRef,
+}: SectionHeaderWithSwiperProps) {
+  // Default values for props
   const finalClassName = className || "";
   const finalButtonPosition = buttonPosition || "below";
   const finalButtonStyle = buttonStyle || "default";
-  const finalShowAccentBar = showAccentBar !== false; // Default to true
+  const finalShowAccentBar = showAccentBar !== false;
   const finalLabelStyle = labelStyle || "small";
   const finalButtonText = buttonText || "View All";
 
-  // ========================================================================
-  // VALIDATION
-  // ========================================================================
-
-  // Validate required props
-  if (!label && !title) {
+  // Ensure at least label or title is provided
+  if (!label && !title)
     throw new Error("SectionHeader: Either label or title must be provided");
-  }
 
-  // Validate navigation props - both or neither, not just one
-  if ((onPrevious && !onNext) || (!onPrevious && onNext)) {
-    throw new Error(
-      "SectionHeader: Navigation requires both onPrevious and onNext handlers, or neither"
-    );
-  }
-
-  // Validate countdown props - countdown requires title
-  if (countdownTarget && !title) {
-    throw new Error(
-      "SectionHeader: countdownTarget requires a title to be provided"
-    );
-  }
-
-  // ========================================================================
-  // RENDER FUNCTIONS
-  // ========================================================================
-
-  /**
-   * Renders the controls section (button and/or navigation)
-   * @returns JSX element with controls
-   */
+  // Render navigation and button controls
   const renderControls = (): ReactElement => (
     <div className="section-header__controls">
-      {/* Action Button */}
+      {/* Main button */}
       {onButtonClick && (
         <Button
           onClick={onButtonClick}
@@ -112,13 +57,12 @@ function SectionHeader({
           {finalButtonText}
         </Button>
       )}
-
-      {/* Navigation Arrows */}
-      {onPrevious && onNext && (
+      {/* Navigation buttons for swiper or custom handlers */}
+      {(onPrevious || swiperRef) && (onNext || swiperRef) && (
         <div className="section-header__navigation">
           <button
             type="button"
-            onClick={onPrevious}
+            onClick={onPrevious || (() => swiperRef?.current?.slidePrev())}
             disabled={canPrev}
             className="section-header__nav-btn"
           >
@@ -126,7 +70,7 @@ function SectionHeader({
           </button>
           <button
             type="button"
-            onClick={onNext}
+            onClick={onNext || (() => swiperRef?.current?.slideNext())}
             disabled={canNext}
             className="section-header__nav-btn"
           >
@@ -137,14 +81,7 @@ function SectionHeader({
     </div>
   );
 
-  // ========================================================================
-  // COMPUTED VALUES
-  // ========================================================================
-
-  /**
-   * Dynamic classes for label container based on button position and title presence
-   * @returns CSS class string
-   */
+  // Classes for label container
   const labelContainerClasses: string = [
     "section-header__label-container",
     finalButtonPosition === "inline"
@@ -155,36 +92,32 @@ function SectionHeader({
     .filter(Boolean)
     .join(" ");
 
-  /**
-   * Dynamic classes for label based on style variant
-   * @returns CSS class string
-   */
+  // Classes for label
   const labelClasses: string = `section-header__label section-header__label--${finalLabelStyle}`;
 
-  // ========================================================================
-  // RENDER
-  // ========================================================================
-
+  // Render component
   return (
     <div className={`section-header ${finalClassName}`}>
-      {/* Label Section */}
       <div className={labelContainerClasses}>
         <div className="section-header__content-wrapper">
           <div className="section-header__label-wrapper">
+            {/* Accent bar */}
             {finalShowAccentBar && (
               <div className="section-header__accent-bar" />
             )}
+            {/* Label */}
             {label && <span className={labelClasses}>{label}</span>}
           </div>
+          {/* Inline controls */}
           {finalButtonPosition === "inline" && renderControls()}
         </div>
       </div>
-
-      {/* Title and Controls Section */}
+      {/* Title and countdown */}
       {title && (
         <div className="section-header__main">
           <div className="section-header__title-container">
             <h2 className="section-header__title">{title}</h2>
+            {/* Countdown timer */}
             {countdownTarget && (
               <CountdownTimer
                 targetDate={countdownTarget}
@@ -194,6 +127,7 @@ function SectionHeader({
               />
             )}
           </div>
+          {/* Controls below title */}
           {finalButtonPosition === "below" && renderControls()}
         </div>
       )}
@@ -201,11 +135,6 @@ function SectionHeader({
   );
 }
 
-// ============================================================================
-// EXPORT
-// ============================================================================
-
-// Add displayName for better React DevTools debugging
 SectionHeader.displayName = "SectionHeader";
 
 export default SectionHeader;

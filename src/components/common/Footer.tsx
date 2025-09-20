@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { AiOutlineSend } from "react-icons/ai";
 
-import qrCode from "../../assets/images/Qr Code.png";
+// import qrCode from "../../assets/images/Qr Code.png";
 const socialLinks = [
   { icon: <FaFacebook className="size-6" />, label: "Facebook", url: "#" },
   { icon: <FaInstagram className="size-6" />, label: "Instagram", url: "#" },
@@ -51,8 +51,8 @@ const footerSections = [
 
 function Footer() {
   return (
-    <footer className="bg-black text-white" role="contentinfo">
-      <div className="mx-auto max-w-screen-xl px-2 pt-16 pb-6 sm:px-2 lg:px-8 lg:pt-24">
+    <footer className="bg-black text-white overflow-hidden" role="contentinfo">
+      <div className=" container mx-auto px-2 pt-16 pb-6 sm:px-2 lg:px-8 lg:pt-24">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           {/* Brand & Social */}
           <section
@@ -69,7 +69,7 @@ function Footer() {
               Subscribe to our newsletter and get <strong>10% off</strong> your
               first order.
             </p>
-            <div className="max-w-[200px] mt-4">
+            <div className="w-full md:max-w-[200px] mt-4">
               <div className="relative">
                 <input
                   type="text"
@@ -113,7 +113,7 @@ function Footer() {
             {/* Download App */}
             <section
               aria-labelledby="footer-download"
-              className="flex flex-col "
+              className="flex flex-col items-start"
             >
               <h3
                 id="footer-download"
@@ -125,7 +125,7 @@ function Footer() {
                 Save $3 with App (New Users Only)
               </p>
               <div className="mt-4 flex items-center gap-4">
-                <img src={qrCode} className="w-24 h-24 mt-8 max-sm:hidden" />
+                {/* <img src={qrCode} className="w-24 h-24 mt-8 max-sm:hidden md:hidden lg:block" /> */}
                 <div className="mt-6 flex flex-col gap-3">
                   <a
                     href="#"
@@ -157,7 +157,7 @@ function Footer() {
               </div>
 
               {/* Social media */}
-              <ul className="mt-8 flex justify-center gap-3 sm:justify-start md:gap-8">
+              <ul className="mt-8 flex justify-center gap-3 sm:justify-start md:gap-4">
                 {socialLinks.map((social, index) => (
                   <li key={index}>
                     <a

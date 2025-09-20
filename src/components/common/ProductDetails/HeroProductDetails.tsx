@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { mockProducts } from "./mockProduct";
 import ProductImages from "./ProductImagesDetails";
@@ -12,8 +12,11 @@ import LikeButtonDetails from "./LikeButtonDetails";
 import { useProductColor } from "./hooks/useProductColor";
 import { useProductSize } from "./hooks/useProductSize";
 import { useProductImages } from "./hooks/useProductImages";
+import { toCartProduct } from "@/utils/ProductDTO";
+import { CartContext } from "@/components/hooks/CartContext";
 
 function HeroProductDetails() {
+  const cartContext = useContext(CartContext);
   const { id: idFromParams } = useParams<{ id?: string }>();
   const location = useLocation();
   // جلب id من query string إذا لم يوجد في ال path
@@ -51,21 +54,12 @@ function HeroProductDetails() {
     );
   }
   //Send Data
+
   const handleBuyNow = () => {
+    const productCart = toCartProduct(product, selectedColor, quantity);
+    cartContext?.addToCart(productCart);
     // جلب بيانات اللون المختار
-    const orderData = {
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      selectedColor,
-      selectedSize,
-      quantity,
-      liked,
-      images: colorObj?.images?.filter((img) => img && img.trim() !== "") ?? [],
-      mainImgSRC: product.mainImgSRC,
-      postalCode: selectedPostalCode,
-    };
-    console.log("🛒 Order Data:", orderData);
+
     // هنا ممكن تبعت orderData لـ API أو Redux أو localStorage
   };
   const sizes = colorObj?.sizes || [];
