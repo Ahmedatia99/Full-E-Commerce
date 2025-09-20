@@ -1,6 +1,9 @@
-import { useState, useEffect } from 'react';
-import type { CountdownTimerProps, CountdownValues } from './CountdownTimer.types';
-import './CountdownTimer.styles.css';
+import { useState, useEffect } from "react";
+import type {
+  CountdownTimerProps,
+  CountdownValues,
+} from "./CountdownTimer.types";
+import "./CountdownTimer.styles.css";
 
 // ============================================================================
 // COMPONENT
@@ -8,19 +11,19 @@ import './CountdownTimer.styles.css';
 
 /**
  * CountdownTimer - A countdown timer component that displays days, hours, minutes, and seconds
- * 
+ *
  * @param props - Component props
  * @returns JSX element
- * 
+ *
  * @example
  * ```tsx
  * // Basic usage
- * <CountdownTimer 
+ * <CountdownTimer
  *   targetDate={new Date('2024-12-31T23:59:59')}
  * />
- * 
+ *
  * // With completion callback
- * <CountdownTimer 
+ * <CountdownTimer
  *   targetDate={new Date('2024-12-31T23:59:59')}
  *   onComplete={() => console.log('Countdown finished!')}
  * />
@@ -29,26 +32,25 @@ import './CountdownTimer.styles.css';
 function CountdownTimer({
   targetDate,
   onComplete,
-  className = '',
-  showSeparator = true
+  className = "",
+  showSeparator = true,
 }: CountdownTimerProps) {
-  
   // ========================================================================
   // STATE
   // ========================================================================
-  
+
   const [countdown, setCountdown] = useState<CountdownValues>({
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
-    total: 0
+    total: 0,
   });
 
   // ========================================================================
   // EFFECTS
   // ========================================================================
-  
+
   useEffect(() => {
     const calculateCountdown = (): CountdownValues => {
       const now = new Date().getTime();
@@ -61,12 +63,14 @@ function CountdownTimer({
           hours: 0,
           minutes: 0,
           seconds: 0,
-          total: 0
+          total: 0,
         };
       }
 
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
       const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
@@ -75,7 +79,7 @@ function CountdownTimer({
         hours,
         minutes,
         seconds,
-        total: difference
+        total: difference,
       };
     };
 
@@ -101,20 +105,20 @@ function CountdownTimer({
   // ========================================================================
   // HELPER FUNCTIONS
   // ========================================================================
-  
+
   /**
    * Formats a number with leading zero if needed
    */
   const formatNumber = (num: number): string => {
-    return num.toString().padStart(2, '0');
+    return num.toString().padStart(2, "0");
   };
 
   // ========================================================================
   // RENDER
   // ========================================================================
-  
+
   return (
-    <div className={`countdown-timer ${className}`}>
+    <div className={`countdown-timer text-white ${className}`}>
       {/* Days */}
       <div className="countdown-unit">
         <span className="countdown-label">Days</span>
@@ -136,7 +140,9 @@ function CountdownTimer({
       {/* Minutes */}
       <div className="countdown-unit">
         <span className="countdown-label">Minutes</span>
-        <span className="countdown-value">{formatNumber(countdown.minutes)}</span>
+        <span className="countdown-value">
+          {formatNumber(countdown.minutes)}
+        </span>
       </div>
 
       {/* Separator */}
@@ -145,13 +151,13 @@ function CountdownTimer({
       {/* Seconds */}
       <div className="countdown-unit">
         <span className="countdown-label">Seconds</span>
-        <span className="countdown-value">{formatNumber(countdown.seconds)}</span>
+        <span className="countdown-value">
+          {formatNumber(countdown.seconds)}
+        </span>
       </div>
 
       {/* Optional separator line */}
-      {showSeparator && (
-        <div className="countdown-separator-line" />
-      )}
+      {showSeparator && <div className="countdown-separator-line" />}
     </div>
   );
 }
@@ -160,6 +166,6 @@ function CountdownTimer({
 // EXPORT
 // ============================================================================
 
-CountdownTimer.displayName = 'CountdownTimer';
+CountdownTimer.displayName = "CountdownTimer";
 
 export default CountdownTimer;

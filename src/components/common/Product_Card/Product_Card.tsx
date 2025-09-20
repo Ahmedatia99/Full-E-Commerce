@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductImage from "./Product_Card_Img";
 import ProductActions from "./Product_Card_Actions";
 import AddToCartButton from "./Prodct_Card_Add_To_Cart_Btn";
@@ -9,6 +9,7 @@ import type {
   ProductCardComponentProps,
   SingleProductCardComponentProps,
 } from "@/types/Components_type";
+import { toCartProduct } from "@/utils/ProductDTO";
 
 /**
  * Single_Product_Card component
@@ -31,11 +32,12 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
   componentProps,
   product,
 }: SingleProductCardComponentProps) {
+  const [selectedColor, setSelectedColor] = useState(product.colors[0].color);
   return (
     <article
       itemScope
       itemType="https://schema.org/Product"
-      className="boxContainer w-full sm:w-1/2 md:w-1/3 lg:w-[270px] "
+      className="boxContainer w-full"
     >
       <div className="group flex flex-col justify-between relative rounded bg-[#f5f5f5] ">
         {/* Product image with SEO-friendly "image" + "url" */}
@@ -51,7 +53,10 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
 
         {/* Add to Cart button (configurable: fixed or relative) */}
 
-        <AddToCartButton fixed={false} />
+        <AddToCartButton
+          fixed={componentProps?.AddToCartBtnFixed}
+          ProductToAdd={toCartProduct(product, selectedColor)}
+        />
 
         {/* Product labels:
             - Show "New" if product is new
@@ -70,7 +75,7 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
         ) : null}
 
         {/* Extra actions (Favorite, Quick View, Delete, etc.) */}
-        <ProductActions componentProps={componentProps} />
+        <ProductActions componentProps={componentProps} product={product} />
       </div>
 
       {/* Product details section (title, price, rating, colors, etc.) */}
@@ -79,6 +84,8 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
         hasReview={componentProps?.hasReview}
         hasColors={componentProps?.hasColors}
         ratingAndPriceInRow={componentProps?.ratingAndPriceInRow}
+        selectedColor={selectedColor}
+        onColorSelect={setSelectedColor}
       />
     </article>
   );

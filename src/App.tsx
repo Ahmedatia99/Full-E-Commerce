@@ -1,16 +1,20 @@
 import { Route, Routes } from "react-router-dom";
 import Main_Layout from "./Layout/Main_Layout";
-import ProductsDetails from "./pages/productsDetails";
-import HomePage from "./pages/HomePage";
-import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
-import AccountPage from "./pages/AccountPage";
+
 import NotFound404Page from "./Pages/NotFound404Page";
 import Contact from "./Pages/Contact";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import ProductsDetails from "./Pages/productsDetails";
+import HomePage from "./Pages/HomePage";
+import SignUp from "./Pages/SignUp";
+import Login from "./Pages/Login";
+import AccountPage from "./Pages/AccountPage";
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Routes>

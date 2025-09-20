@@ -1,11 +1,13 @@
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { mockProducts } from "../common/ProductDetails/mockProduct";
 import { mockUser } from "../common/mockUser";
 
 function Breadcrumbs() {
   const location = useLocation();
   const { id } = useParams<{ id?: string }>();
+  const { t } = useTranslation();
 
   // "/products/1" → ["products", "1"]
   const paths = location.pathname.split("/").filter(Boolean);
@@ -23,8 +25,7 @@ function Breadcrumbs() {
     }
     return undefined;
   };
-   
-  // useMemo 
+
   const entityName = useMemo(() => {
     if (!id || paths.length < 2) return undefined;
     const type = paths[0]; //(products أو user)    remove memo
@@ -45,7 +46,7 @@ function Breadcrumbs() {
           itemType="https://schema.org/ListItem"
         >
           <Link to="/" className="hover:underline" itemProp="item">
-            <span itemProp="name">Home</span>
+            <span itemProp="name">{t("home")}</span>
           </Link>
           <meta itemProp="position" content="1" />
         </li>
@@ -71,7 +72,7 @@ function Breadcrumbs() {
                   className="font-semibold text-black capitalize"
                   itemProp="name"
                 >
-                  {name}
+                  {t(name.charAt(0).toLowerCase() + name.slice(1))}
                 </span>
               ) : (
                 <Link
@@ -79,10 +80,10 @@ function Breadcrumbs() {
                   className="hover:underline capitalize"
                   itemProp="item"
                 >
-                  <span itemProp="name">{name}</span>
+                  {name}
                 </Link>
               )}
-              <meta itemProp="position" content={(index + 2).toString()} />
+              <meta itemProp="position" content={`index + 2`} />
             </li>
           );
         })}

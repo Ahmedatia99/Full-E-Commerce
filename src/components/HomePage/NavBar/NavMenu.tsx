@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 type NavMenuProps = {
   className?: string;
@@ -8,6 +9,7 @@ type NavMenuProps = {
 function NavMenu({ className }: NavMenuProps) {
   // Get current path
   const location = useLocation();
+  const { t } = useTranslation();
 
   // Function to check if link is active
   const isActive = (path: string) => location.pathname === path;
@@ -27,7 +29,7 @@ function NavMenu({ className }: NavMenuProps) {
                   : "hover:text-black hover:underline"
               }`}
           >
-            Home
+            {t("home")}
           </Link>
         </li>
 
@@ -42,7 +44,7 @@ function NavMenu({ className }: NavMenuProps) {
                   : "hover:text-black hover:underline"
               }`}
           >
-            Contact
+            {t("contact")}
           </Link>
         </li>
 
@@ -57,7 +59,7 @@ function NavMenu({ className }: NavMenuProps) {
                   : "hover:text-black hover:underline"
               }`}
           >
-            About
+            {t("about")}
           </Link>
         </li>
 
@@ -72,7 +74,7 @@ function NavMenu({ className }: NavMenuProps) {
                   : "hover:text-black hover:underline"
               }`}
           >
-            Sign Up
+            {t("signUp")}
           </Link>
         </li>
       </ul>
