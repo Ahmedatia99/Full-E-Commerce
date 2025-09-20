@@ -2,7 +2,6 @@ import { memo, useState } from "react";
 import { Heart, Heart as HeartFilled, Eye, Trash2 } from "lucide-react";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -95,7 +94,7 @@ const ProductActions = ({
               </div>
             </div>
 
-            {/* Product details: price and description */}
+            {/* Product details: price  */}
             <div className="mt-4 space-y-2">
               <p className="text-lg font-semibold text-red-600">
                 {product.discountPrice

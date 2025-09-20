@@ -1,17 +1,17 @@
 import { Route, Routes } from "react-router-dom";
 import Main_Layout from "./Layout/Main_Layout";
 
-import NotFound404Page from "./Pages/NotFound404Page";
-import Contact from "./Pages/Contact";
-import CartPage from "./pages/CartPage";
-import CheckoutPage from "./pages/CheckoutPage";
-import ProductsDetails from "./Pages/productsDetails";
-import HomePage from "./Pages/HomePage";
-import SignUp from "./Pages/SignUp";
-import Login from "./Pages/Login";
-import AccountPage from "./Pages/AccountPage";
+import NotFound404Page from "./Pages/ERROR-Page";
+import Contact from "./Pages/Contact-Page";
+import CartPage from "./Pages/Cart-Page";
+import CheckoutPage from "./Pages/Checkout-Page";
+import ProductsDetails from "./Pages/products-Details-Page";
+import HomePage from "./Pages/Home-Page";
+import SignUp from "./Pages/Signup-Page";
+import Login from "./Pages/Login-Page";
+import AccountPage from "./Pages/Profile-Page";
 import { useTranslation } from "react-i18next";
-import About from "./Pages/About";
+import About from "./Pages/About-Page";
 
 function App() {
   const { t } = useTranslation();
@@ -30,7 +30,6 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Cart" element={<CartPage />} />
           <Route path="/Checkout" element={<CheckoutPage />} />
-
         </Route>
       </Routes>
     </>
