@@ -3,16 +3,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import SectionHeader from "../common/SectionHeader/SectionHeader";
+import SectionHeader from "../../common/SectionHeader/SectionHeader";
 import Product_Card from "@/components/common/Product_Card/Product_Card";
 import type SwiperType from "swiper/types/swiper-class";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
-const FlashSales = () => {
+const BestProducts = () => {
   const navigate = useNavigate();
   const toSalesPage = () => {
-    navigate("/sales");
+    navigate("/best");
   };
   const productCardProps = {
   AddToCartBtnFixed: false,
@@ -138,15 +138,21 @@ const FlashSales = () => {
         "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
     },
   ];
-  const previewProducts = products.slice(0, 15);
+  const previewProducts = products.slice(0, 4);
   return (
     <div>
-      <SectionHeader
-        label="Today's"
-        title="Flash Sales"
-        swiperRef={swiperRef}
-        className="mb-10"
-      />
+      <div className="flex justify-between w-full mt-20 items-center">
+        <SectionHeader
+          label="This Month"
+          title="Best Selling Products"
+          // swiperRef={swiperRef}
+          className="mb-10"
+        />
+
+        <Button variant="small" size="sm" onClick={toSalesPage}>
+          view all
+        </Button>
+      </div>
       <Swiper
         modules={[Navigation]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -164,11 +170,8 @@ const FlashSales = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="flex justify-center mt-8">
-        <Button onClick={toSalesPage}>view all products</Button>
-      </div>
     </div>
   );
 };
 
-export default FlashSales;
+export default BestProducts;

@@ -24,9 +24,9 @@ const buttonVariants = cva(
       },
       size: {
         // Default size: medium padding
-        default: "h-10 px-12 py-4 has-[>svg]:px-3 rounded-sm ",
+        default: "h-10 px-16 py-4 has-[>svg]:px-3 rounded-sm ",
         // Small size: compact button
-        sm: "h-8 px-3 gap-1.5 rounded-sm has-[>svg]:px-2.5",
+        sm: "h-10 px-5 w-32 rounded-sm has-[>svg]:px-2",
         // Large size: more padding
         lg: "h-10 px-6 rounded-sm has-[>svg]:px-4",
         // Icon-only button (square)
@@ -66,4 +66,4 @@ function Button({
   );
 }
 
-export { Button, buttonVariants };
+export { Button };

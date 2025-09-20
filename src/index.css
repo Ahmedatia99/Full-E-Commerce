@@ -117,6 +117,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  .category-icon {
+    @apply size-10;
+  }
 }
 @font-face {
   font-family: "Inter";
@@ -140,4 +143,7 @@
 }
 @theme inline {
   --font-sans: "Inter", sans-serif;
+}
+.swiper-wrapper {
+  row-gap: 40px; 
 }
