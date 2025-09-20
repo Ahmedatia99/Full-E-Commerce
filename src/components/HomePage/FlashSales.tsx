@@ -14,6 +14,15 @@ const FlashSales = () => {
   const toSalesPage = () => {
     navigate("/sales");
   };
+  const productCardProps = {
+  AddToCartBtnFixed: false,
+  hasFavouriteIcon: true,
+  hasviewIcon: true,
+  hasDeleteIcon: false,
+  hasReview: true,
+  hasColors: false,
+  ratingAndPriceInRow: false,
+};
   const swiperRef = useRef<SwiperType | null>(null);
   const products: productObject[] = [
     {
@@ -151,7 +160,7 @@ const FlashSales = () => {
       >
         {previewProducts.map((p) => (
           <SwiperSlide key={p.id}>
-            <Product_Card products={[p]} />
+            <Product_Card products={[p]} componentProps={productCardProps} />
           </SwiperSlide>
         ))}
       </Swiper>
