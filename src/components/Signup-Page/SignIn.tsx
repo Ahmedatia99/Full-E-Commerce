@@ -1,10 +1,11 @@
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import LoginForm from "@/components/Signup-Page/LoginForm";
-import signupImg from "@/assets/images/login-illustration.jpg"
+import signupImg from "@/assets/images/login-illustration.jpg";
+
 function SignIn() {
   return (
-    <div >
-      {/*  Breadcrumbs */}
+    <div>
+      {/* Breadcrumbs */}
       <Breadcrumbs />
 
       <main
@@ -12,25 +13,16 @@ function SignIn() {
         role="main"
         aria-labelledby="login-heading"
       >
-        {/*  Decorative/illustration image */}
         <div className="hidden lg:flex justify-center items-center">
           <img
             className="w-full h-full object-cover overflow-hidden rounded-lg"
-            alt="Illustration showing login and shopping experience"
+            alt="Login Illustration"
             src={signupImg}
             loading="lazy"
+            aria-hidden="true"
           />
         </div>
-
-        {/*  Login Form */}
-        <section className="w-full" aria-labelledby="login-section">
-          {/* Screen readers only */}
-          <h1 id="login-heading" className="sr-only">
-            Login Page
-          </h1>
-
-          <LoginForm />
-        </section>
+        <LoginForm />
       </main>
     </div>
   );

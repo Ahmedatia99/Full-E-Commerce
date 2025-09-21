@@ -22,19 +22,30 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="lg:w-[60%] sm:w-[60%] w-[100%] lg:ml-30  ml:0 mx-auto p-6">
+    <section
+      className="lg:w-[60%] sm:w-[60%] w-[100%] lg:ml-30 ml:0 mx-auto p-6"
+      aria-labelledby="login-title"
+    >
       {/* Title */}
-      <h1 className="sm:text-4xl text-3xl font-bold tracking-wide">
+      <h1
+        id="login-title"
+        className="sm:text-4xl text-3xl font-bold tracking-wide"
+      >
         {t("loginToExclusive")}
       </h1>
       <p className="text-gray-600 mt-5 mb-6">{t("enterDetailsBelow")}</p>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-5"
+        aria-label={t("loginToExclusive")}
+      >
         <RegistrationInput
           type="text"
           name="emailOrPhone"
-          placeholder={t("emailOrPhone")}
+          label="emailOrPhone"
+          placeholder="Enter your email or phone"
           value={formData.emailOrPhone}
           onChange={handleChange}
         />
@@ -42,34 +53,29 @@ const LoginForm: React.FC = () => {
         <RegistrationInput
           type="password"
           name="password"
-          placeholder={t("password")}
+          label="password"
+          placeholder="Enter your password"
           value={formData.password}
           onChange={handleChange}
         />
 
-        <RegistrationInput
-          type="password"
-          name="password"
-          placeholder={t("password")}
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-
-        <div className="flex flex-col md:flex-row  items-center justify-between">
+        <div className="flex flex-col md:flex-row items-center justify-between">
           {/* Log In Button */}
-          <Button variant="default">{t("login")}</Button>
+          <Button variant="default" aria-label={t("login")}>
+            {t("login")}
+          </Button>
 
           {/* Forget Password */}
           <Link
             to="/forgot-password"
             className="text-[#DB4444] font-medium hover:underline mt-5 md:mt-0"
+            aria-label={t("forgot your password")}
           >
             {t("forgetPassword")}
           </Link>
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 
