@@ -1,12 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
-
-interface PlaceOrderButtonProps {
-  cartProducts: any[];
-  subtotal: number;
-  paymentMethod: string;
-  setSuccessOpen: (open: boolean) => void;
-}
+import type { PlaceOrderButtonProps } from "@/types/order";
 
 const PlaceOrderButton: React.FC<PlaceOrderButtonProps> = ({
   cartProducts,
@@ -53,6 +47,8 @@ const PlaceOrderButton: React.FC<PlaceOrderButtonProps> = ({
       form.reset();
       console.log("♻️ Form reset");
     }
+
+    // future
   };
 
   return (
