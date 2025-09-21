@@ -137,4 +137,5 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
+  DialogDescription,
 };
