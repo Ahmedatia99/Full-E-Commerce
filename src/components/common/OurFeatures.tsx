@@ -1,5 +1,3 @@
-import React from "react";
-
 function OurFeatures() {
   return (
     <div className="flex max-w-[750px] max-sm:flex-col gap-20 self-center">
