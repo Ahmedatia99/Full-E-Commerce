@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 // - "variant": controls button color/style theme
 // - "size": controls button dimensions
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors " +
+  "inline-flex items-center justify-center rounded-md font-medium transition-colors " +
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 " +
     "disabled:opacity-50 cursor-pointer disabled:pointer-events-none ring-offset-background",
   {
@@ -24,9 +24,9 @@ const buttonVariants = cva(
       },
       size: {
         // Default size: medium padding
-        default: "h-10 px-16 py-4 has-[>svg]:px-3 rounded-sm ",
+        default: "h-10 w-16 py-4 has-[>svg]:px-3 rounded-sm ",
         // Small size: compact button
-        sm: "h-10 px-5 w-32 rounded-sm has-[>svg]:px-2",
+        sm: "h-10 w-5 w-32 rounded-sm has-[>svg]:px-2",
         // Large size: more padding
         lg: "h-10 px-6 rounded-sm has-[>svg]:px-4",
         // Icon-only button (square)
