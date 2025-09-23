@@ -12,7 +12,7 @@ function HomePage() {
       <div className="container mx-auto ">
         <div className="flex flex-col gap-15">
           <Hero />
-          <div className="mx-4">
+          <div className="mx-3">
             <FlashSales />
             <Categories />
             <BestProducts />
