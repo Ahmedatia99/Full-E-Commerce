@@ -1,30 +1,27 @@
-import React from "react";
-
-const features = [
-  {
-    id: 1,
-    title: "FREE AND FAST DELIVERY",
-    description: "Free delivery for all orders over $140",
-    img: "/assets/headPhone.webp",
-    alt: "Icon representing fast delivery with a headset",
-  },
-  {
-    id: 2,
-    title: "24/7 CUSTOMER SERVICE",
-    description: "Friendly 24/7 customer support",
-    img: "/assets/gurantee.webp",
-    alt: "Icon representing customer service support",
-  },
-  {
-    id: 3,
-    title: "MONEY BACK GUARANTEE",
-    description: "We return money within 30 days",
-    img: "/assets/delivery.webp",
-    alt: "Icon representing money-back guarantee",
-  },
-];
-
 function OurFeatures() {
+  const features = [
+    {
+      id: 1,
+      title: "FREE AND FAST DELIVERY",
+      description: "Free delivery for all orders over $140",
+      img: "/assets/headPhone.webp",
+      alt: "Icon representing fast delivery with a headset",
+    },
+    {
+      id: 2,
+      title: "24/7 CUSTOMER SERVICE",
+      description: "Friendly 24/7 customer support",
+      img: "/assets/gurantee.webp",
+      alt: "Icon representing customer service support",
+    },
+    {
+      id: 3,
+      title: "MONEY BACK GUARANTEE",
+      description: "We return money within 30 days",
+      img: "/assets/delivery.webp",
+      alt: "Icon representing money-back guarantee",
+    },
+  ];
   return (
     <section
       className="mb-20 max-w-full self-center"

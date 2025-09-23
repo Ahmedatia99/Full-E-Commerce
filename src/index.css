@@ -1,6 +1,12 @@
+/* =========================
+   Tailwind & Animations
+========================= */
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* =========================
+   Theme Variables
+========================= */
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -41,6 +47,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* =========================
+   Root Theme Colors
+========================= */
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -76,6 +85,9 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* =========================
+   Dark Theme Colors
+========================= */
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -110,6 +122,9 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* =========================
+   Base Layer & Utilities
+========================= */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -121,6 +136,10 @@
     @apply size-10;
   }
 }
+
+/* =========================
+   Fonts
+========================= */
 @font-face {
   font-family: "Inter";
   font-style: normal;
@@ -137,6 +156,9 @@
   src: url("/fonts/Inter/Inter18pt-Bold.woff2") format("woff2");
 }
 
+/* =========================
+   Custom Theme Colors
+========================= */
 @theme {
   --color-main: #db4444;
   --color-btnHover: #e07575;
@@ -144,6 +166,10 @@
 @theme inline {
   --font-sans: "Inter", sans-serif;
 }
+
+/* =========================
+   Swiper & Form Utilities
+========================= */
 .swiper-wrapper {
   row-gap: 40px; 
 }

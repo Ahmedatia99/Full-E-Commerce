@@ -3,16 +3,20 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { mockUser } from "../common/mockUser";
 import { mockProducts } from "../Product-Details-Page/mockProduct";
+import React from "react";
 
-function Breadcrumbs() {
+function BreadcrumbsComponent() {
   const location = useLocation();
   const { id } = useParams<{ id?: string }>();
   const { t } = useTranslation();
 
   // "/products/1" → ["products", "1"]
-  const paths = location.pathname.split("/").filter(Boolean);
+  const paths = useMemo(
+    () => location.pathname.split("/").filter(Boolean),
+    [location.pathname]
+  );
 
-  //(products / user)
+  // (products / user)
   const getEntityName = (type: string, id: string): string | undefined => {
     if (type === "product") {
       const numericId = Number(id);
@@ -28,7 +32,7 @@ function Breadcrumbs() {
 
   const entityName = useMemo(() => {
     if (!id || paths.length < 2) return undefined;
-    const type = paths[0]; //(products أو user)    remove memo
+    const type = paths[0]; //(products أو user)
     return getEntityName(type, id);
   }, [id, paths]);
 
@@ -55,7 +59,7 @@ function Breadcrumbs() {
           const fullPath = "/" + paths.slice(0, index + 1).join("/");
           const isLast = index === paths.length - 1;
 
-          //  id
+          // id
           const name = id && path === id && entityName ? entityName : path;
 
           return (
@@ -83,7 +87,7 @@ function Breadcrumbs() {
                   {name}
                 </Link>
               )}
-              <meta itemProp="position" content={`index + 2`} />
+              <meta itemProp="position" content={`${index + 2}`} />
             </li>
           );
         })}
@@ -91,5 +95,8 @@ function Breadcrumbs() {
     </nav>
   );
 }
+
+// 🔹 wrap with React.memo
+const Breadcrumbs = React.memo(BreadcrumbsComponent);
 
 export default Breadcrumbs;

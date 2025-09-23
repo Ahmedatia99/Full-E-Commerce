@@ -1,10 +1,10 @@
-import Hero from "@/components/HomePage/Hero-Section.tsx/Hero";
-import Categories from "@/components/HomePage/Browse-By-Category-Section/Categories";
-import BestProducts from "@/components/HomePage/Best-Selling-Products-Section/BestProducts";
-import SpecialCard from "@/components/HomePage/Special-Product-Section/SpecialCard";
-import DiscoverAllProducts from "@/components/HomePage/Explore-Our-Products-Section/DiscoverAllProducts";
-import Featured from "@/components/HomePage/Featured-Products-Section/Featured";
-import FlashSales from "@/components/HomePage/FlashSales-Section/FlashSales";
+import Hero from "@/components/Home-Page/Hero-Section.tsx/Hero";
+import Categories from "@/components/Home-Page/Browse-By-Category-Section/Categories";
+import BestProducts from "@/components/Home-Page/Best-Selling-Products-Section/BestProducts";
+import SpecialCard from "@/components/Home-Page/Special-Product-Section/SpecialCard";
+import DiscoverAllProducts from "@/components/Home-Page/Explore-Our-Products-Section/DiscoverAllProducts";
+import Featured from "@/components/Home-Page/Featured-Products-Section/Featured";
+import FlashSales from "@/components/Home-Page/FlashSales-Section/FlashSales";
 
 function HomePage() {
   return (
