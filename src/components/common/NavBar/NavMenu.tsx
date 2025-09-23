@@ -7,76 +7,37 @@ type NavMenuProps = {
 };
 
 function NavMenu({ className }: NavMenuProps) {
-  // Get current path
   const location = useLocation();
   const { t } = useTranslation();
 
-  // Function to check if link is active
   const isActive = (path: string) => location.pathname === path;
 
+  const navLinks = [
+    { path: "/", label: "home" },
+    { path: "/Contact", label: "contact" },
+    { path: "/About", label: "about" },
+    { path: "/SignUp", label: "signUp" },
+  ];
+
   return (
-    // Semantic <nav> element for SEO + accessibility
     <nav aria-label="Main navigation">
-      <ul className={`flex gap-8 ${className}`}>
-        {/* Home Link */}
-        <li>
-          <Link
-            to="/"
-            className={`text-gray-700 transition-colors
-              ${
-                isActive("/")
-                  ? "text-black underline"
-                  : "hover:text-black hover:underline"
-              }`}
-          >
-            {t("home")}
-          </Link>
-        </li>
-
-        {/* Contact Link */}
-        <li>
-          <Link
-            to="/Contact"
-            className={`text-gray-700 transition-colors
-              ${
-                isActive("/Contact")
-                  ? "text-black underline"
-                  : "hover:text-black hover:underline"
-              }`}
-          >
-            {t("contact")}
-          </Link>
-        </li>
-
-        {/* About Link */}
-        <li>
-          <Link
-            to="/About"
-            className={`text-gray-700 transition-colors
-              ${
-                isActive("/About")
-                  ? "text-black underline"
-                  : "hover:text-black hover:underline"
-              }`}
-          >
-            {t("about")}
-          </Link>
-        </li>
-
-        {/* Sign Up Link */}
-        <li>
-          <Link
-            to="/SignUp"
-            className={`text-gray-700 transition-colors
-              ${
-                isActive("/SignUp")
-                  ? "text-black underline"
-                  : "hover:text-black hover:underline"
-              }`}
-          >
-            {t("signUp")}
-          </Link>
-        </li>
+      <ul className={`flex gap-10 ${className}`}>
+        {navLinks.map((link) => {
+          const active = isActive(link.path);
+          return (
+            <li key={link.path}>
+              <Link
+                to={link.path}
+                aria-current={active ? "page" : undefined} //  SEO + Accessibility
+                className={`link-underline ${
+                  active ? "link-underline-active" : ""
+                } focus-visible:outline-none focus-visible:ring-2 capitalize  focus-visible:ring-black focus-visible:rounded`}
+              >
+                {t(link.label)}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

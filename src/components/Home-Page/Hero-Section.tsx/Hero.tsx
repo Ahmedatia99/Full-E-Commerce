@@ -1,8 +1,13 @@
-import { useState, useEffect } from "react";
 import SidebarCategories from "./SidebarCategories";
 import HeroContent from "./HeroContent";
 import HeroImage from "./HeroImage";
-import CarouselDots from "./CarouselDots";
+
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination, Autoplay } from "swiper/modules";
+import i18n from "@/i18n";
 
 // Slides data
 const slides = [
@@ -27,28 +32,42 @@ const slides = [
 ];
 
 export default function Hero() {
-  const [current, setCurrent] = useState(0);
-
-  // Auto slide every 5s
-  useEffect(() => {
-    const interval = setInterval(
-      () => setCurrent((prev) => (prev + 1) % slides.length),
-      5000
-    );
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="flex flex-col md:flex-row ">
       <SidebarCategories />
-      <div className=" w-full bg-black text-white relative flex flex-col md:flex-row items-center justify-between flex-col-reverse md-flex-col  md:mt-8 md:ml-4 px-6 md:px-10 py-6  h-[85vh] md:h-[500px] overflow-hidden">
-        <HeroContent slide={slides[current]} />
-        <HeroImage slide={slides[current]} />
-        <CarouselDots
-          slides={slides}
-          current={current}
-          setCurrent={setCurrent}
-        />
+      <div className="w-full cursor-grab bg-black text-white relative flex md:flex-row items-center justify-between flex-col-reverse  md:mt-8 md:ml-4 px-6 md:px-10 py-6 h-[85vh] md:h-[500px] overflow-hidden">
+        <Swiper
+          key={i18n.dir()}
+          dir={i18n.dir()}
+          modules={[Pagination, Autoplay]}
+          pagination={{ clickable: true, dynamicBullets: true }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          loop={true}
+          className="w-full h-full cursor-pointer"
+          style={
+            {
+              // حجم النقطة
+              "--swiper-pagination-bullet-size": "16px",
+              "--swiper-pagination-bullet-horizontal-gap": "8px",
+
+              // اللون العادي
+              "--swiper-pagination-bullet-inactive-color": "#d1d5db", // gray-300
+              "--swiper-pagination-bullet-inactive-opacity": "1",
+
+              // اللون النشط
+              "--swiper-pagination-color": "#DB4444", // أحمر
+            } as React.CSSProperties
+          }
+        >
+          {slides.map((slide) => (
+            <SwiperSlide key={slide.id}>
+              <div className="flex flex-col md:flex-row-reverse items-center justify-between h-full">
+                <HeroImage slide={slide} />
+                <HeroContent slide={slide} />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );
