@@ -2,6 +2,7 @@ import { memo, useContext, useState } from "react";
 import { ShoppingCart, Check } from "lucide-react";
 import { CartContext } from "../../../hooks/CartContext";
 import type { cartProduct } from "@/types/product_Type";
+import { useTranslation } from "react-i18next";
 
 const AddToCartButton = ({
   fixed,
@@ -21,7 +22,7 @@ const AddToCartButton = ({
   const exists = cartContext?.cartProducts.some(
     (p) => p.key === ProductToAdd.key
   );
-
+const { t } = useTranslation();
   const HandleAddToCartBtn = () => {
     if (exists) {
       // If product already exists → increase its quantity
@@ -59,19 +60,19 @@ const AddToCartButton = ({
         // State shown right after adding product
         <>
           <Check aria-hidden="true" />
-          <span>Added to Cart</span>
+          <span>{t("Added to Cart")}</span>
         </>
       ) : exists ? (
         // If product already exists in the cart
         <>
           <ShoppingCart aria-hidden="true" />
-          <span>Increase Quantity</span>
+          <span>{t("Increase Quantity")}</span>
         </>
       ) : (
         // Default state (product not in cart yet)
         <>
           <ShoppingCart aria-hidden="true" />
-          <span>Add to Cart</span>
+          <span>{t("Add to Cart")}</span>
         </>
       )}
     </button>

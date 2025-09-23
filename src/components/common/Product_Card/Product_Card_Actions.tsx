@@ -6,9 +6,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import type { ProductCardProps } from "../../../types/Components_type";
 import type { productObject } from "@/types/product_Type";
+import { useTranslation } from "react-i18next";
 
 const ProductActions = ({
   componentProps,
@@ -17,9 +19,9 @@ const ProductActions = ({
   componentProps?: ProductCardProps;
   product: productObject;
 }) => {
-  const [liked, setLiked] = useState(false); // Track if the product is marked as favourite
-  const [mainImage, setMainImage] = useState(product.mainImgSRC); // Track the main image displayed
-
+  const [liked, setLiked] = useState(false);
+  const [mainImage, setMainImage] = useState(product.mainImgSRC);
+const { t } = useTranslation();
   return (
     <div className="icons absolute right-2 top-2 flex flex-col gap-3">
       {/* Favourite button */}
@@ -27,7 +29,7 @@ const ProductActions = ({
         <button
           aria-label={liked ? "Remove from favourites" : "Add to favourites"}
           onClick={() => setLiked(!liked)}
-          className="bg-white rounded-full w-7 h-7 flex items-center justify-center"
+          className="bg-white rounded-full w-7 h-7 flex items-center justify-center hover:scale-120 transition-transform"
         >
           {liked ? (
             <HeartFilled className="fill-red-500 cursor-pointer" />
@@ -43,21 +45,23 @@ const ProductActions = ({
           <DialogTrigger asChild>
             <button
               aria-label="View product details"
-              className="bg-white rounded-full w-7 h-7 flex items-center justify-center "
+              className="bg-white rounded-full w-7 h-7 flex items-center justify-center hover:scale-120 transition-transform"
             >
               <Eye className="cursor-pointer" />
             </button>
           </DialogTrigger>
 
-          <DialogContent className="max-w-4xl">
-            <DialogHeader className="">
+          <DialogContent className=" border-5 ">
+            <DialogHeader>
               <DialogTitle>{product.title}</DialogTitle>
+              <DialogDescription>
+                Quick view of product details including images and price.
+              </DialogDescription>
             </DialogHeader>
 
             <div className="grid grid-cols-3 gap-6">
-              {/* Thumbnails section */}
+              {/* Thumbnails */}
               <div className="flex flex-col gap-4">
-                {/* Default main image thumbnail */}
                 <img
                   src={product.mainImgSRC}
                   alt="main thumb"
@@ -66,7 +70,6 @@ const ProductActions = ({
                   className="rounded cursor-pointer"
                   onClick={() => setMainImage(product.mainImgSRC)}
                 />
-                {/* Additional color-based images */}
                 {product.colors
                   ?.flatMap((c) => c.images)
                   .map((img, i) => (
@@ -82,7 +85,7 @@ const ProductActions = ({
                   ))}
               </div>
 
-              {/* Main large preview image */}
+              {/* Main preview image */}
               <div className="col-span-2 flex items-center justify-center">
                 <img
                   src={mainImage}
@@ -94,13 +97,30 @@ const ProductActions = ({
               </div>
             </div>
 
-            {/* Product details: price  */}
+            {/* Product details */}
             <div className="mt-4 space-y-2">
-              <p className="text-lg font-semibold text-red-600">
-                {product.discountPrice
-                  ? `${product.discountPrice}$  (was ${product.price}$)`
-                  : `${product.price}$`}
+              <p className="text-3xl font-semibold text-red-600">
+                {product.discountPrice ? (
+                  <>
+                    {product.discountPrice}$
+                    <span className="text-gray-500 text-lg line-through ml-2">
+                      {product.price}$
+                    </span>
+                  </>
+                ) : (
+                  `${product.price}$`
+                )}
               </p>
+            </div>
+
+            {/* 🟢 View More Details button */}
+            <div className="mt-6">
+              <a
+                href={`/product/${product.id}`}
+                className="block w-full text-center bg-black text-white py-3 rounded-lg font-semibold hover:bg-[#DB4444] transition"
+              >
+                {t("VIEW MORE DETAILS")}
+              </a>
             </div>
           </DialogContent>
         </Dialog>
@@ -110,7 +130,7 @@ const ProductActions = ({
       {componentProps?.hasDeleteIcon && (
         <button
           aria-label="Delete product"
-          className="bg-white rounded-full w-7 h-7 flex items-center justify-center"
+          className="bg-white  rounded-full b w-7 h-7 flex items-center justify-center"
         >
           <Trash2 />
         </button>
