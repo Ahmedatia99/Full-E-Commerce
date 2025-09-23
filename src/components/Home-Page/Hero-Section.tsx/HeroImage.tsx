@@ -9,7 +9,7 @@ type HeroImageProps = {
 
 export default function HeroImage({ slide }: HeroImageProps) {
   return (
-    <div className="w-80 h-80 flex items-center justify-center overflow-hidden">
+    <div className="w-full h-full  flex items-center justify-center overflow-hidden">
       <img
         src={slide.img}
         alt={slide.title}

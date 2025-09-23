@@ -21,16 +21,16 @@ function Contact() {
         <Breadcrumbs />
 
         <section
-          className="flex flex-col md:flex-row items-start md:items-center justify-center gap-5   "
+          className="flex flex-col md:flex-row items-start md:items-start justify-center gap-5 "
           aria-labelledby="contact-title"
         >
           {/* Left Section: Contact Information */}
           <aside
-            className="left shadow-sm flex flex-col flex-1 justify-center p-7 gap-10 h-[500px]"
+            className="left shadow-sm flex flex-col flex-1 justify-center p-7 gap-10 h-full "
             aria-label="Contact Information"
           >
             {/* Phone Contact */}
-            <div className="left-top flex flex-col gap-5 ">
+            <div className=" flex flex-col gap-7 ">
               <div className="flex gap-3 items-center">
                 <div
                   className="bg-[#DB4444] rounded-full flex items-center justify-center p-2"
@@ -42,13 +42,13 @@ function Contact() {
                   {t("callToUs")}
                 </h2>
               </div>
-              <div className="flex flex-col gap-1 font-medium text-sm">
+              <div className="flex flex-col gap-5 font-medium text-md">
                 <p>{t("available247")}</p>
                 <p>
                   {t("phone")}:{" "}
                   <a
                     href="tel:+8801611112222"
-                    className="text-blue-600 underline"
+                    className="text-[#ff7979] underline "
                   >
                     +8801611112222
                   </a>
@@ -70,13 +70,13 @@ function Contact() {
                 </div>
                 <h2 className="font-semibold text-lg">{t("writeToUs")}</h2>
               </div>
-              <div className="flex flex-col gap-1 font-medium text-sm">
+              <div className="flex flex-col gap-5 font-medium text-md">
                 <p>{t("fillFormContact")}</p>
                 <p>
                   {t("email")}:{" "}
                   <a
                     href="mailto:customer@exclusive.com"
-                    className="text-blue-600 underline"
+                    className="text-[#ff7979]  underline"
                   >
                     customer@exclusive.com
                   </a>
@@ -85,7 +85,7 @@ function Contact() {
                   {t("email")}:{" "}
                   <a
                     href="mailto:support@exclusive.com"
-                    className="text-blue-600 underline"
+                    className="text-[#ff7979] underline"
                   >
                     support@exclusive.com
                   </a>
@@ -95,7 +95,7 @@ function Contact() {
           </aside>
 
           {/* Right Section: Contact Form */}
-          <div className="right flex flex-col flex-2 h-[500px] shadow-sm p-7 w-full gap-8">
+          <div className="right flex flex-col  flex-2 h-full shadow-sm p-7 w-full gap-8">
             <form
               onSubmit={handleSubmit}
               className="flex flex-col gap-6"

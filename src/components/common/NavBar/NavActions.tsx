@@ -45,13 +45,13 @@ function NavActions() {
 
           <DropdownMenuContent align="end" sideOffset={5} className="w-40">
             <Link to={"/Login"}>
-              <DropdownMenuItem className="cursor-pointer">
+              <DropdownMenuItem className="cursor-pointer capitalize">
                 {t("login")}
               </DropdownMenuItem>
             </Link>
 
             <Link to={"/SignUp"}>
-              <DropdownMenuItem className="cursor-pointer">
+              <DropdownMenuItem className="cursor-pointer capitalize">
                 {t("signUp")}
               </DropdownMenuItem>
             </Link>

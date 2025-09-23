@@ -7,9 +7,12 @@ import { useNavigate } from "react-router-dom";
 import { Swiper as SwiperType } from "swiper";
 import type { productObject } from "@/types/product_Type";
 import SectionHeader from "@/components/common/SectionHeader";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 
 const FlashSales = () => {
   const navigate = useNavigate();
+
   const toSalesPage = () => {
     navigate("/sales");
   };
@@ -61,20 +64,6 @@ const FlashSales = () => {
 
     {
       id: 3,
-      isNew: false,
-      title: "Gucci duffle bag",
-      price: 15,
-      description: "eeeeeeee",
-
-      discountPrice: 0,
-      ratingCount: 3,
-      avgRate: 4,
-      colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
-      mainImgSRC:
-        "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
-    },
-    {
-      id: 4,
       isNew: true,
       title: "Gucci duffle bagGucci duffle bag",
       price: 11,
@@ -89,7 +78,7 @@ const FlashSales = () => {
     },
 
     {
-      id: 5,
+      id: 4,
       isNew: true,
       title: "Gucci duffle bag",
       description: "eeeeeeee",
@@ -104,7 +93,7 @@ const FlashSales = () => {
     },
 
     {
-      id: 6,
+      id: 5,
       isNew: true,
       title: "Gucci duffle bag",
       description: "eeeeeeee",
@@ -120,6 +109,19 @@ const FlashSales = () => {
     {
       description: "eeeeeeee",
 
+      id: 6,
+      isNew: true,
+      title: "Gucci duffle bag",
+      price: 11,
+      discountPrice: 1,
+      ratingCount: 50,
+      avgRate: 3,
+      colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
+      mainImgSRC:
+        "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
+    },
+    {
+      description: "eeeeeeee",
       id: 7,
       isNew: true,
       title: "Gucci duffle bag",
@@ -133,21 +135,8 @@ const FlashSales = () => {
     },
     {
       description: "eeeeeeee",
-      id: 8,
-      isNew: true,
-      title: "Gucci duffle bag",
-      price: 11,
-      discountPrice: 1,
-      ratingCount: 50,
-      avgRate: 3,
-      colors: [{ color: "red", quantity: 20, images: [], sizes: [] }],
-      mainImgSRC:
-        "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png",
-    },
-    {
-      description: "eeeeeeee",
 
-      id: 9,
+      id: 8,
       isNew: true,
       title: "Gucci duffle bag",
       price: 11,
@@ -160,18 +149,24 @@ const FlashSales = () => {
     },
   ];
   const previewProducts = products.slice(0, 15);
+  const { t } = useTranslation();
+
   return (
     <div>
       <SectionHeader
-        label="Today's"
-        title="Flash Sales"
+        label={t("Today's")}
+        title={t("Flash Sales")}
         swiperRef={swiperRef}
-        className="mb-10"
+        countdownTarget={new Date(new Date().getTime() + 24 * 60 * 60 * 1000)} // 24 hours from now
+        className="mb-10  "
       />
       <Swiper
+        key={i18n.dir()}
+        dir={i18n.dir()}
         modules={[Navigation]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         spaceBetween={20}
+        
         slidesPerView={1}
         breakpoints={{
           640: { slidesPerView: 2 },
@@ -185,8 +180,13 @@ const FlashSales = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="flex justify-center mt-8">
-        <Button onClick={toSalesPage}>view all products</Button>
+      <div className="flex justify-center mt-12">
+        <Button
+          className="h-15 hover tranform capitalize hover:scale-105 transition duration-300"
+          onClick={toSalesPage}
+        >
+          {t("seeMoreDeals")}
+        </Button>
       </div>
     </div>
   );
