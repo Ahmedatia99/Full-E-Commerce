@@ -3,8 +3,10 @@ import PlaceOrderButton from "./PlaceOrderButton";
 import paymentMethodIcon from "@/assets/images/paymentMethodIcon (1).webp";
 import OrderSuccessDialog from "./OrderSuccessDialog";
 import { useCart } from "@/hooks/useCart";
+import { useTranslation } from "react-i18next";
 
 const OrderSummary = () => {
+  const { t } = useTranslation();
   const { cartProducts, getTotalPrice } = useCart();
 
   // Cart subtotal
@@ -58,15 +60,15 @@ const OrderSummary = () => {
 
       {/* Totals */}
       <div className="flex justify-between mb-2 text-gray-700 font-semibold">
-        <span>Subtotal:</span>
+        <span>{t("subTotalLabel")}</span>
         <span>{formatCurrency(subtotal)}</span>
       </div>
       <div className="flex justify-between mb-2 text-gray-700 font-semibold">
-        <span>Shipping:</span>
-        <span className="text-green-600">Free</span>
+        <span>{t("shippingLabel")}</span>
+        <span className="text-green-600">{t("freeLabel")}</span>
       </div>
       <div className="flex justify-between font-semibold text-lg text-gray-900 border-t pt-3">
-        <span>Total:</span>
+        <span>{t("totalLabel")}</span>
         <span>{formatCurrency(subtotal)}</span>
       </div>
 
@@ -86,7 +88,7 @@ const OrderSummary = () => {
               className="w-5 h-5 accent-black cursor-pointer"
               aria-label="Bank Payment"
             />
-            <span className="text-gray-800 font-medium">Bank</span>
+            <span className="text-gray-800 font-medium">{t("bankLabel")}</span>
           </div>
           <div className="flex items-center gap-2 ml-2 text-2xl text-gray-700">
             <img
@@ -109,7 +111,7 @@ const OrderSummary = () => {
             className="w-5 h-5 accent-black cursor-pointer"
             aria-label="Cash on Delivery"
           />
-          <span className="text-gray-800 font-medium">Cash on Delivery</span>
+          <span className="text-gray-800 font-medium">{t("codLabel")}</span>
         </label>
       </fieldset>
 
@@ -123,7 +125,7 @@ const OrderSummary = () => {
       >
         <input
           type="text"
-          placeholder="Coupon Code"
+          placeholder={t("couponCodePlaceHolderInput")}
           aria-label="Coupon Code"
           value={coupon}
           onChange={(e) => setCoupon(e.target.value)}
@@ -133,7 +135,7 @@ const OrderSummary = () => {
           type="submit"
           className="bg-[#DB4444] flex-1 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300"
         >
-          Apply Coupon
+          {t("applyCouponBtn")}
         </button>
       </form>
 

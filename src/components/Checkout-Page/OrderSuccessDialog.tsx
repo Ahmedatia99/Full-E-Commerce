@@ -23,10 +23,9 @@ const OrderSuccessDialog: React.FC<OrderSuccessDialogProps> = ({
   const { clearCart } = useCart();
   // ✅ handle button click (clear cart + close dialog + navigate home)
   const handleGoHome = () => {
-    console.log("🟢 Closing success dialog and clearing cart...");
-    clearCart();
     onOpenChange(false);
     navigate("/");
+    clearCart();
   };
 
   // ✅ handle dialog closing (if user presses ESC or clicks outside)
