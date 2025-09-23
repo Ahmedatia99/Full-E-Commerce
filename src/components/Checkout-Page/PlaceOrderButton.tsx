@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import type { PlaceOrderButtonProps } from "@/types/order";
+import { useTranslation } from "react-i18next";
 
 const PlaceOrderButton: React.FC<PlaceOrderButtonProps> = ({
   cartProducts,
@@ -8,6 +9,7 @@ const PlaceOrderButton: React.FC<PlaceOrderButtonProps> = ({
   paymentMethod,
   setSuccessOpen,
 }) => {
+  const { t } = useTranslation();
   const handleSubmit = () => {
     console.log("🚀 handleSubmit called"); // Function entry log
 
@@ -57,7 +59,7 @@ const PlaceOrderButton: React.FC<PlaceOrderButtonProps> = ({
       className="w-full mt-5 bg-[#DB4444] transition duration-300 text-white py-3 rounded hover:bg-red-700 text-lg font-semibold"
       onClick={handleSubmit}
     >
-      Place Order
+      {t("placeOrderBtn")}
     </Button>
   );
 };

@@ -3,11 +3,14 @@ import Breadcrumbs from "../common/Breadcrumbs";
 import BillingForm from "./BillingForm";
 import OrderSummary from "./OrderSummary";
 import EmptyCartMessage from "./EmptyCartMessage";
+import { useTranslation } from "react-i18next";
 
 // ======================
 // 🔹 Checkout Component
 // ======================
 const Checkout = () => {
+  const { t } = useTranslation();
+
   const { cartCount } = useCart();
 
   // ======================
@@ -34,7 +37,7 @@ const Checkout = () => {
                 id="billing-heading"
                 className="text-2xl font-bold mb-5 text-gray-900"
               >
-                Billing Details
+                {t("billingDetails")}
               </h1>
 
               {/* Billing Form with validation errors */}
@@ -47,7 +50,7 @@ const Checkout = () => {
                 id="summary-heading"
                 className="text-xl font-bold mb-5 text-gray-900"
               >
-                Order Summary
+                {t("orderSummary")}
               </h2>
 
               <OrderSummary />

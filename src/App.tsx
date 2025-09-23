@@ -9,7 +9,7 @@ import ProductsDetails from "./Pages/products-Details-Page";
 import HomePage from "./Pages/Home-Page";
 import SignUp from "./Pages/Signup-Page";
 import Login from "./Pages/Login-Page";
-import AccountPage from "./Pages/Profile-Page";
+import AccountPage from "./Pages/Account-Page";
 import { useTranslation } from "react-i18next";
 import About from "./Pages/About-Page";
 
