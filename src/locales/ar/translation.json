@@ -55,7 +55,6 @@
   "aboutQualityDesc": "نضمن جودة كل منتج تشتريه من متجرنا.",
   "colours": "الالوان المتاحة :",
 
-
   "billingDetails": "تفاصيل الفاتورة",
   "firstNameInput": "اسمك الأول",
   "firstNamePlaceHolderInput": "ادخل اسمك الأول",
@@ -102,7 +101,7 @@
   "myCancelationsLable": "إلغاءات طلباتي",
   "myWishListLabel": "قائمة الأمنيات",
   "viewSavedItemsLabel": "عرض العناصر المحفوظة",
-  "account": "حسابي"
+  "account": "حسابي",
 
   "seeMoreDeals": "شاهد المزيد من العروض",
   "Days": "أيام",
@@ -154,5 +153,4 @@
   "10% off": "خصم 10%",
   "your first order.": "على طلبك الأول.",
   "Enter your email": "أدخل بريدك الإلكتروني"
-
 }

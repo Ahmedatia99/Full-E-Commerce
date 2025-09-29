@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { mockUser } from "../common/mockUser";
-import type { UserForm } from "@/types/user_Type";
 import AccountSidebar from "./Account-SideBar";
 import { Button } from "../ui/button";
 import { useTranslation } from "react-i18next";
@@ -61,7 +58,6 @@ function AccountDetails() {
               <input
                 type="email"
                 name="email"
-                disabled
                 className="w-full rounded-md px-3 py-4 bg-gray-100"
                 required
               />

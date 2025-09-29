@@ -1,11 +1,15 @@
 import SectionHeader from "@/components/common/SectionHeader";
 import CategoryCard from "./CategoryCard";
-import woman from "@/assets/images/fashion.png";
-import ps5 from "@/assets/images/ps5.png";
-import speakers from "@/assets/images/speakers.png";
-import perfume from "@/assets/images/perfume.png";
+
 import { useTranslation } from "react-i18next";
+import Products from "../../../product.json";
+import type { productObject } from "@/types/product_Type";
+import { getCloudinaryUrl } from "@/utils/ProductStats";
+
 function Featured() {
+  const products = Products as productObject[];
+  const previewProducts = products.filter((p) => p.isFeatured).slice(0, 4);
+
   const { t } = useTranslation();
   return (
     <section className="my-20">
@@ -20,7 +24,10 @@ function Featured() {
         <CategoryCard
           title="PlayStation 5"
           description="Black and White version of the PS5 coming out on sale."
-          image={ps5}
+          image={getCloudinaryUrl(previewProducts[0].mainImgSRC, {
+            h: 0,
+            w: 0,
+          })}
           className=""
         />
 
@@ -29,20 +36,29 @@ function Featured() {
           <CategoryCard
             title="Women’s Collections"
             description="Featured woman collections that give you another vibe."
-            image={woman}
+            image={getCloudinaryUrl(previewProducts[1].mainImgSRC, {
+              h: 0,
+              w: 0,
+            })}
           />
 
           <div className="grid grid-cols-2 max-[400px]:grid-cols-1 gap-5 md:gap-8">
             <CategoryCard
               title="Speakers"
               description="Amazon wireless speakers"
-              image={speakers}
+              image={getCloudinaryUrl(previewProducts[2].mainImgSRC, {
+                h: 0,
+                w: 0,
+              })}
               className="h-full"
             />
             <CategoryCard
               title="Perfume"
               description="GUCCI INTENSE OUD EDP"
-              image={perfume}
+              image={getCloudinaryUrl(previewProducts[3].mainImgSRC, {
+                h: 0,
+                w: 0,
+              })}
               className="h-full"
             />
           </div>
