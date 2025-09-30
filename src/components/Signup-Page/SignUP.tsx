@@ -1,6 +1,5 @@
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import SignUpForm from "@/components/Signup-Page/SignUpForm";
-import signupImg from "@/assets/images/login-illustration.jpg";
 function SignUP() {
   return (
     <div>

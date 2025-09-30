@@ -87,7 +87,7 @@
   "emailPlaceHolderInput": "Enter your email",
   "saveInfoLabel": "Save this information for faster checkout next time",
   "orderSummary": "Order summary",
-
+  "seeMoreDeals": "View More",
   "subTotalLabel": "Sub Total",
   "freeLabel": "Free",
   "shippingLabel": "Delivery fees",
@@ -109,7 +109,6 @@
   "confirmNewPasswordInput": "Confirm New Password",
   "saveChangesBtn": "Save Changes",
   "cancelBtn": "Cancel",
-
   "manageMyAccountLabel": "Manage My Account",
   "myProfileLabel": "My Profile",
   "paymentOptionLabel": "Payment Options",
