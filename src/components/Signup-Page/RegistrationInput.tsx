@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 interface RegistrationInputProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder: string;
+  placeholder?: string;
   name: string;
   type: string;
   className?: string;
@@ -42,7 +42,7 @@ function RegistrationInput({
         name={name}
         placeholder={t(placeholder)}
         value={value}
-        onChange={onChange}
+        onChange={onChange} //remove 
         className={`w-full border-2 border-gray-300 ${className}`}
         required
         aria-label={label ? t(label) : t(placeholder)}
