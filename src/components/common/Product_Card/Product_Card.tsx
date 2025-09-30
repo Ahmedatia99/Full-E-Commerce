@@ -10,6 +10,7 @@ import type {
   SingleProductCardComponentProps,
 } from "@/types/Components_type";
 import { toCartProduct } from "@/utils/ProductDTO";
+import { Link } from "react-router-dom";
 
 const Single_Product_Card = React.memo(function Single_Product_Card({
   componentProps,
@@ -28,16 +29,16 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
       <div className="group   flex flex-col justify-center relative rounded bg-[#f5f5f5] overflow-hidden">
         {/* Product image */}
         <div>
-          <a href={`/product/${product.id}`} itemProp="url">
+          <Link to={`/product/${product.id}`} itemProp="url">
             <ProductImage
               src={product.mainImgSRC}
               alt={product.title}
               itemProp="image"
             />
-          </a>
+          </Link>
         </div>
 
-        {/* Add to Cart button (يظهر من الشمال لليمين) */}
+        {/* Add to Cart button */}
         <div
           className="absolute bottom-0 left-0 w-full
              opacity-0 translate-y-[100%]
@@ -45,7 +46,7 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
              transition-all duration-500 ease-in-out"
         >
           <AddToCartButton
-            fixed={true}
+            fixed
             className="w-full bg-black text-white py-3 font-semibold text-center rounded-none"
             ProductToAdd={toCartProduct(product, selectedColor)}
           />
@@ -67,7 +68,7 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
         {/* Extra actions */}
         <ProductActions componentProps={componentProps} product={product} />
 
-        {/* 👇 زرار View More Details */}
+        {/*View More Details */}
       </div>
 
       {/* Product details */}
