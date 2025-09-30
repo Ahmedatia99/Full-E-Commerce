@@ -9,13 +9,11 @@ import HomePage from "./Pages/Home-Page";
 import SignUp from "./Pages/Signup-Page";
 import Login from "./Pages/Login-Page";
 import AccountPage from "./Pages/Account-Page";
-import { useTranslation } from "react-i18next";
 import About from "./Pages/About-Page";
+import FavouritePage from "./Pages/FavouritePage";
 import ProductsPage from "./Pages/ProductsPage";
 
 function App() {
-  const { t } = useTranslation();
-
   return (
     <>
       <Routes>
@@ -30,6 +28,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Cart" element={<CartPage />} />
           <Route path="/Checkout" element={<CheckoutPage />} />
+          <Route path="/Favourites" element={<FavouritePage />} />
         </Route>
       </Routes>
     </>

@@ -20,14 +20,12 @@ function AccountDetails() {
           onSubmit={handleSubmit}
           className="  flex flex-col justify-center gap-4  w-full"
         >
-          <h1 className="text-xl font-semibold text-[#DB4444] ">
-            {t("editProfileHeader")}
-          </h1>
+          <h1 className="heading  text-main ">{t("editProfileHeader")}</h1>
           {/* First Row */}
           <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 sm:gap-10 ">
             <div>
               <label className="block text-sm font-medium mb-1">
-                {t("firstNameInput")} <span className="text-red-600">*</span>
+                {t("firstNameInput")} <span className="text-main">*</span>
               </label>
               <input
                 type="text"

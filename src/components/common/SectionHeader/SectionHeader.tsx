@@ -6,6 +6,7 @@ import type { SectionHeaderProps } from "./SectionHeader.types";
 import "./SectionHeader.styles.css";
 import type { Swiper as SwiperType } from "swiper";
 
+
 import type { RefObject } from "react";
 
 // Props for SectionHeader with optional swiperRef for navigation

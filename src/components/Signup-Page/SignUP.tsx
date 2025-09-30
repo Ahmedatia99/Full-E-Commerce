@@ -1,5 +1,5 @@
 import Breadcrumbs from "@/components/common/Breadcrumbs";
-import SignUpForm from "@/components/Signup-Page/SignUpForm";
+import SignUpForm from "./SignUPForm";
 function SignUP() {
   return (
     <div>

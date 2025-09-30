@@ -9,9 +9,9 @@ import FlashSales from "@/components/Home-Page/FlashSales-Section/FlashSales";
 function HomePage() {
   return (
     <>
-      <div className="container mx-auto ">
-        <div className="flex flex-col gap-15">
-          <Hero />
+      <div className="md:container flex flex-col gap-15 mx-auto ">
+        <Hero  />
+        <div className="flex container mx-auto flex-col gap-15">
           <div className="mx-3">
             <FlashSales />
             <Categories />
