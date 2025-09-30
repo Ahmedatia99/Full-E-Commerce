@@ -1,4 +1,3 @@
-import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import StarRating from "../common/Product_Card/Product_Card_Rating";
 
@@ -17,24 +16,9 @@ interface ProductInfoProps {
 const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
   const { t } = useTranslation();
 
-  // use => useMemo to avoid recalculating discount on every render
-  const discountedPrice = useMemo(() => {
-    const discountPercent = product.discountPrice || 0;
-    let priceAfterDiscount = product.price;
-
-    if (discountPercent > 0) {
-      priceAfterDiscount =
-        product.price - (product.price * discountPercent) / 100;
-      if (priceAfterDiscount < 0 || discountPercent >= 100) {
-        priceAfterDiscount = 0;
-      }
-    }
-    return { discountPercent, priceAfterDiscount };
-  }, [product.price, product.discountPrice]);
-
   return (
     <section aria-labelledby="product-title" className="flex flex-col gap-3">
-      <h1 id="product-title" className="text-3xl font-semibold">
+      <h1 id="product-title" className="heading ">
         {product.title}
       </h1>
 
@@ -61,12 +45,10 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
 
       {/* Price with discount */}
       <span className="text-3xl font-semibold">
-        ${discountedPrice.priceAfterDiscount.toFixed(2)}
-        {discountedPrice.discountPercent > 0 && (
-          <span className="ml-4 text-lg text-gray-400 line-through font-normal">
-            ${product.price}
-          </span>
-        )}
+        ${product.discountPrice}
+        <span className="ml-4 text-lg text-gray-400 line-through font-normal">
+          ${product.price}
+        </span>
       </span>
 
       {/* Description */}

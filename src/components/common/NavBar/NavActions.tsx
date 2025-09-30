@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import Search_Input from "./Search_Input";
-import { CartContext } from "../../../hooks/CartContext";
 import { useWishlist } from "@/hooks/WishListContext/useWishlist";
+import { CartContext } from "@/hooks/CartContext";
 
 function NavActions() {
   const cartContext = useContext(CartContext);

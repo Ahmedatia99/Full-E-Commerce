@@ -1,8 +1,9 @@
 import { memo, useContext, useState } from "react";
 import { ShoppingCart, Check } from "lucide-react";
-import { CartContext } from "../../../hooks/CartContext";
-import type { cartProduct } from "@/types/product_Type";
+
 import { useTranslation } from "react-i18next";
+import type { cartProduct } from "@/types/cart";
+import { CartContext } from "@/hooks/CartContext";
 
 const AddToCartButton = ({
   fixed,

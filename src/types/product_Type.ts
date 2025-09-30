@@ -15,10 +15,10 @@ export interface productObject {
   colors: colorsVariants[];
   mainImgSRC: string;
   description: string;
+  category?: string;
+  subCategory?: string;
   returnDelivery?: number;
   DeliveryPostalCode?: number[];
-  category: string;
-  subCategory: string;
 }
 
 export interface colorsVariants {

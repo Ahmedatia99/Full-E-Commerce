@@ -19,12 +19,12 @@ const CategoryCard: FC<CategoryCardProps> = ({
 }) => {
   return (
     <div
-      className={`relative group overflow-hidden ${className} bg-black rounded-sm px-4 md:px-5 lg:px-10 py-0 md:py-4`}
+      className={`relative group flex justify-center items-center  overflow-hidden ${className} bg-black rounded-sm px-4 md:px-5 lg:px-10 py-0 md:py-4`}
     >
       <img
         src={image}
         alt={title}
-        className="w-full h-full aspect-auto object-cover rounded-xl brightness-50 transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:brightness-100"
+        className="w-[70%]   h-full aspect-auto object-cover rounded-xl brightness-50 transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:brightness-100"
       />
 
       <div className="absolute bottom-6 left-6 text-white">

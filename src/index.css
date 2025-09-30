@@ -185,23 +185,38 @@
 
 .link-underline::after {
   content: "";
-  @apply absolute -bottom-1 h-[2px] w-0 bg-black transition-all duration-300;
-  inset-inline-start: 0; /* بدل left/right --> يشتغل مع LTR و RTL */
+  @apply absolute -bottom-[2px] h-[2px] w-0 bg-black transition-all duration-300;
+  inset-inline-start: 0; /*left / right LTR RTL */
 }
 
 .link-underline:hover::after {
   @apply w-full;
 }
+
+/* Active */
 .input-base {
   @apply w-full bg-gray-100 rounded px-3 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-[#DB4444];
 }
-/* لو اللينك Active */
+/* Active */
 .link-underline-active {
-  @apply text-black font-medium;
+  @apply text-black font-medium relative; 
 }
 
 .link-underline-active::after {
   content: "";
-  @apply absolute -bottom-1 h-[2px] w-full bg-black;
-  inset-inline-start: 0; /* يشتغل صح مع الاتجاهين */
+  @apply absolute -bottom-[2px] h-[2px] w-full bg-black;
+  inset-inline-start: 0;
+}
+
+.heading{
+  @apply  font-bold text-3xl  md:text-4xl ;
+}
+.specialHeading{
+   @apply  font-bold text-3xl md:text-4xl  xl:text-6xl ;
+}
+.title{
+ 
+}
+.subTitle{
+
 }

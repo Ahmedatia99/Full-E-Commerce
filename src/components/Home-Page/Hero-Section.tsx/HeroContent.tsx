@@ -17,7 +17,7 @@ export default function HeroContent({ slide }: HeroContentProps) {
       <p className="text-xl flex items-center justify-center md:justify-start gap-6">
         <span className="text-white text-6xl"></span> {t(slide.title)}
       </p>
-      <h1 className="text-3xl sm:text-4xl xl:text-6xl font-bold mt-3 leading-snug">
+      <h1 className="specialHeading mt-3 leading-snug">
         {t(slide.desc)}
       </h1>
       <button
