@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import emptyCartImg from "@/assets/images/empty-cart.jpg";
 import { useTranslation } from "react-i18next";
 import { Button } from "../ui/button";
 
@@ -29,9 +28,10 @@ function EmptyCartMessage() {
     >
       {/* 🛒 Empty cart illustration */}
       <img
-        src={emptyCartImg}
+        src="https://res.cloudinary.com/dx07dkalc/image/upload/w_300,q_auto,f_auto/v1759134952/Empty-Cart_k6tnyi.jpg
+"
         alt="Illustration of an empty shopping cart"
-        className="w-100 h-100 mb-6"
+        className=" mb-6"
         loading="lazy" // Performance: lazy load image
       />
 

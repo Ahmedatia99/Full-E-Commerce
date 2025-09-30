@@ -4,7 +4,9 @@ export interface products {
 
 export interface productObject {
   id: number;
-  isNew: boolean;
+  isNew?: boolean;
+  isFlash?: boolean;
+  isFeatured?: boolean;
   title: string;
   price: number;
   discountPrice?: number;
@@ -15,22 +17,13 @@ export interface productObject {
   description: string;
   returnDelivery?: number;
   DeliveryPostalCode?: number[];
+  category: string;
+  subCategory: string;
 }
 
 export interface colorsVariants {
   color: string;
   quantity: number;
   images: string[];
-  sizes: string[];
+  sizes?: string[];
 }
-
-export type cartProduct = {
-  id: number;
-  mainImage: string;
-
-  title: string;
-  price: number;
-  quantity: number;
-  color: string | undefined;
-  key: string;
-};

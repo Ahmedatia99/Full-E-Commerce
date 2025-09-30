@@ -1,4 +1,4 @@
-import type { cartProduct } from "../../types/product_Type";
+import type { cartProduct } from "@/types/product_Type";
 import React, { type ReactNode } from "react";
 
 type CartContextType = {

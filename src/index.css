@@ -175,10 +175,8 @@
    Swiper & Form Utilities
 ========================= */
 .swiper-wrapper {
-  row-gap: 40px; 
+  row-gap: 40px;
 }
-
-
 
 /* globals.css */
 .link-underline {
@@ -194,7 +192,9 @@
 .link-underline:hover::after {
   @apply w-full;
 }
-
+.input-base {
+  @apply w-full bg-gray-100 rounded px-3 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-[#DB4444];
+}
 /* لو اللينك Active */
 .link-underline-active {
   @apply text-black font-medium;

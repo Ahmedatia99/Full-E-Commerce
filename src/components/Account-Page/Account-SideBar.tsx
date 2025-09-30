@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 function AccountSidebar() {
   const { t } = useTranslation();
   return (
-    <aside className="md:w-[30%]  w-full flex flex-col justify-start  pr-5">
+    <aside className="md:w-[30%]  w-full flex flex-col justify-start  pr-5 ml-3">
       <Accordion type="single" collapsible className="w-full">
         {/* Manage My Account */}
         <AccordionItem value="account">

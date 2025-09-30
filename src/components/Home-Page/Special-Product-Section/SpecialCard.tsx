@@ -1,8 +1,8 @@
 import CountdownTimer from "../CountdownTimer/CountdownTimer";
 import { Button } from "@/components/ui/button";
-import specialImg from "@/assets/images/boombox.png";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { getCloudinaryUrl } from "@/utils/ProductStats";
 
 function SpecialCard() {
   const navigate = useNavigate();
@@ -54,7 +54,10 @@ function SpecialCard() {
         {/* Product Image */}
         <div className="w-full md:w-auto flex justify-center">
           <img
-            src={specialImg}
+            src={getCloudinaryUrl(
+              "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137493/JBL_BOOMBOX_2_HERO_020_x1_mpjgk8.png",
+              { w: 320, h: 320 }
+            )}
             alt="Limited-time special music boombox product"
             loading="lazy"
             decoding="async"

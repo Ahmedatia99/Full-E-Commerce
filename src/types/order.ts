@@ -1,4 +1,4 @@
-import type { cartProduct } from "./product_Type";
+import type { cartProduct } from "./cart";
 
 export interface OrderSummaryProps {
   cartProducts: cartProduct[];

@@ -64,4 +64,4 @@ const PlaceOrderButton: React.FC<PlaceOrderButtonProps> = ({
   );
 };
 
-export default PlaceOrderButton;
+export default React.memo(PlaceOrderButton);
