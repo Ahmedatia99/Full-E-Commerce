@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Input } from "../ui/input";
 
 const BillingForm = () => {
+  const { t } = useTranslation();
+
   const [saveInfo, setSaveInfo] = useState(false);
 
   // ✅ Fill form from localStorage
@@ -54,37 +58,38 @@ const BillingForm = () => {
       {/* First Name */}
       <div>
         <label htmlFor="first-name" className="label-base">
-          First Name <span className="text-red-600">*</span>
+          {t("firstNameInput")} <span className="text-red-600">*</span>
         </label>
-        <input
+        <Input
           id="first-name"
           name="firstName"
           type="text"
           required
           aria-required="true"
           className="input-base"
-          placeholder="Enter your first name"
+          placeholder={t("firstNamePlaceHolderInput")}
         />
       </div>
 
       {/* Company */}
       <div>
-        <label htmlFor="company" className="label-base">
-          Company Name
+        <label htmlFor="companyInput" className="label-base">
+          {t("companyInput")}
         </label>
         <input
           id="company"
           name="company"
           type="text"
           className="input-base"
-          placeholder="Enter company (optional)"
+          placeholder={t("complanyPlaceHolderInput")}
         />
       </div>
 
       {/* Street */}
       <div>
         <label htmlFor="street" className="label-base">
-          Street Address <span className="text-red-600">*</span>
+          {t("streetAdressInput")}
+          <span className="text-red-600">*</span>
         </label>
         <input
           id="street"
@@ -93,28 +98,31 @@ const BillingForm = () => {
           required
           aria-required="true"
           className="input-base"
-          placeholder="123 Main St"
+          placeholder={t("streetPlaceHolderInput")}
         />
       </div>
 
       {/* Apartment */}
       <div>
         <label htmlFor="apartment" className="label-base">
-          Apartment, floor, etc. (optional)
+          {t("ApartmentAddressInput")}
+          <span className="text-red-600">*</span>
         </label>
         <input
           id="apartment"
           name="apartment"
           type="text"
           className="input-base"
-          placeholder="Apt, suite, unit, etc."
+          required
+          placeholder={t("apartmenAddresstPlaceHolderInput")}
         />
       </div>
 
       {/* City */}
       <div>
         <label htmlFor="city" className="label-base">
-          Town/City <span className="text-red-600">*</span>
+          {t("cityInput")}
+          <span className="text-red-600">*</span>
         </label>
         <input
           id="city"
@@ -123,14 +131,15 @@ const BillingForm = () => {
           required
           aria-required="true"
           className="input-base"
-          placeholder="Enter your city"
+          placeholder={t("cityPlaceHolderInput")}
         />
       </div>
 
       {/* Phone */}
       <div>
         <label htmlFor="phone" className="label-base">
-          Phone Number <span className="text-red-600">*</span>
+          {t("phoneInput")}
+          <span className="text-red-600">*</span>
         </label>
         <input
           id="phone"
@@ -140,14 +149,15 @@ const BillingForm = () => {
           required
           aria-required="true"
           className="input-base"
-          placeholder="+20 100 123 4567"
+          placeholder={t("phonePlaceHolderInput")}
         />
       </div>
 
       {/* Email */}
       <div>
         <label htmlFor="email" className="label-base">
-          Email Address <span className="text-red-600">*</span>
+          {t("emailInput")}
+          <span className="text-red-600">*</span>
         </label>
         <input
           id="email"
@@ -157,7 +167,7 @@ const BillingForm = () => {
           required
           aria-required="true"
           className="input-base"
-          placeholder="example@email.com"
+          placeholder={t("emailPlaceHolderInput")}
         />
       </div>
 
@@ -177,7 +187,7 @@ const BillingForm = () => {
           id="save-info-text"
           className="text-sm text-gray-600 cursor-pointer"
         >
-          Save this information for faster checkout next time
+          {t("saveInfoLabel")}
         </label>
       </div>
     </form>

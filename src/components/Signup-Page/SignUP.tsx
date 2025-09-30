@@ -1,9 +1,9 @@
 import Breadcrumbs from "@/components/common/Breadcrumbs";
-import SignUpForm from "@/components/Signup-Page/SignForms";
+import SignUpForm from "@/components/Signup-Page/SignUpForm";
 import signupImg from "@/assets/images/login-illustration.jpg";
 function SignUP() {
   return (
-      <div >
+    <div>
       {/*  Breadcrumbs */}
       <Breadcrumbs />
 
@@ -16,7 +16,7 @@ function SignUP() {
         <div className="hidden lg:flex justify-center items-center">
           <img
             className="w-full h-full object-cover overflow-hidden rounded-lg"
-            src={signupImg}
+            src="https://res.cloudinary.com/dx07dkalc/image/upload/w_300,q_auto,f_auto/v1759134960/Login_vzwnrp.jpg"
             alt="Illustration showing sign up and shopping experience"
             loading="lazy"
           />
@@ -33,7 +33,7 @@ function SignUP() {
         </section>
       </main>
     </div>
-  )
+  );
 }
 
-export default SignUP
+export default SignUP;

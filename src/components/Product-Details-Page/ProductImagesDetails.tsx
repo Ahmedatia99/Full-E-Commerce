@@ -1,4 +1,27 @@
+/**
+ * ProductImages component displays a set of product images with selectable thumbnails.
+ *
+ * - Shows a grid of image thumbnails allowing users to select the main image.
+ * - Automatically sets the main image to the first image if none is selected or if the selected image is not in the list.
+ * - Uses accessible roles and aria attributes for better screen reader support.
+ * - Renders the selected main image in a larger view.
+ *
+ * Props:
+ * @param {string} title - The product title, used for alt text.
+ * @param {string[]} images - Array of image URLs for the product.
+ * @param {string|null} mainImage - The currently selected main image URL.
+ * @param {(img: string) => void} setMainImage - Callback to set the main image.
+ *
+ * Usage:
+ * <ProductImages
+ *   title="Product Name"
+ *   images={["img1.jpg", "img2.jpg"]}
+ *   mainImage={mainImage}
+ *   setMainImage={setMainImage}
+ * />
+ */
 import React, { useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 interface ProductImagesProps {
   title: string;
@@ -13,7 +36,6 @@ const ProductImages: React.FC<ProductImagesProps> = ({
   mainImage,
   setMainImage,
 }) => {
-  // عند أول رندر، اجعل الماين امج أول عنصر من الصور إذا لم تكن محددة
   useEffect(() => {
     if (images.length > 0 && (!mainImage || !images.includes(mainImage))) {
       setMainImage(images[0]);
@@ -28,7 +50,7 @@ const ProductImages: React.FC<ProductImagesProps> = ({
         aria-label="Select product image"
       >
         {images.map((img, idx) => (
-          <button
+          <Button
             key={idx}
             type="button"
             role="radio"
@@ -36,32 +58,30 @@ const ProductImages: React.FC<ProductImagesProps> = ({
             aria-label={`Select product image ${idx + 1}`}
             tabIndex={0}
             onClick={() => setMainImage(img)}
-            className={`cursor-pointer border-1 rounded-md flex w-full max-[1024px]:h-full max-[1350px]:h-30 min-[1350px]:h-35 items-center justify-center bg-[#F5F5F5] transition ${
-              mainImage === img
-                ? "border-gray-700 ring-2 ring-gray-700"
-                : "border-transparent"
+            className={`cursor-pointer border rounded-md flex w-full max-[1024px]:h-full max-[1350px]:h-30 min-[1350px]:h-35 bg-[#F5F5F5] transition ${
+              mainImage === img ? "border-main border-2 " : "border-transparent"
             }`}
           >
             <img
               src={img}
-              alt={`Thumbnail of ${title} - image ${idx + 1}`}
+              alt={`${title} - product image ${idx + 1}`}
               loading="lazy"
-              className="w-full h-full object-contain max-[325px]:p-1 p-2 sm:p-5"
+              className="w-full h-full object-contain  max-sm:px-2"
             />
-          </button>
+          </Button>
         ))}
       </div>
 
       {/* main image */}
       <div
-        className="rounded-md bg-[#F5F5F5] flex items-center justify-center"
+        className="rounded-md bg-gray-200 flex items-center justify-center"
         aria-live="polite"
       >
         <img
           src={mainImage || "/placeholder.png"}
           alt={title}
           loading="lazy"
-          className="px-5 w-[80%] object-contain"
+          className="max-h-[500px] object-contain p-5"
         />
       </div>
     </div>

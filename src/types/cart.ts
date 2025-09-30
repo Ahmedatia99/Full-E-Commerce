@@ -1,6 +1,3 @@
-import React from "react";
-import type { cartProduct } from "../types/product_Type";
-
 export type CartContextType = {
   cartProducts: cartProduct[];
   addToCart: (product: cartProduct) => void;
@@ -12,7 +9,12 @@ export type CartContextType = {
   cartCount: () => number;
 };
 
-
-export const CartContext = React.createContext<CartContextType | undefined>(
-  undefined
-);
+export type cartProduct = {
+  id: number;
+  mainImage: string;
+  title: string;
+  price: number;
+  quantity: number;
+  color: string | undefined;
+  key: string;
+};

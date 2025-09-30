@@ -45,23 +45,23 @@ const LoginForm: React.FC = () => {
           type="text"
           name="emailOrPhone"
           label="emailOrPhone"
-          placeholder="Enter your email or phone"
+          placeholder={t("Enter your email or phone")}
           value={formData.emailOrPhone}
-          onChange={handleChange}
+          onSubmit={handleChange}
         />
 
         <RegistrationInput
           type="password"
           name="password"
           label="password"
-          placeholder="Enter your password"
+          placeholder={t("Enter your password")}
           value={formData.password}
-          onChange={handleChange}
+          onSubmit={handleChange}
         />
 
-        <div className="flex flex-col md:flex-row items-center justify-between">
+        <div className="flex flex-col items-center justify-between">
           {/* Log In Button */}
-          <Button variant="default" aria-label={t("login")}>
+          <Button className="w-full mb-3" aria-label={t("login")}>
             {t("login")}
           </Button>
 

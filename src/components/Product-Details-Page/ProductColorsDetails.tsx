@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 interface ProductColorsProps {
-  colors?: { value: string; name?: string }[]; // 👈 خليت فيه name اختياري
+  colors?: { value: string; name?: string }[];
   selectedColor?: string;
   setSelectedColor: (color: string | undefined) => void;
 }
@@ -32,10 +32,8 @@ const ProductColors: React.FC<ProductColorsProps> = ({
             aria-checked={selectedColor === color.value}
             aria-label={color.name || color.value}
             onClick={() => setSelectedColor(color.value)}
-            className={`w-7 h-7 rounded-full border-3 transition cursor-pointer ${
-              selectedColor === color.value
-                ? "border-black ring-2 ring-black"
-                : "border-gray-300"
+            className={`w-7 h-7 rounded-full border-2 transition cursor-pointer ${
+              selectedColor === color.value ? "border-black" : "border-gray-300"
             }`}
             style={{ backgroundColor: color.value }}
           />
