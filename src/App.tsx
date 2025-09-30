@@ -12,6 +12,7 @@ import Login from "./Pages/Login-Page";
 import AccountPage from "./Pages/Profile-Page";
 import { useTranslation } from "react-i18next";
 import About from "./Pages/About-Page";
+import FavouritePage from "./Pages/FavouritePage";
 
 function App() {
   const { t } = useTranslation();
@@ -30,6 +31,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Cart" element={<CartPage />} />
           <Route path="/Checkout" element={<CheckoutPage />} />
+          <Route path="/Favourites" element={<FavouritePage />} />
         </Route>
       </Routes>
     </>

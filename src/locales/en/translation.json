@@ -50,5 +50,19 @@
   "aboutSupportDesc": "Our team is always ready to help you with any questions or issues.",
   "aboutQuality": "Quality Guarantee",
   "aboutQualityDesc": "We guarantee the quality of every product you buy from us.",
-  "colours": " Colours :"
+  "colours": " Colours :",
+  "WishlistActions": "Wishlist actions",
+  "ClearWishlist": "Clear Wishlist",
+  "MoveAlltoCartFavorit": "Move All to Cart",
+  "confirmingItemsToCartFav?": "items to the cart?",
+  "confirmingToMove": "Are you sure you want to move",
+  "ConfirmAction": "Confirm Action",
+  "CancelOrderFav": "Cancel",
+  "ConfirmOrderFav": "Confirm",
+  "MyFavourites": "My Favourites",
+  "ToHomePageFav": "Home Page",
+  "favourites": "favourites",
+  "PrevPagination": "Prev",
+  "NextPagination": "Next",
+  "NoFavouriteProductsYet": "No Favourite Products Yet"
 }
