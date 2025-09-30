@@ -1,12 +1,12 @@
 import { type ReactElement } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import CountdownTimer from "../../HomePage/CountdownTimer";
 import type { SectionHeaderProps } from "./SectionHeader.types";
 import "./SectionHeader.styles.css";
 
-import type SwiperType from "swiper/types/swiper-class";
+import type { Swiper as SwiperType } from "swiper";
 import type { RefObject } from "react";
+import CountdownTimer from "@/components/Home-Page/CountdownTimer";
 
 // Props for SectionHeader with optional swiperRef for navigation
 interface SectionHeaderWithSwiperProps extends SectionHeaderProps {

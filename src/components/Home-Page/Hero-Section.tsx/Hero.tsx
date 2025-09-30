@@ -35,7 +35,8 @@ export default function Hero() {
   return (
     <section className="flex flex-col md:flex-row ">
       <SidebarCategories />
-      <div className="w-full cursor-grab bg-black text-white relative flex md:flex-row items-center justify-between flex-col-reverse  md:mt-8 md:ml-4 px-6 md:px-10 py-6 h-[85vh] md:h-[500px] overflow-hidden">
+      <div className="w-full cursor-grab bg-black text-white 
+      relative flex md:flex-row items-center justify-between flex-col-reverse  md:mt-8 md:ml-4 px-6 md:px-10 py-6 h-[85vh] md:h-[500px] overflow-hidden">
         <Swiper
           key={i18n.dir()}
           dir={i18n.dir()}
