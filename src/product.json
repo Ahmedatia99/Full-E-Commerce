@@ -1,110 +1,313 @@
 [
-    {
-        "id": 1,
-        "isNew": false,
-        "title": "Gucci duffle bag",
-        "price": 10,
-        "discountPrice": 2.7,
-        "ratingCount": 50,
-        "avgRate": 5,
-        "colors": [
-            {
-                "color": "red",
-                "quantity": 20,
-                "images": [],
-                "sizes": []
-            }
-        ],
-        "mainImgSRC": "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png"
-    },
-    {
-        "id": 2,
-        "isNew": false,
-        "title": "Gucci duffle bag",
-        "price": 11,
-        "discountPrice": 1,
-        "ratingCount": 25,
-        "avgRate": 4,
-        "colors": [
-            {
-                "color": "red",
-                "quantity": 20,
-                "images": [],
-                "sizes": []
-            }
-        ],
-        "mainImgSRC": "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png"
-    },
-    {
-        "id": 3,
-        "isNew": false,
-        "title": "Gucci duffle bag",
-        "price": 15,
-        "discountPrice": 0,
-        "ratingCount": 3,
-        "avgRate": 4,
-        "colors": [
-            {
-                "color": "red",
-                "quantity": 20,
-                "images": [],
-                "sizes": []
-            }
-        ],
-        "mainImgSRC": "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png"
-    },
-    {
-        "id": 4,
-        "isNew": true,
-        "title": "Gucci duffle bagGucci duffle bag",
-        "price": 11,
-        "discountPrice": 1,
-        "ratingCount": 20,
-        "avgRate": 2,
-        "colors": [
-            {
-                "color": "red",
-                "quantity": 20,
-                "images": [],
-                "sizes": []
-            }
-        ],
-        "mainImgSRC": "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png"
-    },
-    {
-        "id": 5,
-        "isNew": true,
-        "title": "Gucci duffle bag",
-        "price": 11,
-        "discountPrice": 1,
-        "ratingCount": 10,
-        "avgRate": 1,
-        "colors": [
-            {
-                "color": "red",
-                "quantity": 20,
-                "images": [],
-                "sizes": []
-            }
-        ],
-        "mainImgSRC": "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png"
-    },
-    {
-        "id": 6,
-        "isNew": true,
-        "title": "Gucci duffle bag",
-        "price": 11,
-        "discountPrice": 1,
-        "ratingCount": 50,
-        "avgRate": 3,
-        "colors": [
-            {
-                "color": "red",
-                "quantity": 20,
-                "images": [],
-                "sizes": []
-            }
-        ],
-        "mainImgSRC": "https://res.cloudinary.com/dscw58bgh/image/upload/v1757765330/g92-2-500x500_1_2_se0nmg.png"
-    }
+  {
+    "id": 1,
+    "isFlash": true,
+
+    "title": "HAVIT HV-G93 Gamepad",
+    "price": 160,
+    "discountPrice": 120,
+    "ratingCount": 88,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759135799/HAVITHV-G92_Gamepad_edtfyl.png",
+    "description": "",
+    "category": "electronics",
+    "subCategory": "joysticks",
+    "colors": [{ "color": "red", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 2,
+    "isFlash": true,
+
+    "title": "AK-900 Wired Keyboard",
+    "price": 1160,
+    "discountPrice": 960,
+    "ratingCount": 75,
+    "avgRate": 4,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759135755/AK-900_Wired_Keyboard_zo8cmz.png",
+    "description": "",
+    "category": "electronics",
+    "subCategory": "keyboards",
+    "colors": [{ "color": "Black", "quantity": 20, "images": [] }]
+  },
+
+  {
+    "id": 3,
+    "isFlash": true,
+
+    "title": "IPS LCD Gaming Monitor",
+
+    "price": 400,
+    "discountPrice": 370,
+    "ratingCount": 99,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759135862/IPS-LCD-Gaming-Monitor_l4eppf.png",
+    "description": "",
+    "category": "electronics",
+    "subCategory": "monitors",
+
+    "colors": [{ "color": "gray", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 4,
+    "isFlash": true,
+
+    "title": "S-Series Comfort Chair",
+    "price": 400,
+    "discountPrice": 375,
+    "ratingCount": 99,
+    "avgRate": 4.5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759135936/S-Series-Comfort-Chair_vuwlag.png",
+    "description": "",
+    "category": "home",
+    "subCategory": "chairs",
+    "colors": [{ "color": "gray", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 5,
+    "isFlash": true,
+    "title": "The north coat",
+    "price": 360,
+    "discountPrice": 260,
+    "ratingCount": 65,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137142/The-North-Coat_mhverp.png",
+    "description": "",
+    "category": "menFashion",
+    "subCategory": "coat",
+    "colors": [{ "color": "pink", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 6,
+    "isFlash": true,
+    "title": "Gucci duffle bag",
+    "price": 1160,
+    "discountPrice": 960,
+    "ratingCount": 65,
+    "avgRate": 4.5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137229/Gucci-duffle-bag_sdtiz8.png",
+    "description": "",
+    "category": "womenFashion",
+    "subCategory": "bags",
+    "colors": [{ "color": "brown", "quantity": 20, "images": [] }]
+  },
+
+  {
+    "id": 7,
+    "isFlash": true,
+    "title": "RGB liquid CPU Cooler",
+    "price": 170,
+    "discountPrice": 160,
+    "ratingCount": 65,
+    "avgRate": 4.5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137329/RGB-liquid-CPU-Cooler_ap5dk7.png",
+    "description": "",
+    "category": "Computer",
+    "subCategory": "Coolers",
+    "colors": [{ "color": "Black", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 8,
+    "isFlash": true,
+    "title": "Small BookSelf",
+    "price": 360,
+    "ratingCount": 65,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137381/Small-BookSelf_e1tehx.png",
+    "description": "",
+    "category": "Home",
+    "subCategory": "Library",
+    "colors": [{ "color": "#EAAB66", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 9,
+    "title": "JBL BOOMBOX",
+    "price": 360,
+    "ratingCount": 65,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137493/JBL_BOOMBOX_2_HERO_020_x1_mpjgk8.png",
+    "description": "",
+    "category": "electronics",
+    "subCategory": "speakers",
+    "colors": [{ "color": "black", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 10,
+    "title": "Breed Dry Dog Food",
+    "price": 100,
+    "ratingCount": 35,
+    "avgRate": 3,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137574/Breed-Dry-Dog-Food_pwmud9.png",
+    "description": "",
+    "category": "pets",
+    "subCategory": "petsFood",
+    "colors": [{ "color": "purple", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 11,
+    "title": "CANON EOS DSLR Camera",
+    "price": 360,
+    "ratingCount": 95,
+    "avgRate": 4,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137639/CANON-EOS-DSLR-Camera_ylhg8r.png",
+    "description": "",
+    "category": "electronics",
+    "subCategory": "camera",
+    "colors": [{ "color": "black", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 12,
+    "title": "ASUS FHD Gaming Laptop",
+    "price": 700,
+    "ratingCount": 325,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137661/ASUS-FHD-Gaming-Laptop_z56k1p.png",
+    "description": "",
+    "category": "electronics",
+    "subCategory": "laptops",
+    "colors": [{ "color": "black", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 13,
+    "title": "Curology Product Set ",
+    "price": 500,
+    "ratingCount": 145,
+    "avgRate": 4,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137769/Curology-Product-Set_stiasg.png",
+    "description": "",
+    "category": "healthBeauty",
+    "subCategory": "health",
+    "colors": [{ "color": "blue", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 14,
+    "title": "Kids Electric Car",
+    "price": 960,
+    "ratingCount": 65,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137838/Kids-Electric-Car_d5o7kg.png",
+    "description": "",
+    "category": "babyToys",
+    "subCategory": "cars",
+    "colors": [{ "color": "red", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 15,
+    "title": "Jr. Zoom Soccer Cleats",
+    "price": 1160,
+    "ratingCount": 35,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137902/Jr-Zoom-Soccer-Cleats_yw7cpq.png",
+    "description": "",
+    "category": "sportes",
+    "subCategory": "shoes",
+    "colors": [{ "color": "red", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 16,
+    "title": "GP11 Shooter USB Gamepad",
+    "price": 660,
+    "ratingCount": 55,
+    "avgRate": 4.5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138019/GP11-Shooter-USB-Gamepad_aqkvf3.png",
+    "description": "",
+    "category": "electronics",
+    "subCategory": "joysticks",
+    "colors": [{ "color": "black", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 17,
+    "title": "Quilted Satin Jacket",
+    "price": 660,
+    "ratingCount": 55,
+    "avgRate": 4.5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138051/Quilted-Satin-Jacket_d1rb66.png",
+    "description": "",
+    "category": "menFashion",
+    "subCategory": "jackets",
+    "colors": [{ "color": "green", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 18,
+    "isFeatured": true,
+    "title": "PlayStation 5",
+    "price": 1000,
+    "ratingCount": 124,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138154/PS5_wx2kmr.png",
+    "description": "",
+    "category": "electronics",
+    "subCategory": "playStation",
+    "colors": [
+      { "color": "black", "quantity": 20, "images": [] },
+      { "color": "white", "quantity": 20, "images": [] }
+    ]
+  },
+  {
+    "id": 19,
+    "isFeatured": true,
+    "title": "Women’s Collections",
+    "price": 1000,
+    "ratingCount": 124,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138226/attractive-woman-wearing-hat-posing-black-background_gslltn.png",
+    "description": "",
+    "category": "womenFashion",
+    "subCategory": "hat",
+    "colors": [{ "color": "black", "quantity": 20, "images": [] }]
+  },
+  {
+    "id": 20,
+    "isFeatured": true,
+    "title": "Amazon wireless speakers",
+    "price": 1000,
+    "ratingCount": 124,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138274/69-694768_amazon-echo-png-clipart-transparent-amazon-echo-png_beh7rm.png",
+    "description": "",
+    "category": "electronics",
+    "subCategory": "speakers",
+    "colors": [
+      { "color": "black", "quantity": 20, "images": [] },
+      { "color": "white", "quantity": 20, "images": [] },
+      { "color": "gray", "quantity": 20, "images": [] }
+    ]
+  },
+  {
+    "id": 21,
+    "isFeatured": true,
+    "title": "Women’s Collections",
+    "price": 1000,
+    "ratingCount": 124,
+    "avgRate": 5,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138283/652e82cd70aa6522dd785109a455904c_ftjcpg.png",
+    "description": "",
+    "category": "perfumes",
+    "subCategory": "womenPerfume",
+    "colors": [{ "color": "gold", "quantity": 20, "images": [] }]
+  },
+
+  {
+    "id": 22,
+    "isFeatured": true,
+    "title": "Havic HV G-92 Gamepad",
+    "price": 192,
+    "ratingCount": 150,
+    "avgRate": 4,
+    "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138720/image_63_iou5nr.png",
+    "description": "",
+    "category": "electronics",
+    "subCategory": "joysticks",
+    "colors": [
+      {
+        "color": "white",
+        "quantity": 20,
+        "images": [
+          "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138623/image_58_zshgld.png",
+          "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138629/image_57_pnjwmy.png",
+          "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138635/image_61_esvlkx.png",
+          "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138698/image_59_c6trsg.png"
+        ]
+      }
+    ]
+  }
 ]

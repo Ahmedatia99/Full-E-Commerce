@@ -16,11 +16,12 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   // getting totalPages
   const totalPages = Math.ceil(totalItems / itemsPerPage);
+
   const { t } = useTranslation();
 
   // hide pagination if not needed
 
-  if (totalPages <= 1) return null;
+  if (totalPages <= 1) return null;   //// proplem
 
   const handleClick = (page: number) => {
     if (page > 0 && page <= totalPages) {

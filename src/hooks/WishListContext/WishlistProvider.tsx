@@ -27,8 +27,6 @@ export const WishlistProvider = ({ children }: { children: ReactNode }) => {
   //  Clear the entire wishlist
   const clearWishlist = () => saveToStorage([]);
 
-  // احسب عدد العناصر
-
   // Provide state + actions to children
   return (
     <WishlistContext.Provider

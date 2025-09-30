@@ -5,7 +5,7 @@ export type WishlistContextType = {
   addToWishlist: (id: number) => void;
   removeFromWishlist: (id: number) => void;
   clearWishlist: () => void;
-  wishlistCount: number; // 👈 number عادي
+  wishlistCount: number; //  number عادي
 };
 
 export const WishlistContext = createContext<WishlistContextType | undefined>(

@@ -1,10 +1,10 @@
 import { useWishlist } from "@/hooks/WishListContext/useWishlist";
 import { useCart } from "@/hooks/useCart";
-import { mockProducts } from "@/components/Product-Details-Page/mockProduct";
 import { useNavigate } from "react-router-dom";
 import type { cartProduct } from "../../types/product_Type";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useProducts } from "../../hooks/useProducts";
 
 function FavouriteActions() {
   const { wishlist, clearWishlist } = useWishlist();
@@ -12,8 +12,11 @@ function FavouriteActions() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
-
-  const favouriteProducts = mockProducts.filter((p) => wishlist.includes(p.id));
+  const { products, loading, error } = useProducts();
+  if (loading) return <p>{t("Loading...")}</p>;
+  if (error)
+    return <p className="text-red-500">{t("Failed to load products")}</p>;
+  const favouriteProducts = products.filter((p) => wishlist.includes(p.id));
 
   const handleConfirm = () => {
     if (favouriteProducts.length === 0) return;
@@ -76,7 +79,7 @@ function FavouriteActions() {
         </button>
       </section>
 
-      {/* Confirmation Modal */}
+      {/* Confirmation Modal adde dilog */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50">
           <div className="bg-white rounded-xl shadow-xl p-6 max-w-sm w-full text-center">

@@ -1,31 +1,37 @@
 import { useState } from "react";
 import { useWishlist } from "../../hooks/WishListContext/useWishlist";
-import { mockProducts } from "../Product-Details-Page/mockProduct";
+import { useTranslation } from "react-i18next";
 import Product_Card from "@/components/common/Product_Card/Product_Card";
 import Pagination from "./Pagination";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { useProducts } from "../../hooks/useProducts";
 
 function RenderingDataFavourite() {
   const { wishlist } = useWishlist();
-  const favouriteProducts = mockProducts.filter((p) => wishlist.includes(p.id));
   const { t } = useTranslation();
+  const { products, loading, error } = useProducts();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
 
-  // slicing data for current page
+  if (loading) return <p>{t("Loading...")}</p>;
+  if (error)
+    return <p className="text-red-500">{t("Failed to load products")}</p>;
+
+  const favouriteProducts = products.filter((p) => wishlist.includes(p.id));
+
+
+  
   const indexOfLast = currentPage * itemsPerPage;
   const indexOfFirst = indexOfLast - itemsPerPage;
   const currentProducts = favouriteProducts.slice(indexOfFirst, indexOfLast);
 
   return (
     <section
-      className=" xl:my-20 "
+      className="xl:my-20"
       aria-labelledby="wishlist-heading"
       itemScope
       itemType="https://schema.org/ItemList"
     >
-      {/* Main heading */}
       <h1
         id="wishlist-heading"
         className="text-2xl font-bold mb-6 flex items-center gap-2"
@@ -53,19 +59,16 @@ function RenderingDataFavourite() {
         </div>
       ) : (
         <>
-          {/* Accessible summary of items */}
           <p className="sr-only">
             Showing {indexOfFirst + 1} to{" "}
             {Math.min(indexOfLast, favouriteProducts.length)} of{" "}
             {favouriteProducts.length} {t("favourites")}
           </p>
           <Product_Card
-            className="  grid  grid-cols-2 max-sm:grid-cols-1 xl:grid-cols-4  lg:grid-cols-4 justify-center items-center"
+            className="grid grid-cols-2 max-sm:grid-cols-1 xl:grid-cols-4 lg:grid-cols-4 justify-center items-center"
             products={currentProducts}
             componentProps={{ hasDeleteIcon: true }}
           />
-
-          {/* Pagination with ARIA */}
           <nav
             className="mt-16"
             role="navigation"

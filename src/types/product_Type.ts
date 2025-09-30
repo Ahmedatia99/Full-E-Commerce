@@ -4,7 +4,9 @@ export interface products {
 
 export interface productObject {
   id: number;
-  isNew: boolean;
+  isNew?: boolean;
+  isFlash?: boolean;
+  isFeatured?: boolean;
   title: string;
   price: number;
   discountPrice?: number;
@@ -13,6 +15,8 @@ export interface productObject {
   colors: colorsVariants[];
   mainImgSRC: string;
   description: string;
+  category?: string;
+  subCategory?: string;
   returnDelivery?: number;
   DeliveryPostalCode?: number[];
 }
@@ -21,7 +25,7 @@ export interface colorsVariants {
   color: string;
   quantity: number;
   images: string[];
-  sizes: string[];
+  sizes?: string[];
 }
 
 export type cartProduct = {
