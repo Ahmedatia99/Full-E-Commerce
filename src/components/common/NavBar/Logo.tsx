@@ -6,7 +6,7 @@ function Logo() {
     <Link
       to={"/"}
       aria-label="Exclusive Store Logo - Home"
-      className="font-bold md:text-2xl tracking-wide"
+      className="md:text-2xl tracking-wide"
     >
       EXCLUSIVE
     </Link>

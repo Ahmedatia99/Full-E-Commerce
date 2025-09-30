@@ -21,7 +21,11 @@ function Product_Card_InfoComponent({
   return (
     <div className="mt-4 flex flex-col gap-2 ml-3 md:ml-0">
       <Link to={`/product/${product.id}`}>
-        <h3 itemProp="name" className="font-semibold text-2xl" title={product.title}>
+        <h3
+          itemProp="name"
+          className="font-semibold text-2xl"
+          title={product.title}
+        >
           {product.title.length > 20
             ? product.title.slice(0, 20) + "..."
             : product.title}
@@ -46,11 +50,13 @@ function Product_Card_InfoComponent({
               {product.discountPrice}$
             </span>
             <meta itemProp="priceCurrency" content="EGP" />
-            <del className="text-[#727272] text-xl font-medium">{product.price}</del>
+            <del className="text-[#727272] text-xl font-medium">
+              {product.price}
+            </del>
           </div>
         ) : (
-          <span className="productPrice text-[#DB4444] font-semibold " >
-            {product.price}
+          <span className="productPrice text-[#DB4444] text-3xl font-medium">
+            {product.price}$
           </span>
         )}
 

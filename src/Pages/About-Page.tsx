@@ -49,7 +49,7 @@ function About() {
             className="w-40 h-40 object-cover rounded-full shadow-xl mb-10"
             loading="lazy"
           />
-          <h1 id="about-title" className="text-4xl font-bold text-black mb-10">
+          <h1 id="about-title" className="heading text-black mb-10">
             {t("aboutTitle")}
           </h1>
           <p className="text-gray-700 text-lg max-w-2xl mb-4">
