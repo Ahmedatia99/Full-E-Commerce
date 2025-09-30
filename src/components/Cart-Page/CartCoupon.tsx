@@ -1,3 +1,5 @@
+import React from "react";
+
 function CartCoupon() {
   return (
     <div>
@@ -19,4 +21,4 @@ function CartCoupon() {
   );
 }
 
-export default CartCoupon;
+export default React.memo(CartCoupon);

@@ -1,4 +1,5 @@
 import { useCart } from "@/hooks/useCart";
+import React from "react";
 
 function CartTotalPrice() {
   const { getTotalPrice } = useCart();
@@ -31,4 +32,4 @@ function CartTotalPrice() {
   );
 }
 
-export default CartTotalPrice;
+export default React.memo(CartTotalPrice);

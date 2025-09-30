@@ -1,5 +1,6 @@
 import { useCart } from "@/hooks/useCart";
 import { Button } from "../ui/button";
+import React from "react";
 
 function DeleteAllCartProductsBtn() {
   const {
@@ -20,4 +21,4 @@ function DeleteAllCartProductsBtn() {
   );
 }
 
-export default DeleteAllCartProductsBtn;
+export default React.memo(DeleteAllCartProductsBtn);

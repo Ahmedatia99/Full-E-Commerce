@@ -1,5 +1,6 @@
 import { useCart } from "@/hooks/useCart";
 import type { cartProduct } from "@/types/cart";
+import React from "react";
 import { TiDelete } from "react-icons/ti";
 type CartProductProps = {
   item: cartProduct;
@@ -27,4 +28,4 @@ function CartProduct({ item }: CartProductProps) {
   );
 }
 
-export default CartProduct;
+export default React.memo(CartProduct);
