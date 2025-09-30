@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { GoPlus } from "react-icons/go";
 import { FiMinus } from "react-icons/fi";
+import { Button } from "@/components/ui/button";
 
 interface ProductQuantityProps {
   stock: number;
@@ -13,37 +14,32 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
   quantity,
   setQuantity,
 }) => {
+  const increase = useCallback(() => {
+    if (quantity < stock) setQuantity(quantity + 1);
+  }, [quantity, stock, setQuantity]);
+
+  const decrease = useCallback(() => {
+    if (quantity > 1) setQuantity(quantity - 1);
+  }, [quantity, setQuantity]);
   if (stock <= 0) return null;
 
-  const increase = () => {
-    if (quantity < stock) {
-      setQuantity(quantity + 1);
-    }
-  };
-
-  const decrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
   return (
-    <div className="flex items-center border-2 border-[#00000080] h-15 rounded-[7px] w-full gap-4">
+    <div className="flex items-center border-2 border-[#00000080] h-15 rounded-lg w-full gap-4">
       {/* Decrease */}
-      <button
+      <Button
         onClick={decrease}
         disabled={quantity === 1}
         aria-label="Decrease quantity"
-        className={` cursor-pointer w-full flex justify-center items-center text-4xl border-r-2 border-r-[#00000080] rounded-l-[5px] h-full transition-colors duration-200
+        className={`h-full text-2xl rounded-r-none
           ${
             quantity === 1
-              ? "opacity-50 cursor-not-allowed"
-              : "hover:bg-[#DB4444] hover:text-white"
+              ? "opacity-50 cursor-not-allowed "
+              : "hover:bg-main hover:text-white"
           }
         `}
       >
         <FiMinus />
-      </button>
+      </Button>
 
       {/* Current Quantity */}
       <output
@@ -54,20 +50,20 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
       </output>
 
       {/* Increase */}
-      <button
+      <Button
         onClick={increase}
         disabled={quantity === stock}
         aria-label="Increase quantity"
-        className={` cursor-pointer flex justify-center items-center text-4xl w-full h-full border-l-2 border-l-[#00000080] rounded-r-[5px] transition-colors duration-200
+        className={`h-full text-2xl rounded-l-none
           ${
             quantity === stock
               ? "opacity-50 cursor-not-allowed"
-              : "hover:bg-[#DB4444] hover:text-white"
+              : "hover:bg-main hover:text-white"
           }
         `}
       >
         <GoPlus />
-      </button>
+      </Button>
     </div>
   );
 };

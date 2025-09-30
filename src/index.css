@@ -135,6 +135,10 @@
   .category-icon {
     @apply size-10;
   }
+  [data-sonner-toaster][data-sonner-theme="dark"] [data-description] {
+    color: #166534 !important;
+    font-weight :400 !important;
+  }
 }
 
 /* =========================
