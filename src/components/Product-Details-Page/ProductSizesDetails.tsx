@@ -1,6 +1,19 @@
+/**
+ * Component that displays available sizes for a product and allows the user to select one.
+ *
+ * @component
+ * @example
+ * <ProductSizes sizes={['S', 'M', 'L']} onSelectSize={handleSelectSize} />
+ *
+ * @param {Object} props - Component props
+ * @param {string[]} props.sizes - Array of available sizes for the product
+ * @param {(size: string) => void} props.onSelectSize - Callback function invoked when a size is selected
+ *
+ * @returns {JSX.Element} Rendered component for selecting product sizes
+ */
 import React from "react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-
+import { useTranslation } from "react-i18next";
 interface ProductSizesProps {
   sizes: string[];
   selectedSize?: string;
@@ -12,15 +25,17 @@ const ProductSizes: React.FC<ProductSizesProps> = ({
   selectedSize,
   setSelectedSize,
 }) => {
+  const { t } = useTranslation();
+
   if (!sizes?.length) return null;
 
   return (
-    <div className="flex flex-col gap-3 pt-1 pb-5">
+    <div className="flex flex-col gap-3 pt-1 pb-2">
       {/* Label */}
       <div className="flex items-center gap-2 sm:gap-9">
-        <span className="text-2xl font-semibold" id="product-size-label">
-          Size:
-        </span>
+        <p className="text-2xl font-semibold" id="product-size-label">
+          {t("Size")}:
+        </p>
 
         {/* Toggle Group */}
         <ToggleGroup
@@ -44,13 +59,6 @@ const ProductSizes: React.FC<ProductSizesProps> = ({
           ))}
         </ToggleGroup>
       </div>
-
-      {/* Show selected size */}
-      {selectedSize && (
-        <span className="text-gray-600 text-lg">
-          Selected size: <strong>{selectedSize}</strong>
-        </span>
-      )}
     </div>
   );
 };

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import RegistrationInput from "./RegistrationInput";
 
-const SignUpForm: React.FC = () => {
+const SignUpForm = () => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
@@ -24,7 +24,7 @@ const SignUpForm: React.FC = () => {
 
   return (
     <section
-      className="lg:w-[60%] sm:w-[60%] w-[100%] lg:ml-30 gap-5 ml:0 mx-auto p-6"
+      className="lg:w-[80%] sm:w-[60%] w-[100%]  gap-5 ml:0 mx-auto p-6"
       aria-labelledby="signup-title"
     >
       {/* Title */}
@@ -48,33 +48,33 @@ const SignUpForm: React.FC = () => {
           type="text"
           name="name"
           label="yourName"
-          placeholder="Enter your name"
+          placeholder={t("Enter your name")}
           value={formData.name}
-          onChange={handleChange}
+          onSubmit={handleChange}
         />
 
         <RegistrationInput
           type="text"
           name="emailOrPhone"
           label="emailOrPhone"
-          placeholder="Enter your email or phone"
+          placeholder={t("Enter your email or phone")}
           value={formData.emailOrPhone}
-          onChange={handleChange}
+          onSubmit={handleChange}
         />
 
         <RegistrationInput
           type="password"
           name="password"
           label="password"
-          placeholder="Enter your password"
+          placeholder={t("Enter your password")}
           value={formData.password}
-          onChange={handleChange}
+          onSubmit={handleChange}
         />
 
         {/* Create Account Button */}
         <Button
           type="submit"
-          className="w-full mb-5 max-sm:text-xs"
+          className="w-full mb-5 max-sm:text-sm"
           aria-label={t("createAccount")}
         >
           {t("createAccount")}
@@ -83,7 +83,7 @@ const SignUpForm: React.FC = () => {
 
       {/* OR Google */}
       <Button
-        className="w-full mb-5 max-sm:text-xs"
+        className="w-full mb-5 max-sm:text-sm"
         aria-label={t("signUpWithGoogle")}
       >
         <img
