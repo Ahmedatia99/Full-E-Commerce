@@ -1,5 +1,6 @@
 import { useCart } from "@/hooks/useCart";
 import type { cartProduct } from "@/types/cart";
+import React from "react";
 
 type CartQuantityProps = {
   item: cartProduct;
@@ -26,4 +27,4 @@ function CartQuantity({ item }: CartQuantityProps) {
   );
 }
 
-export default CartQuantity;
+export default React.memo(CartQuantity);

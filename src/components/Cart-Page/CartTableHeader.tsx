@@ -11,4 +11,4 @@ function CartTableHeader() {
   );
 }
 
-export default CartTableHeader;
+export default React.memo(CartTableHeader);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Input } from "../ui/input";
 
 const BillingForm = () => {
   const { t } = useTranslation();
@@ -59,7 +60,7 @@ const BillingForm = () => {
         <label htmlFor="first-name" className="label-base">
           {t("firstNameInput")} <span className="text-red-600">*</span>
         </label>
-        <input
+        <Input
           id="first-name"
           name="firstName"
           type="text"

@@ -8,6 +8,7 @@ import CartCoupon from "./CartCoupon";
 import CartTotalPrice from "./CartTotalPrice";
 import { Button } from "../ui/button";
 import DeleteAllProductsBtn from "./DeleteAllCartProductsBtn";
+import React from "react";
 
 const Cart = function () {
   const { cartProducts } = useCart();
@@ -75,4 +76,4 @@ const Cart = function () {
   );
 };
 
-export default Cart;
+export default React.memo(Cart);
