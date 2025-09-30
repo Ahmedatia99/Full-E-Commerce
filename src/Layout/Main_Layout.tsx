@@ -8,6 +8,7 @@ function Main_Layout() {
     <>
       <Header />
       <NavBar />
+
       <Outlet />
       <Footer />
     </>

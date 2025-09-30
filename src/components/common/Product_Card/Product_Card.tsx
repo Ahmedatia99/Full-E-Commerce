@@ -11,36 +11,22 @@ import type {
 } from "@/types/Components_type";
 import { toCartProduct } from "@/utils/ProductDTO";
 
-/**
- * Single_Product_Card component
- *
- * Represents a single product card with:
- * - Product image
- * - Labels (e.g., New, Discount)
- * - Actions (favorite, view, delete)
- * - Add to cart button
- * - Product details (title, price, rating, colors, etc.)
- *
- * SEO:
- * - Wrapped with <article> and schema.org Product metadata
- *
- * Performance:
- * - Exported with React.memo to avoid unnecessary re-renders.
- * - Useful when rendering lists of products, since only updated cards will re-render.
- */
 const Single_Product_Card = React.memo(function Single_Product_Card({
   componentProps,
   product,
 }: SingleProductCardComponentProps) {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0].color);
+  const [selectedColor, setSelectedColor] = useState(
+    product.colors?.[0]?.color || ""
+  );
+
   return (
     <article
       itemScope
       itemType="https://schema.org/Product"
       className="boxContainer w-full"
     >
-      <div className="group flex flex-col justify-between relative rounded bg-[#f5f5f5] ">
-        {/* Product image with SEO-friendly "image" + "url" */}
+      <div className="group   flex flex-col justify-center relative rounded bg-[#f5f5f5] overflow-hidden">
+        {/* Product image */}
         <div>
           <a href={`/product/${product.id}`} itemProp="url">
             <ProductImage
@@ -51,17 +37,21 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
           </a>
         </div>
 
-        {/* Add to Cart button (configurable: fixed or relative) */}
+        {/* Add to Cart button (يظهر من الشمال لليمين) */}
+        <div
+          className="absolute bottom-0 left-0 w-full
+             opacity-0 translate-y-[100%]
+             group-hover:opacity-100 group-hover:translate-y-0
+             transition-all duration-500 ease-in-out"
+        >
+          <AddToCartButton
+            fixed={true}
+            className="w-full bg-black text-white py-3 font-semibold text-center rounded-none"
+            ProductToAdd={toCartProduct(product, selectedColor)}
+          />
+        </div>
 
-        <AddToCartButton
-          fixed={componentProps?.AddToCartBtnFixed}
-          ProductToAdd={toCartProduct(product, selectedColor)}
-        />
-
-        {/* Product labels:
-            - Show "New" if product is new
-            - Show discount percentage if product has a discount
-        */}
+        {/* Product labels */}
         {product.isNew ? (
           <ProductLabel type="new" />
         ) : product.discountPrice ? (
@@ -74,11 +64,13 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
           />
         ) : null}
 
-        {/* Extra actions (Favorite, Quick View, Delete, etc.) */}
+        {/* Extra actions */}
         <ProductActions componentProps={componentProps} product={product} />
+
+        {/* 👇 زرار View More Details */}
       </div>
 
-      {/* Product details section (title, price, rating, colors, etc.) */}
+      {/* Product details */}
       <Product_Card_Info
         product={product}
         hasReview={componentProps?.hasReview}
@@ -91,32 +83,23 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
   );
 });
 
-/**
- * Product_Card component
- *
- * Renders a list of products by mapping through the products array.
- *
- * Notes:
- * - Not wrapped with React.memo because the products array reference usually changes.
- * - Instead, each Single_Product_Card is memoized for better rendering performance.
- */
 function Product_Card({
   componentProps,
   products,
   className,
 }: ProductCardComponentProps) {
   return (
-    <>
-      <div className={`flex  justify-between gap-5 ${className}`}>
-        {products.map((product) => (
-          <Single_Product_Card
-            key={product.id}
-            componentProps={componentProps}
-            product={product}
-          />
-        ))}
-      </div>
-    </>
+    <div
+      className={`flex justify-between max-[640px]:px-18 max-[500px]:px-10 max-[450px]:px-0  gap-5 ${className}`}
+    >
+      {products.map((product) => (
+        <Single_Product_Card
+          key={product.id}
+          componentProps={componentProps}
+          product={product}
+        />
+      ))}
+    </div>
   );
 }
 

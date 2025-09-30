@@ -175,14 +175,33 @@
    Swiper & Form Utilities
 ========================= */
 .swiper-wrapper {
-  row-gap: 40px;
+  row-gap: 40px; 
 }
-.input-base {
-  @apply w-full bg-gray-100 rounded px-3 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-[#DB4444];
+
+
+
+/* globals.css */
+.link-underline {
+  @apply relative inline-block text-gray-700 transition-colors;
 }
-.label-base {
-  @apply font-medium text-gray-700;
+
+.link-underline::after {
+  content: "";
+  @apply absolute -bottom-1 h-[2px] w-0 bg-black transition-all duration-300;
+  inset-inline-start: 0; /* بدل left/right --> يشتغل مع LTR و RTL */
 }
-.checkbox-base {
-  @apply w-5 h-5 cursor-pointer accent-[#DB4444] focus:ring-[#DB4444];
+
+.link-underline:hover::after {
+  @apply w-full;
+}
+
+/* لو اللينك Active */
+.link-underline-active {
+  @apply text-black font-medium;
+}
+
+.link-underline-active::after {
+  content: "";
+  @apply absolute -bottom-1 h-[2px] w-full bg-black;
+  inset-inline-start: 0; /* يشتغل صح مع الاتجاهين */
 }

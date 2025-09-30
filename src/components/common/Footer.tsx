@@ -9,6 +9,7 @@ import {
   FaApple,
 } from "react-icons/fa";
 import { AiOutlineSend } from "react-icons/ai";
+import { useTranslation } from "react-i18next";
 
 // import qrCode from "../../assets/images/Qr Code.png";
 const socialLinks = [
@@ -19,48 +20,50 @@ const socialLinks = [
   { icon: <FaDribbble className="size-6" />, label: "Dribbble", url: "#" },
 ];
 
-const footerSections = [
-  {
-    title: "Support",
-    links: [
-      { label: "111 Bijoy Sarani, Dhaka, Bangladesh", url: "#" },
-      { label: "exclusive@gmail.com", url: "mailto:exclusive@gmail.com" },
-      { label: "+88015-88888-9999", url: "tel:+88015888889999" },
-    ],
-  },
-  {
-    title: "Account",
-    links: [
-      { label: "My Account", url: "#" },
-      { label: "Login / Register", url: "#" },
-      { label: "Cart", url: "#" },
-      { label: "Wishlist", url: "#" },
-      { label: "Shop", url: "#" },
-    ],
-  },
-  {
-    title: "Quick Links",
-    links: [
-      { label: "Privacy Policy", url: "#" },
-      { label: "Terms Of Use", url: "#" },
-      { label: "FAQ", url: "#" },
-      { label: "Contact", url: "#" },
-    ],
-  },
-];
-
 function Footer() {
+  const { t } = useTranslation();
+
+  const footerSections = [
+    {
+      title: t("Support"),
+      links: [
+        { label: t("111 Bijoy Sarani, Dhaka, Bangladesh"), url: "#" },
+        { label: "exclusive@gmail.com", url: "mailto:exclusive@gmail.com" },
+        { label: "+88015-88888-9999", url: "tel:+88015888889999" },
+      ],
+    },
+    {
+      title: t("Account"),
+      links: [
+        { label: t("My Account"), url: "#" },
+        { label: t("Login / Register"), url: "#" },
+        { label: t("Cart"), url: "#" },
+        { label: t("Wishlist"), url: "#" },
+        { label: t("Shop"), url: "#" },
+      ],
+    },
+    {
+      title: t("Quick Links"),
+      links: [
+        { label: t("Privacy Policy"), url: "#" },
+        { label: t("Terms Of Use"), url: "#" },
+        { label: t("FAQ"), url: "#" },
+        { label: t("Contact"), url: "#" },
+      ],
+    },
+  ];
+
   return (
     <footer
       className="bg-black text-white overflow-hidden mt-20"
       role="contentinfo"
     >
-      <div className=" container mx-auto px-2 pt-16 pb-6 sm:px-2 lg:px-8 lg:pt-24">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+      <div className="  container mx-auto px-2 pt-16 pb-6 sm:px-2 lg:px-8 lg:pt-24">
+        <div className="grid  grid-cols-1 gap-12 lg:grid-cols-3">
           {/* Brand & Social */}
           <section
             aria-labelledby="footer-brand"
-            className="flex flex-col items-center md:items-start"
+            className="flex  flex-col items-center md:items-start"
           >
             <h2
               id="footer-brand"
@@ -69,15 +72,14 @@ function Footer() {
               Exclusive
             </h2>
             <p className="mt-6 max-w-md text-center sm:text-left leading-relaxed">
-              Subscribe to our newsletter and get <strong>10% off</strong> your
-              first order.
+             {t(" Subscribe to our newsletter and get")} <strong>{t("10% off")}</strong> {t("your first order.")}
             </p>
             <div className="w-full md:max-w-[200px] mt-4">
               <div className="relative">
                 <input
                   type="text"
                   className="w-full pl-3 pr-10 py-2 bg-transparent placeholder:text-gray-400 text-gray-600 text-sm border-2 border-gray-200 rounded-xs transition duration-300 ease focus:outline-none focus:border-gray-400 hover:border-gray-300"
-                  placeholder="Enter your email"
+                  placeholder={t("Enter your email")}
                 />
 
                 <AiOutlineSend className="absolute w-5 h-5 top-2.5 right-2.5 text-white" />
@@ -88,10 +90,14 @@ function Footer() {
           {/* Footer Navigation */}
           <nav
             aria-label="Footer navigation"
-            className="grid grid-cols-2 gap-1 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2"
+            className="grid max-[370px]:grid-cols-1 grid-cols-2 gap-1 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2"
           >
             {footerSections.map((section, index) => (
-              <section key={index} aria-labelledby={`footer-${section.title}`}>
+              <section
+                className=""
+                key={index}
+                aria-labelledby={`footer-${section.title}`}
+              >
                 <h3
                   id={`footer-${section.title}`}
                   className="text-lg font-medium text-white"
@@ -178,11 +184,10 @@ function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="mt-12 border-t border-gray-800 pt-6">
+        <div className="mt-12   border-t border-gray-800 pt-6">
           <div className="text-center ">
             <p className="mt-4 text-sm text-gray-400 sm:order-first sm:mt-0">
-              &copy; copyright Rimel {new Date().getFullYear()}. All rights
-              reserved.
+             {t(" &copy; copyright Rimel")} {new Date().getFullYear()}{t(". All rights reserved.")}
             </p>
           </div>
         </div>

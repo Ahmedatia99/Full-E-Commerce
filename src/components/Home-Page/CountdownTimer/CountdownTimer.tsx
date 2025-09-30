@@ -4,6 +4,7 @@ import type {
   CountdownValues,
 } from "./CountdownTimer.types";
 import "./CountdownTimer.styles.css";
+import { useTranslation } from "react-i18next";
 
 // ============================================================================
 // COMPONENT
@@ -116,12 +117,15 @@ function CountdownTimer({
   // ========================================================================
   // RENDER
   // ========================================================================
+  const { t } = useTranslation();
 
   return (
-    <div className={`countdown-timer text-white ${className}`}>
+    <div
+      className={`countdown-timer flex  items-center justify-centerc flex-wrap text-white ${className}`}
+    >
       {/* Days */}
       <div className="countdown-unit">
-        <span className="countdown-label">Days</span>
+        <span className="countdown-label">{t("Days")}</span>
         <span className="countdown-value">{formatNumber(countdown.days)}</span>
       </div>
 
@@ -130,7 +134,7 @@ function CountdownTimer({
 
       {/* Hours */}
       <div className="countdown-unit">
-        <span className="countdown-label">Hours</span>
+        <span className="countdown-label">{t("Hours")}</span>
         <span className="countdown-value">{formatNumber(countdown.hours)}</span>
       </div>
 
@@ -139,7 +143,7 @@ function CountdownTimer({
 
       {/* Minutes */}
       <div className="countdown-unit">
-        <span className="countdown-label">Minutes</span>
+        <span className="countdown-label">{t("Minutes")}</span>
         <span className="countdown-value">
           {formatNumber(countdown.minutes)}
         </span>
@@ -150,14 +154,14 @@ function CountdownTimer({
 
       {/* Seconds */}
       <div className="countdown-unit">
-        <span className="countdown-label">Seconds</span>
+        <span className="countdown-label">{t("Seconds")}</span>
         <span className="countdown-value">
           {formatNumber(countdown.seconds)}
         </span>
       </div>
 
       {/* Optional separator line */}
-      {showSeparator && <div className="countdown-separator-line" />}
+      {showSeparator && <div className="countdown-separator-line hidden" />}
     </div>
   );
 }
