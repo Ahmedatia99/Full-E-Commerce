@@ -1,10 +1,10 @@
 import { useWishlist } from "@/hooks/WishListContext/useWishlist";
 import { useCart } from "@/hooks/useCart";
 import { useNavigate } from "react-router-dom";
-import type { cartProduct } from "../../types/product_Type";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useProducts } from "../../hooks/useProducts";
+import type { cartProduct } from "@/types/cart";
 
 function FavouriteActions() {
   const { wishlist, clearWishlist } = useWishlist();

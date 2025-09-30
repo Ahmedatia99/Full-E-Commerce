@@ -19,8 +19,6 @@ export interface productObject {
   subCategory?: string;
   returnDelivery?: number;
   DeliveryPostalCode?: number[];
-  category: string;
-  subCategory: string;
 }
 
 export interface colorsVariants {

@@ -207,3 +207,16 @@
   @apply absolute -bottom-[2px] h-[2px] w-full bg-black;
   inset-inline-start: 0;
 }
+
+.heading{
+  @apply  font-bold text-3xl  md:text-4xl ;
+}
+.specialHeading{
+   @apply  font-bold text-3xl md:text-4xl  xl:text-6xl ;
+}
+.title{
+ 
+}
+.subTitle{
+
+}

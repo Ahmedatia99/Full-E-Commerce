@@ -47,16 +47,13 @@ export default function Hero() {
           className="w-full h-full cursor-pointer"
           style={
             {
-              // حجم النقطة
               "--swiper-pagination-bullet-size": "16px",
               "--swiper-pagination-bullet-horizontal-gap": "8px",
 
-              // اللون العادي
               "--swiper-pagination-bullet-inactive-color": "#d1d5db", // gray-300
               "--swiper-pagination-bullet-inactive-opacity": "1",
 
-              // اللون النشط
-              "--swiper-pagination-color": "#DB4444", // أحمر
+              "--swiper-pagination-color": "#DB4444", 
             } as React.CSSProperties
           }
         >
