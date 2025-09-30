@@ -1,5 +1,7 @@
 import { memo, useState } from "react";
-import { Heart, Heart as HeartFilled, Eye, Trash2 } from "lucide-react";
+import { Heart, Heart as HeartFilled, Eye } from "lucide-react";
+import { BsTrash3 } from "react-icons/bs";
+
 import {
   Dialog,
   DialogContent,
@@ -11,6 +13,7 @@ import {
 import type { ProductCardProps } from "../../../types/Components_type";
 import type { productObject } from "@/types/product_Type";
 import { useTranslation } from "react-i18next";
+import { useWishlist } from "@/hooks/WishListContext/useWishlist";
 
 const ProductActions = ({
   componentProps,
@@ -19,16 +22,31 @@ const ProductActions = ({
   componentProps?: ProductCardProps;
   product: productObject;
 }) => {
-  const [liked, setLiked] = useState(false);
+  // Access wishlist context
+
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+
+  const { t } = useTranslation();
+  // Check if the product is already in the wishlist
+  const liked = wishlist.includes(product.id);
+  // Toggle wishlist status
+  const toggleWishlist = () => {
+    if (liked) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product.id);
+    }
+  };
+
   const [mainImage, setMainImage] = useState(product.mainImgSRC);
-const { t } = useTranslation();
+
   return (
     <div className="icons absolute right-2 top-2 flex flex-col gap-3">
       {/* Favourite button */}
       {componentProps?.hasFavouriteIcon && (
         <button
           aria-label={liked ? "Remove from favourites" : "Add to favourites"}
-          onClick={() => setLiked(!liked)}
+          onClick={toggleWishlist}
           className="bg-white rounded-full w-7 h-7 flex items-center justify-center hover:scale-120 transition-transform"
         >
           {liked ? (
@@ -51,7 +69,7 @@ const { t } = useTranslation();
             </button>
           </DialogTrigger>
 
-          <DialogContent className=" border-5 ">
+          <DialogContent className="border-5">
             <DialogHeader>
               <DialogTitle>{product.title}</DialogTitle>
               <DialogDescription>
@@ -130,9 +148,12 @@ const { t } = useTranslation();
       {componentProps?.hasDeleteIcon && (
         <button
           aria-label="Delete product"
-          className="bg-white  rounded-full b w-7 h-7 flex items-center justify-center"
+          className="bg-white rounded-full w-7 h-7 flex cursor-pointer items-center justify-center hover:scale-120 transition-transform"
+          onClick={() => {
+            removeFromWishlist(product.id);
+          }}
         >
-          <Trash2 />
+          <BsTrash3 className="text-xl" />
         </button>
       )}
     </div>

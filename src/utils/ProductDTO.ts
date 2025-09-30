@@ -11,8 +11,7 @@ export function toCartProduct(
     price: product.discountPrice || product.price,
     quantity,
     color: color,
-    key: `${product.id}-${color}`,
+    key: color ? `${product.id}-${color}` : `${product.id}`,
     mainImage: product.mainImgSRC,
-
   };
 }
