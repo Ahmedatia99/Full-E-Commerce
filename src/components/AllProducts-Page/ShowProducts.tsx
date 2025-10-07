@@ -89,7 +89,7 @@ export default function ProductsPage() {
               key={p.id}
               products={[p]}
               componentProps={productCardProps}
-              className="border border-gray-200 p-2 rounded-lg overflow-hidden"
+              className="shadow-sm border border-gray-200 p-2 rounded-lg overflow-hidden"
             />
           ))
         ) : (

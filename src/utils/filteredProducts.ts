@@ -13,8 +13,8 @@ interface Filters {
 export function applyFilters(products: Product[], filters: Filters): Product[] {
   return products.filter((p) => {
     const matchSearch = p.title
-      .toLowerCase()
-      .includes(filters.search.toLowerCase());
+    .toLowerCase()
+    .includes(filters.search.toLowerCase());
     const matchCategory =
       filters.category === "All" || p.category === filters.category;
     const matchBrand =

@@ -27,7 +27,7 @@ export const SortFeature = ({ filters, setFilters }) => {
             <SelectItem value="none">Default</SelectItem>
             <SelectItem value="price-low">Price: Low</SelectItem>
             <SelectItem value="price-high">Price: High</SelectItem>
-            <SelectItem value="az">Rating: High</SelectItem>
+            <SelectItem value="rating">Rating: High</SelectItem>
           </SelectContent>
         </Select>
       </AccordionContent>
