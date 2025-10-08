@@ -22,7 +22,7 @@ function Header() {
   }, [i18n.language]);
 
   return (
-    <header className="bg-black text-white py-2 ">
+    <header className="bg-black text-white py-2  relative z-[60]">
       <div className="container mx-auto flex flex-col gap-3 items-center justify-between px-4 md:flex-row">
         {/* Left / Centered Text */}
         <h2 className="text-sm sm:text-base text-center flex-1">

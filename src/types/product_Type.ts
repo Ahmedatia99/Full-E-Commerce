@@ -15,7 +15,7 @@ export interface productObject {
   colors: colorsVariants[];
   mainImgSRC: string;
   description: string;
-  category?: string;
+  category: string;
   subCategory?: string;
   returnDelivery?: number;
   DeliveryPostalCode?: number[];

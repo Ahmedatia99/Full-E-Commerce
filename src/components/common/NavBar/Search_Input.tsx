@@ -14,11 +14,11 @@ function Search_Input({ className }: SearchInputProps) {
         id="search-input"
         type="search"
         placeholder={t("search")}
-        className={`peer bg-[#F5F5F5] rounded-sm py-3 px-4 w-full ${
+        className={`peer bg-[#F5F5F5]  rounded-sm py-1 px-4 w-full ${
           document.body.dir === "rtl" ? "text-right" : "text-left"
         }`}
       />
-      <label htmlFor="search-input" className="peer-focus:hidden">
+      <label htmlFor="search-input" className="peer-focus:hidden ">
         <Search
           className={`absolute top-1/2 -translate-y-1/2 ${
             document.body.dir === "rtl"

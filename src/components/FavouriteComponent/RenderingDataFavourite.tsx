@@ -1,28 +1,51 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useWishlist } from "../../hooks/WishListContext/useWishlist";
 import { useTranslation } from "react-i18next";
 import Product_Card from "@/components/common/Product_Card/Product_Card";
-import Pagination from "./Pagination";
 import { Link } from "react-router-dom";
 import { useProducts } from "../../hooks/useProducts";
+import { ShadPagination } from "./usePagination";
 
 function RenderingDataFavourite() {
   const { wishlist } = useWishlist();
+
   const { t } = useTranslation();
+
   const { products, loading, error } = useProducts();
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
+  //  Memoize favourite products so it's only recalculated when products or wishlist change
 
+  const favouriteProducts = useMemo(
+    () => products.filter((p) => wishlist.includes(p.id)),
+    [products, wishlist]
+  );
+  //  Keep currentPage valid when favourites change
+  useEffect(() => {
+    const totalPages = Math.ceil(favouriteProducts.length / itemsPerPage);
+
+    // If the current page is higher than the available pages,
+    // reset it to the last available page (or 1 if no items)
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages > 0 ? totalPages : 1);
+    }
+  }, [favouriteProducts, currentPage, itemsPerPage]);
+  //  Show loading or error messages
   if (loading) return <p>{t("Loading...")}</p>;
   if (error)
     return <p className="text-red-500">{t("Failed to load products")}</p>;
 
-  const favouriteProducts = products.filter((p) => wishlist.includes(p.id));
+  //  Filter products that exist in wishlist
 
-
-  
+  //  Calculate the last item index of the current page
   const indexOfLast = currentPage * itemsPerPage;
+
+  //  Calculate the first item index of the current page
   const indexOfFirst = indexOfLast - itemsPerPage;
+
+  //  Get only the products for the current page (slice from the full favourites list)
+
   const currentProducts = favouriteProducts.slice(indexOfFirst, indexOfLast);
 
   return (
@@ -32,6 +55,7 @@ function RenderingDataFavourite() {
       itemScope
       itemType="https://schema.org/ItemList"
     >
+      {/* Page heading with count */}
       <h1
         id="wishlist-heading"
         className="text-2xl font-bold mb-6 flex items-center gap-2"
@@ -45,6 +69,7 @@ function RenderingDataFavourite() {
         </span>
       </h1>
 
+      {/* If no favourite products */}
       {favouriteProducts.length === 0 ? (
         <div className="flex justify-center items-center flex-col">
           <p className="text-gray-500 text-center my-20 text-4xl ">
@@ -59,22 +84,27 @@ function RenderingDataFavourite() {
         </div>
       ) : (
         <>
+          {/* Accessibility: hidden text for screen readers */}
           <p className="sr-only">
             Showing {indexOfFirst + 1} to{" "}
             {Math.min(indexOfLast, favouriteProducts.length)} of{" "}
             {favouriteProducts.length} {t("favourites")}
           </p>
+
+          {/* Render product cards with delete option */}
           <Product_Card
             className="grid grid-cols-2 max-sm:grid-cols-1 xl:grid-cols-4 lg:grid-cols-4 justify-center items-center"
             products={currentProducts}
             componentProps={{ hasDeleteIcon: true }}
           />
+
+          {/* Pagination component */}
           <nav
             className="mt-16"
             role="navigation"
             aria-label="Wishlist pagination"
           >
-            <Pagination
+            <ShadPagination
               currentPage={currentPage}
               totalItems={favouriteProducts.length}
               itemsPerPage={itemsPerPage}

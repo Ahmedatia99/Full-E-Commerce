@@ -60,7 +60,7 @@ const FlashSales = () => {
           className="h-15 hover tranform capitalize hover:scale-105 transition duration-300"
           onClick={toSalesPage}
         >
-          {t("seeMoreDeals")}
+          {t("See More Deals")}
         </Button>
       </div>
     </div>

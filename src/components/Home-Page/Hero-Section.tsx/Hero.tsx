@@ -33,10 +33,12 @@ const slides = [
 
 export default function Hero() {
   return (
-    <section className="flex flex-col md:flex-row ">
+    <section className="flex flex-col md:flex-row  ">
       <SidebarCategories />
-      <div className="w-full cursor-grab bg-black text-white 
-      relative flex md:flex-row items-center justify-between flex-col-reverse  md:mt-8 md:ml-4 px-6 md:px-10 py-6 h-[85vh] md:h-[500px] overflow-hidden">
+      <div
+        className="w-full cursor-grab bg-black text-white 
+      relative flex md:flex-row items-center justify-between flex-col-reverse  md:mt-8 ltr:md:ml-4 rtl:md:mr-4 px-6 md:px-10 py-6 h-[85vh] md:h-[500px] overflow-hidden"
+      >
         <Swiper
           key={i18n.dir()}
           dir={i18n.dir()}
@@ -53,7 +55,7 @@ export default function Hero() {
               "--swiper-pagination-bullet-inactive-color": "#d1d5db", // gray-300
               "--swiper-pagination-bullet-inactive-opacity": "1",
 
-              "--swiper-pagination-color": "#DB4444", 
+              "--swiper-pagination-color": "#DB4444",
             } as React.CSSProperties
           }
         >

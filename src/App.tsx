@@ -12,6 +12,7 @@ import AccountPage from "./Pages/Account-Page";
 import About from "./Pages/About-Page";
 import FavouritePage from "./Pages/FavouritePage";
 import ProductsPage from "./Pages/ProductsPage";
+import CategoryPage from "./Pages/CategoryPage";
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
           <Route path="/Cart" element={<CartPage />} />
           <Route path="/Checkout" element={<CheckoutPage />} />
           <Route path="/Favourites" element={<FavouritePage />} />
+          <Route path="/category/:categoryName" element={<CategoryPage />} />
+          <Route path="/category" element={<CategoryPage />} />
         </Route>
       </Routes>
     </>
