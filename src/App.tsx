@@ -1,25 +1,26 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Main_Layout from "./Layout/Main_Layout";
-
 import NotFound404Page from "./Pages/ERROR-Page";
 import Contact from "./Pages/Contact-Page";
 import CartPage from "./Pages/Cart-Page";
 import CheckoutPage from "./Pages/Checkout-Page";
-import HomePage from "./Pages/Home-Page";
 import SignUp from "./Pages/Signup-Page";
 import Login from "./Pages/Login-Page";
 import AccountPage from "./Pages/Account-Page";
 import About from "./Pages/About-Page";
-import FavouritePage from "./Pages/FavouritePage";
-import ProductsPage from "./Pages/ProductsPage";
-import CategoryPage from "./Pages/CategoryPage";
-import ShowProducts from "@/components/AllProducts-Page/ShowProducts";
-import { ScrollToTop } from './components/common/ScrollTop';
-
+const FavouritePage = React.lazy(() => import("./Pages/FavouritePage"));
+const ProductsPage = React.lazy(() => import("./Pages/ProductsPage"));
+const CategoryPage = React.lazy(() => import("./Pages/CategoryPage"));
+const ShowProducts = React.lazy(
+  () => import("@/components/AllProducts-Page/ShowProducts")
+);
+import { ScrollToTop } from "./components/common/ScrollTop";
+const HomePage = React.lazy(() => import("./Pages/Home-Page"));
 function App() {
   return (
     <>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Main_Layout />}>
           <Route index element={<HomePage />} />
