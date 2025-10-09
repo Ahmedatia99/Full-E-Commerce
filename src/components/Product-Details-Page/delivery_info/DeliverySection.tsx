@@ -48,6 +48,7 @@ const DeliverySection: React.FC<DeliverySectionProps> = ({
               type="button"
               className="cursor-pointer text-black underline font-semibold text-center"
               onClick={() => setShowInput((v) => !v)}
+              to=""
             >
               {t("Enter your postal code for Delivery Availability")}
             </Link>

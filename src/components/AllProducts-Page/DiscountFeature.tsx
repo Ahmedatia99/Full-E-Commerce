@@ -1,5 +1,12 @@
 import { Checkbox } from "@/components/ui/checkbox";
-export const DiscountFeature = ({filters, setFilters}) => {
+import type { Filters } from "./ShowProducts";
+
+type BrandFeatureProps = {
+  filters: Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+};
+
+export const DiscountFeature = ({ filters, setFilters }: BrandFeatureProps) => {
   return (
     <div className="flex items-center space-x-2">
       <Checkbox

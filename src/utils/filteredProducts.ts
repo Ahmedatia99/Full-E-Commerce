@@ -1,4 +1,4 @@
-import type { Product } from "@/types/product_Type";
+import type { productObject } from "@/types/product_Type";
 
 interface Filters {
   category: string;
@@ -6,11 +6,11 @@ interface Filters {
   priceRange: [number, number];
   search: string;
   sort: string;
-  subCategory: string;
+  // subCategory: string;
   discountOnly: boolean;
 }
 
-export function applyFilters(products: Product[], filters: Filters): Product[] {
+export function applyFilters(products: productObject[], filters: Filters): productObject[] {
   return products.filter((p) => {
     const matchSearch = p.title
     .toLowerCase()
@@ -18,19 +18,19 @@ export function applyFilters(products: Product[], filters: Filters): Product[] {
     const matchCategory =
       filters.category === "All" || p.category === filters.category;
     const matchBrand =
-      filters.brand.length === 0 || filters.brand.includes(p.brand);
+      filters.brand.length === 0 || (p.brand && filters.brand.includes(p.brand));
     const matchPrice =
       p.price >= filters.priceRange[0] && p.price <= filters.priceRange[1];
-    const matchSubCategory =
-      filters.subCategory === "All" || p.subCategory === filters.subCategory;
-    const matchDiscount = filters.discountOnly
-      ? p.discountPrice < p.price
-      : true;
+    // const matchSubCategory =
+    //   filters.subCategory === "All" || p.subCategory === filters.subCategory;
+    // const matchDiscount = filters.discountOnly
+    //   ? p.discountPrice < p.price
+    //   : true;
     return matchSearch && matchCategory && matchBrand && matchPrice ;
   });
 }
 
-export function applySorting(products: Product[], sort: string): Product[] {
+export function applySorting(products: productObject[], sort: string): productObject[] {
   switch (sort) {
     case "price-low":
       return [...products].sort((a, b) => a.price - b.price);
@@ -44,9 +44,9 @@ export function applySorting(products: Product[], sort: string): Product[] {
 }
 
 export function filterProducts(
-  products: Product[],
+  products: productObject[],
   filters: Filters
-): Product[] {
+): productObject[] {
   const filtered = applyFilters(products, filters);
   return applySorting(filtered, filters.sort);
 }

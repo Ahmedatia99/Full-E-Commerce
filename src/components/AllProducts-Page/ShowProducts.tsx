@@ -13,7 +13,16 @@ import { PriceRangeFeature } from "./PriceRangeFeature";
 import { SortFeature } from "./SortFeature";
 import { filterProducts } from "@/utils/filteredProducts";
 // products data
-const productsData = products as productObject[];
+const productsData: productObject[] = products as productObject[];
+
+export type Filters = {
+  category: string;
+  brand: string[];
+  priceRange: [number, number];
+  search: string;
+  sort: string;
+  discountOnly: boolean;
+};
 
 const productCardProps = {
   hasFavouriteIcon: true,
@@ -21,22 +30,19 @@ const productCardProps = {
   hasReview: true,
 };
 
-// sub Category
-// const subCategories = [
-//   "All",
-//   ...Array.from(new Set(productsData.map((p) => p.subCategory))),
-// ];
+{
+  /*
+ //sub Category
+ const subCategories = [
+   "All",
+   ...Array.from(new Set(productsData.map((p) => p.subCategory))),
+ ];
+ */
+}
 
 export default function ProductsPage() {
   // Filters
-  const [filters, setFilters] = useState<{
-    category: string;
-    brand: string[];
-    priceRange: [number, number];
-    search: string;
-    sort: string;
-    discountOnly: boolean;
-  }>({
+  const [filters, setFilters] = useState<Filters>({
     category: "All",
     brand: [],
     priceRange: [0, 3000],
@@ -64,8 +70,8 @@ export default function ProductsPage() {
         <Accordion type="multiple">
           {/* Category */}
           <CategoryFeature
-            selectValue={filters.category}
-            setFilters={(v) => setFilters({ ...filters, category: v })}
+            filters={filters}
+            setFilters={setFilters}
           />
 
           {/* Brand */}

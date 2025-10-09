@@ -5,8 +5,17 @@ import {
 } from "@/components/ui/accordion";
 
 import { Slider } from "@/components/ui/slider";
+import type { Filters } from "./ShowProducts";
 
-export const PriceRangeFeature = ({ filters, setFilters }) => {
+type BrandFeatureProps = {
+  filters: Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+};
+
+export const PriceRangeFeature = ({
+  filters,
+  setFilters,
+}: BrandFeatureProps) => {
   return (
     <AccordionItem value="price">
       <AccordionTrigger>Price Range</AccordionTrigger>

@@ -1,5 +1,5 @@
-import type { cartProduct, productObject } from "@/types/product_Type";
-
+import type { productObject } from "@/types/product_Type";
+import type { cartProduct } from "@/types/cart";
 export function toCartProduct(
   product: productObject,
   color: string | undefined,

@@ -3,6 +3,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import type { Filters } from "./ShowProducts";
 
 import {
   Select,
@@ -11,13 +12,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-export const SortFeature = ({ filters, setFilters }) => {
+
+type BrandFeatureProps = {
+  filters: Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+};
+
+export const SortFeature = ({ filters, setFilters }: BrandFeatureProps) => {
   return (
     <AccordionItem value="sort">
       <AccordionTrigger>Sort</AccordionTrigger>
       <AccordionContent>
         <Select
-          value={filters.sort}
+          value={filters.sort ?? ""}
           onValueChange={(v) => setFilters({ ...filters, sort: v })}
         >
           <SelectTrigger>

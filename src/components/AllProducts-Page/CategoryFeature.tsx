@@ -11,11 +11,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import type { Filters } from "./ShowProducts";
 
 import products from "../../product.json";
 import type { productObject } from "@/types/product_Type";
-
-const CategoryFeature = ({ selectValue, setFilters }) => {
+type CategoryFeatureProps = {
+  filters: Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+};
+const CategoryFeature = ({ filters, setFilters }: CategoryFeatureProps) => {
   const productsData = products as productObject[];
   const categories = [
     "All",
@@ -26,14 +30,17 @@ const CategoryFeature = ({ selectValue, setFilters }) => {
     <AccordionItem value="category">
       <AccordionTrigger>Category</AccordionTrigger>
       <AccordionContent>
-        <Select value={selectValue} onValueChange={setFilters}>
+        <Select
+          value={filters.category || "All"}
+          onValueChange={(v) => setFilters({ ...filters, category: v })}
+        >
           <SelectTrigger>
             <SelectValue placeholder="Select category" />
           </SelectTrigger>
           <SelectContent>
             {categories.map((cat) => (
-              <SelectItem key={cat} value={cat}>
-                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+              <SelectItem key={cat} value={cat ?? ""}>
+                {cat ? cat.charAt(0).toUpperCase() + cat.slice(1) : "Unknown"}
               </SelectItem>
             ))}
           </SelectContent>
