@@ -71,7 +71,7 @@
     "avgRate": 4.5,
     "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759135936/S-Series-Comfort-Chair_vuwlag.png",
     "description": "",
-    "category": "home",
+    "category": "homeLifestyle",
     "subCategory": "chairs",
     "colors": [
       {
@@ -91,7 +91,7 @@
     "avgRate": 5,
     "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137142/The-North-Coat_mhverp.png",
     "description": "",
-    "category": "menFashion",
+    "category": "mensFashion",
     "subCategory": "coat",
     "colors": [
       {
@@ -111,7 +111,7 @@
     "avgRate": 4.5,
     "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137229/Gucci-duffle-bag_sdtiz8.png",
     "description": "",
-    "category": "womenFashion",
+    "category": "womansFashion",
     "subCategory": "bags",
     "colors": [
       {
@@ -131,7 +131,7 @@
     "avgRate": 4.5,
     "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137329/RGB-liquid-CPU-Cooler_ap5dk7.png",
     "description": "",
-    "category": "Computer",
+    "category": "electronics",
     "subCategory": "Coolers",
     "colors": [
       {
@@ -150,7 +150,7 @@
     "avgRate": 5,
     "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137381/Small-BookSelf_e1tehx.png",
     "description": "",
-    "category": "home",
+    "category": "homeLifestyle",
     "subCategory": "Library",
     "colors": [
       {
@@ -186,7 +186,7 @@
     "avgRate": 3,
     "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137574/Breed-Dry-Dog-Food_pwmud9.png",
     "description": "",
-    "category": "pets",
+    "category": "groceriesPets",
     "subCategory": "petsFood",
     "colors": [
       {
@@ -258,7 +258,7 @@
     "avgRate": 5,
     "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137838/Kids-Electric-Car_d5o7kg.png",
     "description": "",
-    "category": "babyToys",
+    "category": "babysToys",
     "subCategory": "cars",
     "colors": [
       {
@@ -276,7 +276,7 @@
     "avgRate": 5,
     "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759137902/Jr-Zoom-Soccer-Cleats_yw7cpq.png",
     "description": "",
-    "category": "sportes",
+    "category": "sportsOutdoor",
     "subCategory": "shoes",
     "colors": [
       {
@@ -312,7 +312,7 @@
     "avgRate": 4.5,
     "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138051/Quilted-Satin-Jacket_d1rb66.png",
     "description": "",
-    "category": "menFashion",
+    "category": "mensFashion",
     "subCategory": "jackets",
     "colors": [
       {
@@ -355,7 +355,7 @@
     "avgRate": 5,
     "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138226/attractive-woman-wearing-hat-posing-black-background_gslltn.png",
     "description": "",
-    "category": "womenFashion",
+    "category": "womansFashion",
     "subCategory": "hat",
     "colors": [
       {
@@ -403,7 +403,7 @@
     "avgRate": 5,
     "mainImgSRC": "https://res.cloudinary.com/dx07dkalc/image/upload/v1759138283/652e82cd70aa6522dd785109a455904c_ftjcpg.png",
     "description": "",
-    "category": "perfumes",
+    "category": "healthBeauty",
     "subCategory": "womenPerfume",
     "colors": [
       {

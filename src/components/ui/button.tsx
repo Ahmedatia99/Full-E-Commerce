@@ -21,6 +21,8 @@ const buttonVariants = cva(
           "bg-white text-base border border-gray-400 hover:opacity-60 text-gray-900",
         // Smaller button with less padding
         small: "bg-main text-sm shadow-xs hover:opacity-80 text-white",
+        outline:
+          "border border-input bg-transparent hover:bg-accent hover:text-accent-foreground",
       },
       size: {
         // Default size: medium padding

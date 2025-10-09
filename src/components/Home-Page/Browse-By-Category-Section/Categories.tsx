@@ -71,7 +71,7 @@ function Categories() {
       <Swiper
         key={i18n.dir()}
         dir={i18n.dir()}
-        
+
         modules={[Navigation]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         spaceBetween={16}
