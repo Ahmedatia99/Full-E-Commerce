@@ -1,6 +1,5 @@
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import SignUpForm from "./SignUPForm";
-
 function SignUP() {
   return (
     <div>

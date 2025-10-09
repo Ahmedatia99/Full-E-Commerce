@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { useTranslation } from "react-i18next";
 interface RegistrationInputProps {
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   name: string;
   type: string;
@@ -16,7 +16,7 @@ interface RegistrationInputProps {
 function RegistrationInput({
   value,
   onChange,
-  placeholder,
+  placeholder = "",
   name,
   type,
   className = "",
@@ -26,6 +26,7 @@ function RegistrationInput({
 }: RegistrationInputProps) {
   const { t } = useTranslation();
   const inputId = id || name;
+  
   return (
     <div className="registration-input">
       {label && (
@@ -42,7 +43,7 @@ function RegistrationInput({
         name={name}
         placeholder={t(placeholder)}
         value={value}
-        onChange={onChange} //remove 
+        onChange={onChange} 
         className={`w-full border-2 border-gray-300 ${className}`}
         required
         aria-label={label ? t(label) : t(placeholder)}
