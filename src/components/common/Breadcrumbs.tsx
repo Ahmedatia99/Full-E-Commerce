@@ -2,8 +2,9 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { mockUser } from "../common/mockUser";
-import { mockProducts } from "../Product-Details-Page/mockProduct";
+import projectData from "../../product.json";
 import React from "react";
+import type { productObject } from "@/types/product_Type";
 
 function BreadcrumbsComponent() {
   const location = useLocation();
@@ -18,9 +19,10 @@ function BreadcrumbsComponent() {
 
   // (products / user)
   const getEntityName = (type: string, id: string): string | undefined => {
+    const productsData: productObject[] = projectData as productObject[];
     if (type === "product") {
       const numericId = Number(id);
-      return mockProducts.find((p) => p.id === numericId)?.title;
+      return productsData.find((p) => p.id === numericId)?.title;
     }
     if (type === "user") {
       return mockUser.id === Number(id)
