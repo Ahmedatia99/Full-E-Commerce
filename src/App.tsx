@@ -12,10 +12,13 @@ import AccountPage from "./Pages/Account-Page";
 import About from "./Pages/About-Page";
 import FavouritePage from "./Pages/FavouritePage";
 import ProductsPage from "./Pages/ProductsPage";
+import ShowProducts from "@/components/AllProducts-Page/ShowProducts";
+import { ScrollToTop } from './components/common/ScrollTop';
 
 function App() {
   return (
     <>
+      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Main_Layout />}>
           <Route index element={<HomePage />} />
@@ -29,6 +32,7 @@ function App() {
           <Route path="/Cart" element={<CartPage />} />
           <Route path="/Checkout" element={<CheckoutPage />} />
           <Route path="/Favourites" element={<FavouritePage />} />
+          <Route path="/product" element={<ShowProducts />} />
         </Route>
       </Routes>
     </>
