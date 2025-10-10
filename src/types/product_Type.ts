@@ -19,7 +19,7 @@ export interface productObject {
   subCategory?: string;
   returnDelivery?: number;
   DeliveryPostalCode?: number[];
-  brand?:string;
+  brand?: string;
 }
 
 export interface colorsVariants {
@@ -28,3 +28,12 @@ export interface colorsVariants {
   images: string[];
   sizes?: string[];
 }
+
+export type Filters = {
+  category: string;
+  brand: string[];
+  priceRange: [number, number];
+  search: string;
+  sort: string;
+  discountOnly: boolean;
+};
