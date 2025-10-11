@@ -135,5 +135,17 @@
   "See More Deals": "See More Deals",
   "Enter your email": " Enter your email",
   "Enter your Password": " Enter your Password",
-  "Enter your name": " Enter your name"
+  "Enter your name": " Enter your name",
+  "product": "Product",
+  "subtotal": "Subtotal",
+  "quantity": "Quantity",
+  "price": "Price",
+  "Delete All Products": "Delete All Products",
+  "Apply Coupon": "Apply Coupon",
+  "Coupon Code": "Coupon Code",
+  "cart_total": "Cart Total",
+  "shipping": "Shipping",
+  "total": "Total",
+  "free": "Free",
+  "proceed_checkout": "Proceed to Checkout"
 }
