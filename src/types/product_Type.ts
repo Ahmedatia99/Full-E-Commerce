@@ -1,3 +1,4 @@
+import { products } from "./../data/products";
 export interface products {
   productObject: productObject[];
 }
@@ -7,6 +8,7 @@ export interface productObject {
   isNew?: boolean;
   isFlash?: boolean;
   isFeatured?: boolean;
+  ishook?: boolean;
   title: string;
   price: number;
   discountPrice?: number;
@@ -22,6 +24,12 @@ export interface productObject {
   brand?: string;
 }
 
+export interface hookProductObject {
+  id: number;
+  title: string;
+  description: string;
+  mainImgSRC: string;
+}
 export interface colorsVariants {
   color: string;
   quantity: number;

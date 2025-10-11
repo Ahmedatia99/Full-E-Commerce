@@ -5,8 +5,7 @@ type HeroContentProps = {
   slide: {
     id: number;
     title: string;
-    desc: string;
-    img: string;
+    description: string;
   };
 };
 
@@ -18,7 +17,7 @@ export default function HeroContent({ slide }: HeroContentProps) {
         <span className="text-white text-6xl"></span> {t(slide.title)}
       </p>
       <h1 className="specialHeading mt-3 leading-snug">
-        {t(slide.desc)}
+        {t(slide.description)}
       </h1>
       <button
         className=" cursor-pointer group mt-5 md:mb-0 mb-5 flex items-center gap-2  py-2 mx-auto md:mx-0 
