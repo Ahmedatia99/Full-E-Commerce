@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { Accordion } from "@/components/ui/accordion";
 import Product_Card from "@/components/common/Product_Card/Product_Card";
@@ -9,11 +9,10 @@ import { BrandFeature } from "./BrandFeature";
 import { PriceRangeFeature } from "./PriceRangeFeature";
 import { SortFeature } from "./SortFeature";
 import { filterProducts } from "@/utils/filteredProducts";
-import type { Filters, productObject } from "@/types/product_Type";
+import type { Filters } from "@/types/product_Type";
+import { useAllProducts } from "@/hooks/productsCustomHook/useAllProducts";
 
-import axios, { AxiosError, type CancelTokenSource } from "axios";
-
-// Component-level props
+// Default props for product card
 const productCardProps = {
   hasFavouriteIcon: true,
   hasviewIcon: true,
@@ -21,7 +20,7 @@ const productCardProps = {
 };
 
 export default function ProductsPage() {
-  // Filters state
+  // Local filters
   const [filters, setFilters] = useState<Filters>({
     category: "All",
     brand: [],
@@ -31,48 +30,13 @@ export default function ProductsPage() {
     discountOnly: false,
   });
 
-  // Products state
-  const [productsData, setProductsData] = useState<productObject[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  // Fetch products using custom hook
+  const { products, loading, error } = useAllProducts();
 
-  // Fetch products from API
-  useEffect(() => {
-    const source: CancelTokenSource = axios.CancelToken.source();
-
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const res = await axios.get<productObject[]>(
-          "https://exclusive-products-api-production.up.railway.app/products",
-          { cancelToken: source.token }
-        );
-        console.log(res);
-        setProductsData(res.data);
-      } catch (err: unknown) {
-        const axiosError = err as AxiosError;
-        if (axios.isCancel(err)) {
-          console.log("Request canceled", axiosError.message);
-        } else {
-          setError(axiosError.message);
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-
-    return () => {
-      source.cancel("Component unmounted, request canceled");
-    };
-  }, []);
-
-  // Filtering logic
+  // Apply filtering
   const filteredProducts = useMemo(
-    () => filterProducts(productsData, filters),
-    [productsData, filters]
+    () => filterProducts(products, filters),
+    [products, filters]
   );
 
   return (
@@ -93,16 +57,30 @@ export default function ProductsPage() {
         </Accordion>
       </aside>
 
-      {/* Product List */}
-      <section className="md:col-span-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+      {/* Products Section */}
+      <section className="md:col-span-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 min-h-[400px]">
+        {/* Loading state */}
         {loading && (
-          <p className="col-span-full text-center mt-10">Loading...</p>
-        )}
-        {error && (
-          <p className="col-span-full text-center mt-10 text-red-500">
-            Error: {error}
+          <p className="col-span-full text-center mt-10 text-gray-600 text-lg font-medium">
+            Loading products...
           </p>
         )}
+
+        {/* Error state */}
+        {!loading && error && (
+          <p className="col-span-full text-center mt-10 text-red-500 text-lg font-medium">
+            Failed to load products: {error}
+          </p>
+        )}
+
+        {/* Empty state */}
+        {!loading && !error && filteredProducts.length === 0 && (
+          <p className="col-span-full text-center mt-10 text-gray-500 text-lg font-medium">
+            No products found ("_____")
+          </p>
+        )}
+
+        {/* Product list */}
         {!loading &&
           !error &&
           filteredProducts.length > 0 &&
@@ -114,11 +92,6 @@ export default function ProductsPage() {
               className="shadow-sm border border-gray-200 p-2 rounded-lg overflow-hidden"
             />
           ))}
-        {!loading && !error && filteredProducts.length === 0 && (
-          <div className="col-span-full text-center text-gray-500">
-            No products found ("_____")
-          </div>
-        )}
       </section>
     </div>
   );
