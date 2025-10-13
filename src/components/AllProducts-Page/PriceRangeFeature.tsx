@@ -5,8 +5,7 @@ import {
 } from "@/components/ui/accordion";
 
 import { Slider } from "@/components/ui/slider";
-import type { Filters } from "./ShowProducts";
-
+import type { Filters } from "@/types/product_Type";
 type BrandFeatureProps = {
   filters: Filters;
   setFilters: React.Dispatch<React.SetStateAction<Filters>>;
@@ -27,7 +26,7 @@ export const PriceRangeFeature = ({
             max={3000}
             step={50}
             onValueChange={(value) =>
-              setFilters((prev) => ({
+              setFilters((prev: Filters) => ({
                 ...prev,
                 priceRange: value as [number, number],
               }))

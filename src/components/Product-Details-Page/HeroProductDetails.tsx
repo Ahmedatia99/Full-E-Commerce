@@ -16,7 +16,6 @@ import { CartContext } from "@/hooks/CartContext";
 
 import Products from "@/product.json";
 import type { productObject } from "@/types/product_Type";
-import axios from "axios";
 export default function HeroProductDetails() {
   const cartContext = useContext(CartContext);
   const { id: idFromParams } = useParams<{ id?: string }>();

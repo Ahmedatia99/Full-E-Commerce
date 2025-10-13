@@ -1,6 +1,5 @@
 import { Checkbox } from "@/components/ui/checkbox";
-import type { Filters } from "./ShowProducts";
-
+import type { Filters } from "@/types/product_Type";
 type BrandFeatureProps = {
   filters: Filters;
   setFilters: React.Dispatch<React.SetStateAction<Filters>>;
