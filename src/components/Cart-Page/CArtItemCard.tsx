@@ -4,8 +4,12 @@ import CartProduct from "./CartProduct";
 import CartQuantity from "./CartQuantity";
 import { useCart } from "../../hooks/useCart";
 import { useTranslation } from "react-i18next";
+import type { cartProduct } from "@/types/cart";
+type CartProductProps = {
+  item: cartProduct;
+};
+const CartItemCard = ({ item }: CartProductProps) => {
 
-const CartItemCard = ({ item }) => {
   const { deleteFromCart } = useCart();
   const { t } = useTranslation();
 

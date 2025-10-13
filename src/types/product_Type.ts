@@ -20,6 +20,7 @@ export interface productObject {
   returnDelivery?: number;
   DeliveryPostalCode?: number[];
   brand?:string;
+
 }
 
 export interface colorsVariants {
