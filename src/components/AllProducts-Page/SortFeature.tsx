@@ -3,7 +3,6 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import type { Filters } from "./ShowProducts";
 
 import {
   Select,
@@ -12,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import type { Filters } from "@/types/product_Type";
 
 type BrandFeatureProps = {
   filters: Filters;
