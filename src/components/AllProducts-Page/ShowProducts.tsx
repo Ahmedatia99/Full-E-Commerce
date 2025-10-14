@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import products from "../../product.json";
 import { Accordion } from "@/components/ui/accordion";
@@ -12,6 +12,8 @@ import { BrandFeature } from "./BrandFeature";
 import { PriceRangeFeature } from "./PriceRangeFeature";
 import { SortFeature } from "./SortFeature";
 import { filterProducts } from "@/utils/filteredProducts";
+import { useSearchParams } from "react-router-dom";
+
 // products data
 const productsData: productObject[] = products as productObject[];
 
@@ -41,6 +43,18 @@ const productCardProps = {
 }
 
 export default function ProductsPage() {
+  const [searchParams] = useSearchParams();
+
+  const searchFromQuery = searchParams.get("search") || "";
+  const categoryFromQuery = searchParams.get("category") || "All";
+
+  useEffect(() => {
+    setFilters((prev) => ({
+      ...prev,
+      category: categoryFromQuery,
+      search: searchFromQuery,
+    }));
+  }, [searchFromQuery, categoryFromQuery]);
   // Filters
   const [filters, setFilters] = useState<Filters>({
     category: "All",
@@ -69,10 +83,7 @@ export default function ProductsPage() {
 
         <Accordion type="multiple">
           {/* Category */}
-          <CategoryFeature
-            filters={filters}
-            setFilters={setFilters}
-          />
+          <CategoryFeature filters={filters} setFilters={setFilters} />
 
           {/* Brand */}
           <BrandFeature filters={filters} setFilters={setFilters} />

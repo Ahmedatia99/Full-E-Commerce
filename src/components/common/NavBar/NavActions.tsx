@@ -49,7 +49,7 @@ function NavActions() {
         </Link>
 
         {/* User Dropdown */}
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>
             <button className="rounded-full transition-transform duration-300 hover:scale-110 cursor-pointer">
               <User />

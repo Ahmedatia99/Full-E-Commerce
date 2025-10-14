@@ -4,6 +4,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+body[data-scroll-locked] {
+  overflow: auto !important;
+}
 /* =========================
    Theme Variables
 ========================= */
@@ -166,6 +169,15 @@
 @theme {
   --color-main: #db4444;
   --color-btnHover: #e07575;
+  --color-input: #f5f5f5;
+  --color-inputFocus: #e5e5e5;
+  --color-textLight: #6b7280;
+  --color-textDark: #374151;
+  --color-borderLight: #d1d5db;
+  --color-borderDark: #9ca3af;
+  --color-bgLight: #ffffff;
+  --color-bgDark: #1f2937;
+  --color-shadowLight: rgba(0, 0, 0, 0.1);
 }
 @theme inline {
   --font-sans: "Inter", sans-serif;
