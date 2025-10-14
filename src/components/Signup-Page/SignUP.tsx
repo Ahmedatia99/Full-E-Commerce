@@ -15,7 +15,7 @@ function SignUP() {
         <div className="hidden lg:flex justify-center items-center">
           <img
             className="w-full h-full object-cover overflow-hidden rounded-lg"
-            src="https://res.cloudinary.com/dx07dkalc/image/upload/w_300,q_auto,f_auto/v1759134960/Login_vzwnrp.jpg"
+            src="https://res.cloudinary.com/dx07dkalc/image/upload/w_auto,q_auto,f_auto/v1759134960/Login_vzwnrp.jpg"
             alt="Illustration showing sign up and shopping experience"
             loading="lazy"
           />

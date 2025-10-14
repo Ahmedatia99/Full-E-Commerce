@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -57,7 +57,7 @@ const SignUpForm = () => {
           type="text"
           name="emailOrPhone"
           label="emailOrPhone"
-          placeholder={t("Enter your email or phone")}
+          placeholder={t("Enter your email")}
           value={formData.emailOrPhone}
           onSubmit={handleChange}
         />
@@ -66,7 +66,7 @@ const SignUpForm = () => {
           type="password"
           name="password"
           label="password"
-          placeholder={t("Enter your password")}
+          placeholder={t("Enter your Password")}
           value={formData.password}
           onSubmit={handleChange}
         />
@@ -96,11 +96,11 @@ const SignUpForm = () => {
 
       {/* Already have account */}
       <p className="text-center text-gray-600 mt-6">
-        {t("already have account?")}{" "}
+        {t("alreadyhaveaccount?")}{" "}
         <Link
           to="/login"
           className="text-black font-medium underline"
-          aria-label={t("login to your account")}
+          aria-label={t("alreadyhaveaccount?")}
         >
           {t("login")}
         </Link>
