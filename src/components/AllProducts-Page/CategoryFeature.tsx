@@ -11,8 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { Filters } from "./ShowProducts";
-
+import type { Filters } from "@/types/product_Type";
 import products from "../../product.json";
 import type { productObject } from "@/types/product_Type";
 type CategoryFeatureProps = {

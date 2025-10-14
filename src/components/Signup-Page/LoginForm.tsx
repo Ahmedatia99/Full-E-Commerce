@@ -45,7 +45,7 @@ const LoginForm: React.FC = () => {
           type="text"
           name="emailOrPhone"
           label="emailOrPhone"
-          placeholder={t("Enter your email or phone")}
+          placeholder={t("Enter your name")}
           value={formData.emailOrPhone}
           onSubmit={handleChange}
         />
@@ -54,7 +54,7 @@ const LoginForm: React.FC = () => {
           type="password"
           name="password"
           label="password"
-          placeholder={t("Enter your password")}
+          placeholder={t("Enter your Password")}
           value={formData.password}
           onSubmit={handleChange}
         />

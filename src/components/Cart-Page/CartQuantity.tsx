@@ -9,19 +9,19 @@ function CartQuantity({ item }: CartQuantityProps) {
   const { editQuantity } = useCart();
 
   return (
-    <div>
-      <label htmlFor={`qty-${item.key}`} className="sr-only">
-        Quantity for {item.title}
+    <div className="flex justify-center">
+      <label htmlFor={`qty-${item.key}`} className="max-sm:flex items-center mr-2 text-main font-semibold hidden">
+        Quantity:
       </label>
       <input
         id={`qty-${item.key}`}
         type="number"
         value={item.quantity}
         min={1}
-        max={20} // item.stock
+        max={20}
         onChange={(e) => editQuantity(item.key, parseInt(e.target.value))}
         onKeyDown={(e) => e.preventDefault()}
-        className="border rounded px-2 py-3 w-20 text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="border-2 rounded p-1.5 w-20 text-center "
       />
     </div>
   );

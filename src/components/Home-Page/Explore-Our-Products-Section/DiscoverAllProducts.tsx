@@ -2,22 +2,26 @@ import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Grid } from "swiper/modules";
 import "swiper/css";
-
 import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
 import Product_Card from "@/components/common/Product_Card/Product_Card";
 import type { Swiper as SwiperType } from "swiper";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import type { productObject } from "@/types/product_Type";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
-import Products from "../../../product.json";
+import { useExploreOurProductsSectionProducts } from "@/hooks/productsCustomHook/useExploreOurProductsSectionProducts";
 
 const DiscoverAllProducts = () => {
+  // Fetch products for "Explore Our Products" section
+  const { products, loading, error } = useExploreOurProductsSectionProducts();
+
+  // Navigation hook to redirect to all products page
   const navigate = useNavigate();
   const toAllProductPage = () => {
     navigate("/product");
   };
+
+  // Common props used by all product cards
   const productCardProps = {
     AddToCartBtnFixed: false,
     hasFavouriteIcon: true,
@@ -27,15 +31,16 @@ const DiscoverAllProducts = () => {
     hasColors: false,
     ratingAndPriceInRow: false,
   };
+
+  // Reference to control Swiper navigation externally
   const swiperRef = useRef<SwiperType | null>(null);
-  const products = Products as productObject[];
-  const previewProducts = [...products]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 15);
+
+  // Translation hook
   const { t } = useTranslation();
 
   return (
     <div>
+      {/* Section Header should always appear regardless of data or status */}
       <div className="flex justify-between w-full mt-20 items-center">
         <SectionHeader
           label={t("Our Products")}
@@ -44,29 +49,49 @@ const DiscoverAllProducts = () => {
           className="mb-10"
         />
       </div>
-      <Swiper
-        key={i18n.dir()}
-        dir={i18n.dir()}
-        modules={[Grid, Navigation]}
-        slidesPerView={1}
-        grid={{ rows: 2, fill: "row" }}
-        spaceBetween={16}
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
-        breakpoints={{
-          640: { slidesPerView: 2, grid: { rows: 2 } },
-          1024: { slidesPerView: 3, grid: { rows: 2 } },
-          1280: { slidesPerView: 5, grid: { rows: 2 } },
-        }}
-      >
-        {previewProducts.map((p) => (
-          <SwiperSlide key={p.id}>
-            <Product_Card products={[p]} componentProps={productCardProps} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+
+      {/* Conditional rendering for loading, error, or empty states */}
+      {loading ? (
+        // Loading state
+        <p className="text-center text-gray-500">{t("Loading...")}</p>
+      ) : error ? (
+        // Error state
+        <p className="text-center text-red-500">
+          {t("Failed to load products")}
+        </p>
+      ) : products.length === 0 ? (
+        // Empty data state
+        <p className="text-center text-gray-400">
+          {t("No products available")}
+        </p>
+      ) : (
+        // Swiper grid to display product cards
+        <Swiper
+          key={i18n.dir()}
+          dir={i18n.dir()}
+          modules={[Grid, Navigation]}
+          slidesPerView={1}
+          grid={{ rows: 2, fill: "row" }}
+          spaceBetween={16}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          breakpoints={{
+            640: { slidesPerView: 2, grid: { rows: 2 } },
+            1024: { slidesPerView: 3, grid: { rows: 2 } },
+            1280: { slidesPerView: 5, grid: { rows: 2 } },
+          }}
+        >
+          {products.map((p) => (
+            <SwiperSlide key={p.id}>
+              <Product_Card products={[p]} componentProps={productCardProps} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
+
+      {/* Button to navigate to full products page */}
       <div className="flex justify-center">
         <Button
-          className="h-15 hover tranform hover:scale-105 mt-15 transition duration-300"
+          className="h-15 hover transform hover:scale-105 mt-15 transition duration-300"
           onClick={toAllProductPage}
         >
           {t("view all products")}
