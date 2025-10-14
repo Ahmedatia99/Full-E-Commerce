@@ -2,7 +2,7 @@ import { useCart } from "../../hooks/useCart";
 import CartTableHeader from "./CartTableHeader";
 import CartItemCard from "./CartItemCard";
 
-const CartItemsList = () => {
+function CartItemsList() {
   const { cartProducts } = useCart();
 
   return (
@@ -13,6 +13,6 @@ const CartItemsList = () => {
       ))}
     </section>
   );
-};
+}
 
 export default CartItemsList;
