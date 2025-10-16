@@ -34,13 +34,13 @@ function BreadcrumbsComponent() {
 
   const entityName = useMemo(() => {
     if (!id || paths.length < 2) return undefined;
-    const type = paths[0]; //(products أو user)
+    const type = paths[0];
     return getEntityName(type, id);
   }, [id, paths]);
 
   return (
     <nav
-      className="text-sm text-gray-500 my-5 md:my-10 px-3 md:px-5"
+      className="text-sm text-gray-500 my-7 md:my-10 "
       aria-label="Breadcrumb"
       itemScope
       itemType="https://schema.org/BreadcrumbList"

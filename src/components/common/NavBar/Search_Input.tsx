@@ -13,20 +13,10 @@ export default function Search_Input({
   ...props
 }: SearchInputProps) {
   const { t } = useTranslation();
-  const {
-    search,
-    setSearch,
-    open,
-    setOpen,
-    filtered,
-    containerRef,
-    handleSelect,
-    handleKeyDown,
-  } = useSearchLogic(300);
+  const { search, setSearch, handleKeyDown } = useSearchLogic();
 
   return (
     <div
-      ref={containerRef}
       className={`relative w-full ${className || ""}`}
       dir={document.body.dir}
     >
@@ -36,10 +26,7 @@ export default function Search_Input({
         type="search"
         placeholder={t("search")}
         value={search}
-        onChange={(e) => {
-          setSearch(e.target.value);
-          setOpen(true);
-        }}
+        onChange={(e) => setSearch(e.target.value)}
         onKeyDown={handleKeyDown}
         className={`peer bg-input rounded-md py-2 px-4 w-full focus:outline-none ${
           document.body.dir === "rtl" ? "text-right" : "text-left"
@@ -54,34 +41,6 @@ export default function Search_Input({
         }`}
         size={20}
       />
-
-      {/* Dropdown Results */}
-      {open && search.trim() && (
-        <div
-          role="listbox"
-          className="absolute z-50 mt-2 w-full p-2 bg-bgLight shadow-lg rounded-md border border-bgLight max-h-60 overflow-y-auto"
-        >
-          {filtered.length > 0 ? (
-            filtered.map((item) => (
-              <button
-                key={item.id}
-                role="option"
-                className="w-full text-left cursor-pointer p-2 hover:bg-shadowLight transition text-sm text-textLight"
-                onClick={() => handleSelect(item)}
-              >
-                {item.title}
-              </button>
-            ))
-          ) : (
-            <div
-              className="p-3 text-center text-textLight text-sm"
-              aria-live="polite"
-            >
-              {t("no_results")}
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 }

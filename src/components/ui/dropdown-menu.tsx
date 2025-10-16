@@ -5,9 +5,32 @@ import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 function DropdownMenu({
+  onOpenChange,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
-  return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
+  const handleOpenChange = React.useCallback(
+    (open: boolean) => {
+      document.documentElement.style.scrollbarGutter = "stable";
+
+      if (open) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+        document.documentElement.style.scrollbarGutter = "";
+      }
+
+      onOpenChange?.(open);
+    },
+    [onOpenChange] //
+  );
+
+  return (
+    <DropdownMenuPrimitive.Root
+      data-slot="dropdown-menu"
+      {...props}
+      onOpenChange={handleOpenChange}
+    />
+  );
 }
 
 function DropdownMenuPortal({

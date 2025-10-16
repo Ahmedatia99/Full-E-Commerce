@@ -37,7 +37,10 @@ function Header() {
 
         {/* Right Side: Language Selector */}
         <div className="flex items-center gap-4 ml-4">
-          <DropdownMenu modal={false} onOpenChange={(isOpen) => setOpen(isOpen)}>
+          <DropdownMenu
+            modal={false}
+            onOpenChange={(isOpen) => setOpen(isOpen)}
+          >
             <DropdownMenuTrigger asChild>
               <button className="flex items-center text-sm font-semibold cursor-pointer hover:text-gray-200 transition-colors">
                 {i18n.language === "ar" ? "العربية" : "English"}

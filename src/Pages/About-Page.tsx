@@ -34,17 +34,16 @@ function About() {
   const { t } = useTranslation();
 
   return (
-    <div className="container mx-auto px-5 py-10">
+    <div className="container mx-auto px-3  py-10">
       <Breadcrumbs />
 
       <section
-        className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center gap-10"
+        className="bg-white rounded-lg shadow-lg py-8 px-5 flex flex-col items-center gap-10"
         aria-labelledby="about-title"
       >
-        {/* صورة وعنوان ووصف */}
         <div className="flex flex-col items-center mb-8 text-center">
           <img
-            src="https://res.cloudinary.com/dtf9brzuu/image/upload/v1758581616/eCommerce_Platform_xwskgu.png"
+            src="https://res.cloudinary.com/dx07dkalc/image/upload/v1760563858/eCommerce_Platform_yh3aqk.png"
             alt={t("aboutTitle")}
             className="w-40 h-40 object-cover rounded-full shadow-xl mb-10"
             loading="lazy"
@@ -52,7 +51,7 @@ function About() {
           <h1 id="about-title" className="heading text-black mb-10">
             {t("aboutTitle")}
           </h1>
-          <p className="text-gray-700 text-lg max-w-2xl mb-4">
+          <p className="text-gray-700 text-lg font-semibold max-w-2xl mb-4">
             {t("aboutDesc")}
           </p>
         </div>
@@ -65,17 +64,14 @@ function About() {
           {aboutCards.map(({ id, icon: Icon, titleKey, descKey }) => (
             <article
               key={id}
-              className="flex flex-col hover:scale-105 transition duration-300 items-center bg-[#F5F5F5] rounded-lg p-6 shadow text-center"
+              className="flex flex-col hover:scale-105 transition duration-300 items-center bg-gray-200 rounded-lg p-6 shadow text-center"
               role="region"
               aria-labelledby={`about-card-${id}`}
             >
-              <Icon
-                className="text-[#DB4444] text-4xl mb-2"
-                aria-hidden="true"
-              />
+              <Icon className="text-main text-4xl mb-2" aria-hidden="true" />
               <h2
                 id={`about-card-${id}`}
-                className="font-semibold text-xl mb-1"
+                className="font-bold text-xl mb-1"
               >
                 {t(titleKey)}
               </h2>
