@@ -9,8 +9,8 @@ import { BrandFeature } from "./BrandFeature";
 import { PriceRangeFeature } from "./PriceRangeFeature";
 import { SortFeature } from "./SortFeature";
 import { filterProducts } from "@/utils/filteredProducts";
-import type { Filters } from "@/types/product_Type";
 import { useAllProducts } from "@/hooks/productsCustomHook/useAllProducts";
+import type { Filters } from "@/types/product_Type";
 
 // Default props for product card
 const productCardProps = {
