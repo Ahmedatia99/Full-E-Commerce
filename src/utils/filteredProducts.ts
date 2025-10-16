@@ -18,14 +18,10 @@ export function applyFilters(products: productObject[], filters: Filters): produ
     const matchCategory =
       filters.category === "All" || p.category === filters.category;
     const matchBrand =
-      filters.brand.length === 0 || (p.brand && filters.brand.includes(p.brand));
+      filters.brand.length === 0 ||
+  (p.brand && filters.brand.some(b => b.trim().toLowerCase() === (p.brand ?? "").trim().toLowerCase()));
     const matchPrice =
       p.price >= filters.priceRange[0] && p.price <= filters.priceRange[1];
-    // const matchSubCategory =
-    //   filters.subCategory === "All" || p.subCategory === filters.subCategory;
-    // const matchDiscount = filters.discountOnly
-    //   ? p.discountPrice < p.price
-    //   : true;
     return matchSearch && matchCategory && matchBrand && matchPrice ;
   });
 }

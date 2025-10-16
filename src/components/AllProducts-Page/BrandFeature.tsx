@@ -16,8 +16,14 @@ export const BrandFeature = ({ filters, setFilters }: BrandFeatureProps) => {
   const productsData = products as productObject[];
 
   const brands = Array.from(
-    new Set(productsData.map((p) => p.brand).filter((b) => b))
+    new Set(
+      productsData
+        .map((p) => p.brand)
+        .filter((b): b is string => typeof b === "string" && b.trim() !== "")
+    )
   );
+  
+
   return (
     <AccordionItem value="brand">
       <AccordionTrigger>Brand</AccordionTrigger>
@@ -26,17 +32,18 @@ export const BrandFeature = ({ filters, setFilters }: BrandFeatureProps) => {
           <div key={brand} className="flex items-center space-x-2">
             <Checkbox
               id={brand}
-              checked={brand ? filters.brand.includes(brand) : false}
-              onChange={(e) => {
-                const checked = (e.target as HTMLInputElement).checked;
-                if (!brand) return;
-
-                setFilters((prev) => ({
-                  ...prev,
-                  brand: checked
+              checked={filters.brand.some(
+                (b) => b.toLowerCase() === brand.toLowerCase()
+              )}
+              onCheckedChange={(checked) => {
+                setFilters((prev) => {
+                  const updatedBrands = checked
                     ? [...prev.brand, brand]
-                    : prev.brand.filter((b) => b !== brand),
-                }));
+                    : prev.brand.filter(
+                        (b) => b.toLowerCase() !== brand.toLowerCase()
+                      );
+                  return { ...prev, brand: updatedBrands };
+                });
               }}
             />
             <label htmlFor={brand} className="text-sm cursor-pointer">
