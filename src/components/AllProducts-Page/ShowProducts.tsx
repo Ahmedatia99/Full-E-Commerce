@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Accordion } from "@/components/ui/accordion";
 import Product_Card from "@/components/common/Product_Card/Product_Card";
@@ -9,10 +10,9 @@ import { BrandFeature } from "./BrandFeature";
 import { PriceRangeFeature } from "./PriceRangeFeature";
 import { SortFeature } from "./SortFeature";
 import { filterProducts } from "@/utils/filteredProducts";
-import type { Filters } from "@/types/product_Type";
 import { useAllProducts } from "@/hooks/productsCustomHook/useAllProducts";
+import type { Filters } from "@/types/product_Type";
 
-// Default props for product card
 const productCardProps = {
   hasFavouriteIcon: true,
   hasviewIcon: true,
@@ -20,7 +20,6 @@ const productCardProps = {
 };
 
 export default function ProductsPage() {
-  // Local filters
   const [filters, setFilters] = useState<Filters>({
     category: "All",
     brand: [],
@@ -30,22 +29,53 @@ export default function ProductsPage() {
     discountOnly: false,
   });
 
-  // Fetch products using custom hook
   const { products, loading, error } = useAllProducts();
+  const location = useLocation();
 
-  // Apply filtering
+  useEffect(() => {
+    if (!products.length) return;
+    // product/category/electronics
+    const categoryFromUrl = location.pathname.split("/").pop()?.toLowerCase();
+    if (!categoryFromUrl) return;
+
+    setFilters((prev) => {
+      const matchedCategory = products.find((p) =>
+        p.category?.toLowerCase().includes(categoryFromUrl)
+      );
+
+      if (matchedCategory?.category) {
+        return { ...prev, category: matchedCategory.category.toLowerCase() };
+      }
+
+      if (categoryFromUrl === "flashsales") {
+        return { ...prev, discountOnly: true, category: "All" };
+      }
+
+      if (categoryFromUrl === "bestselling") {
+        return { ...prev, sort: "rating", category: "All" };
+      }
+
+      return { ...prev, category: "All" };
+    });
+  }, [location.pathname, products]);
+
   const filteredProducts = useMemo(
     () => filterProducts(products, filters),
     [products, filters]
   );
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.trim();
+    setFilters((prev) => ({ ...prev, search: value }));
+  };
+console.log(products)
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 container mx-auto">
       {/* Sidebar Filters */}
       <aside className="md:col-span-2 space-y-4 md:sticky top-6 h-fit">
         <Input
           placeholder="Search products..."
-          onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+          onChange={handleSearchChange}
           className="border"
         />
 
@@ -76,7 +106,7 @@ export default function ProductsPage() {
         {/* Empty state */}
         {!loading && !error && filteredProducts.length === 0 && (
           <p className="col-span-full text-center mt-10 text-gray-500 text-lg font-medium">
-            No products found ("_____")
+            No products found
           </p>
         )}
 

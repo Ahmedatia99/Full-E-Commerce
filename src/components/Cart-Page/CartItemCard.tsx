@@ -8,8 +8,7 @@ import type { cartProduct } from "@/types/cart";
 type CartProductProps = {
   item: cartProduct;
 };
-const CartItemCard = ({ item }: CartProductProps) => {
-
+function CartItemCard({ item }: CartProductProps) {
   const { deleteFromCart } = useCart();
   const { t } = useTranslation();
 
@@ -54,6 +53,6 @@ const CartItemCard = ({ item }: CartProductProps) => {
       </span>
     </article>
   );
-};
+}
 
 export default CartItemCard;

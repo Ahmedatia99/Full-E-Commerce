@@ -6,20 +6,13 @@ import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
 import Product_Card from "@/components/common/Product_Card/Product_Card";
 import type { Swiper as SwiperType } from "swiper";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import { useExploreOurProductsSectionProducts } from "@/hooks/productsCustomHook/useExploreOurProductsSectionProducts";
-
 const DiscoverAllProducts = () => {
   // Fetch products for "Explore Our Products" section
   const { products, loading, error } = useExploreOurProductsSectionProducts();
-
-  // Navigation hook to redirect to all products page
-  const navigate = useNavigate();
-  const toAllProductPage = () => {
-    navigate("/product");
-  };
 
   // Common props used by all product cards
   const productCardProps = {
@@ -90,15 +83,13 @@ const DiscoverAllProducts = () => {
 
       {/* Button to navigate to full products page */}
       <div className="flex justify-center">
-        <Button
-          className="h-15 hover transform hover:scale-105 mt-15 transition duration-300"
-          onClick={toAllProductPage}
-        >
-          {t("view all products")}
-        </Button>
+        <Link to="/product">
+          <Button className="h-15 hover transform hover:scale-105 mt-15 transition duration-300">
+            {t("view all products")}
+          </Button>
+        </Link>
       </div>
     </div>
   );
 };
-
 export default DiscoverAllProducts;
