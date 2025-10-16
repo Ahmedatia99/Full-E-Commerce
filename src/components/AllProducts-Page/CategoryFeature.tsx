@@ -27,7 +27,9 @@ const CategoryFeature = ({ filters, setFilters }: CategoryFeatureProps) => {
 
   const categories = [
     "All",
-    ...Array.from(new Set(products.map((p) => p.category.toLowerCase()))),
+    ...Array.from(
+      new Set(products.map((p) => p.category?.toLowerCase() || "Unknown"))
+    ),
   ];
 
   const handleCategoryChange = (v: string) => {

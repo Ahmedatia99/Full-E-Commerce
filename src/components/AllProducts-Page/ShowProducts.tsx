@@ -40,10 +40,10 @@ export default function ProductsPage() {
 
     setFilters((prev) => {
       const matchedCategory = products.find((p) =>
-        p.category.toLowerCase().includes(categoryFromUrl)
+        p.category?.toLowerCase().includes(categoryFromUrl)
       );
 
-      if (matchedCategory) {
+      if (matchedCategory?.category) {
         return { ...prev, category: matchedCategory.category.toLowerCase() };
       }
 
