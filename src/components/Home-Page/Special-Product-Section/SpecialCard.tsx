@@ -20,7 +20,7 @@ function SpecialCard() {
         {/* Texts */}
         <div className="flex flex-col justify-center items-start gap-4 md:gap-8 max-w-lg">
           <span
-            className="text-[#00FF66] text-xl font-semibold    tracking-wide"
+            className="text-green-400 text-xl font-semibold    tracking-wide"
             aria-label="Product category"
           >
             {t("Categories")}
@@ -44,7 +44,7 @@ function SpecialCard() {
             size="sm"
             variant="small"
             aria-label="Buy special product now"
-            className="bg-[#00FF66] mt-5 hover:scale-110 hover:text-black transition-all duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#00FF66] focus:ring-offset-2 focus:ring-offset-black"
+            className="bg-green-400 mt-5 hover:scale-110 hover:text-black transition-all duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-black"
             onClick={navigateSpecialProduct}
           >
             {t("Buy Now")}
@@ -63,7 +63,7 @@ function SpecialCard() {
             decoding="async"
             width={320}
             height={320}
-            className="w-64 sm:w-80 md:w-[28rem] rounded-xl object-contain
+            className="w-64 sm:w-80 md:w-115 rounded-xl object-contain
              transition-all duration-500 ease-in-out
              drop-shadow-[0_15px_40px_rgba(255,255,255,0.4)]
              hover:drop-shadow-[0_25px_60px_rgba(0,255,102,0.6)]

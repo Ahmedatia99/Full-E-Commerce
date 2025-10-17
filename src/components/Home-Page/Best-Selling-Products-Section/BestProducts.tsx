@@ -19,7 +19,7 @@ const BestProducts = () => {
 
   //  navigate to /product/best
   const toSalesPage = () => {
-    navigate("/product/best");
+    navigate("/product/category/best");
   };
 
   const productCardProps = {
@@ -47,7 +47,7 @@ const BestProducts = () => {
         {loading ? (
           <p className="text-center text-gray-500">{t("Loading...")}</p>
         ) : error ? (
-          <p className="text-center text-red-500">
+          <p className="text-center text-main">
             {t("Failed to load products")}
           </p>
         ) : products.length === 0 ? (

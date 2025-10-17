@@ -42,7 +42,7 @@ function Featured() {
             })}
           />
 
-          <div className="grid grid-cols-2 max-[400px]:grid-cols-1 gap-5 md:gap-8">
+          <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-5 md:gap-8">
             <CategoryCard
               title="Speakers"
               description="Amazon wireless speakers"
