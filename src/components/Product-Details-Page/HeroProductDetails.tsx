@@ -35,7 +35,6 @@ export default function HeroProductDetails() {
   const product = products.find((p) => p.id.toString() === id);
 
   // Hooks must always run!
-  const [liked, setLiked] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [selectedPostalCode, setSelectedPostalCode] = useState("");
   const { selectedColor, setSelectedColor, colorObj } =
@@ -112,7 +111,7 @@ export default function HeroProductDetails() {
             setQuantity={setQuantity}
           />
           <ProductActions stock={stock} onBuyNow={handleBuyNow} />
-          <LikeButtonDetails liked={liked} setLiked={setLiked} />
+          <LikeButtonDetails productId={product.id} />
         </div>
 
         {/* Delivery Information */}
