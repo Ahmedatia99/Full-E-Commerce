@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useWishlist } from "@/hooks/WishListContext/useWishlist";
 
 interface LikeButtonProps {
-  productId: string;
+  productId: number;
 }
 
 const LikeButtonDetails: React.FC<LikeButtonProps> = ({ productId }) => {
