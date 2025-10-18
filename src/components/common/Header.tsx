@@ -22,7 +22,7 @@ function Header() {
   }, [i18n.language]);
 
   return (
-    <header className="bg-black text-white py-2  relative z-[60]">
+    <header className="bg-black text-white py-2  z-[60]">
       <div className="container mx-auto flex flex-col gap-3 items-center justify-between px-4 md:flex-row">
         {/* Left / Centered Text */}
         <h2 className="text-sm sm:text-base text-center flex-1">
@@ -37,7 +37,7 @@ function Header() {
 
         {/* Right Side: Language Selector */}
         <div className="flex items-center gap-4 ml-4">
-          <DropdownMenu onOpenChange={(isOpen) => setOpen(isOpen)}>
+          <DropdownMenu modal={false} onOpenChange={(isOpen) => setOpen(isOpen)}>
             <DropdownMenuTrigger asChild>
               <button className="flex items-center text-sm font-semibold cursor-pointer hover:text-gray-200 transition-colors">
                 {i18n.language === "ar" ? "العربية" : "English"}

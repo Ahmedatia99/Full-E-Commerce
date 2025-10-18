@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 
 type NavMenuProps = {
   className?: string;
+  role?: string;
 };
 
 function NavMenu({ className }: NavMenuProps) {
