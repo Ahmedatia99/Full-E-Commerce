@@ -20,8 +20,12 @@ function ConfirmModal({ show, count, onCancel, onConfirm }: Props) {
   const { t } = useTranslation();
 
   return (
-    <Dialog open={show} onOpenChange={(open) => !open && onCancel()}>
-      <DialogContent className="sm:max-w-md">
+    <Dialog
+      modal={false}
+      open={show}
+      onOpenChange={(open) => !open && onCancel()}
+    >
+      <DialogContent className="sm:max-w-xl">
         <DialogHeader>
           <DialogTitle>{t("Confirm Action")}</DialogTitle>
           <DialogDescription>
@@ -31,7 +35,7 @@ function ConfirmModal({ show, count, onCancel, onConfirm }: Props) {
           </DialogDescription>
         </DialogHeader>
 
-        <DialogFooter className="flex justify-end gap-2">
+        <DialogFooter className="flex-row flex-wrap justify-end ">
           <Button variant="outline" onClick={onCancel}>
             {t("Cancel")}
           </Button>

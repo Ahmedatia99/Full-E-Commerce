@@ -49,9 +49,7 @@ const DiscoverAllProducts = () => {
         <p className="text-center text-gray-500">{t("Loading...")}</p>
       ) : error ? (
         // Error state
-        <p className="text-center text-red-500">
-          {t("Failed to load products")}
-        </p>
+        <p className="text-center text-main">{t("Failed to load products")}</p>
       ) : products.length === 0 ? (
         // Empty data state
         <p className="text-center text-gray-400">

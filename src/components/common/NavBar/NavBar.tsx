@@ -13,6 +13,7 @@ function NavBar() {
   const { navRef } = useNavBarLogic(300);
 
   return (
+    
     <motion.nav
       ref={navRef}
       role="navigation"
@@ -40,13 +41,8 @@ function NavBar() {
             />
 
             {/* Ensure logo has accessible name and link to homepage */}
-            <a
-              href="/"
-              aria-label="Go to homepage"
-              className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black rounded-lg"
-            >
-              <Logo />
-            </a>
+
+            <Logo />
           </div>
 
           {/* Navigation menu with ARIA role */}

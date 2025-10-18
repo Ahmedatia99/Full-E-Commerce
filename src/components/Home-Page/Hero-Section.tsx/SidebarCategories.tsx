@@ -34,7 +34,7 @@ export default function SidebarCategories() {
       <div className="md:hidden border-b">
         <button
           onClick={() => setOpen(!open)}
-          className="p-4 w-40 bg-black rounded-t-xl max-[650px]:rounded-t-none rtl:max-[650px]:rounded-tl-xl 
+          className="p-4 w-40 bg-black rounded-t-xl max-sm:rounded-t-none rtl:max-sm:rounded-tl-xl 
           ltr:max-[650px]:rounded-tr-xl text-white 
           cursor-pointer flex justify-between items-center font-semibold"
           aria-expanded={open ? "true" : "false"}
@@ -43,7 +43,7 @@ export default function SidebarCategories() {
           <ChevronRight
             size={20}
             aria-hidden="true"
-            className={`transition-transform duration-300 ${
+            className={`transition-transform duration-300  ${
               open ? "rotate-90" : ""
             }`}
           />
@@ -51,14 +51,14 @@ export default function SidebarCategories() {
 
         <div
           className={`overflow-hidden transition-all duration-500 ease-in-out ${
-            open ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+            open ? "max-h-150 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <ul className="flex flex-col gap-3 p-4 text-sm text-gray-700">
+          <ul className="flex flex-col gap-3 p-4 text-sm text-gray-700 border-3 border-black ltr:rounded-tr-3xl rtl:rounded-tl-3xl">
             {categoriesKeys.map((key, index) => (
               <li key={index}>
                 <Link
-                  to={`/category/${key}`}
+                  to={`product/category/${key}`}
                   onClick={() => setOpen(false)}
                   className={`block w-full p-2 rounded font-medium link-underline 
                     hover:bg-gray-100 
@@ -81,7 +81,7 @@ export default function SidebarCategories() {
         {categoriesKeys.map((key, index) => (
           <li key={index}>
             <Link
-              to={`/category/${key}`}
+              to={`product/category/${key}`}
               className={`block w-full p-2 rounded font-medium link-underline 
                 hover:bg-gray-100 
                 ${

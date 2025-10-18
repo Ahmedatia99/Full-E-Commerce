@@ -19,7 +19,7 @@ export default function Hero() {
       <div
         className="w-full cursor-grab bg-black text-white relative flex md:flex-row 
         items-center justify-between flex-col-reverse md:mt-8 ltr:md:ml-4 rtl:md:mr-4
-        px-6 md:px-10 py-6 h-[85vh] md:h-[500px] overflow-hidden"
+        px-6 md:px-10 py-12  md:h-125 overflow-hidden"
       >
         {loading ? (
           <p className="text-gray-400 text-lg animate-pulse m-auto">

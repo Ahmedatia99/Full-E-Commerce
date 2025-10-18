@@ -21,7 +21,7 @@ export default function CarouselDots({
           key={index}
           onClick={() => setCurrent(index)}
           className={`w-3 h-3 rounded-full cursor-pointer ${
-            current === index ? "bg-red-500" : "bg-gray-400"
+            current === index ? "bg-main" : "bg-gray-400"
           }`}
         ></span>
       ))}

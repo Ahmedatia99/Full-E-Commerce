@@ -71,16 +71,16 @@ function Categories() {
       <Swiper
         key={i18n.dir()}
         dir={i18n.dir()}
-
         modules={[Navigation]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         spaceBetween={16}
-        slidesPerView={2} // 👈 الأساس للموبايل
+        slidesPerView={2}
         breakpoints={{
-          480: { slidesPerView: 3, spaceBetween: 16 }, // موبايل كبير
-          640: { slidesPerView: 4, spaceBetween: 20 }, // تابلت صغير
-          1024: { slidesPerView: 5, spaceBetween: 24 }, // لابتوب
-          1280: { slidesPerView: 6, spaceBetween: 28 }, // ديسكتوب كبير
+          480: { slidesPerView: 3, spaceBetween: 16 },
+
+          640: { slidesPerView: 4, spaceBetween: 20 },
+          1024: { slidesPerView: 5, spaceBetween: 24 },
+          1280: { slidesPerView: 6, spaceBetween: 28 },
         }}
       >
         {categories.map((category) => (

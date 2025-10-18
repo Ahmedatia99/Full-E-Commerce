@@ -12,16 +12,16 @@ import i18n from "@/i18n";
 import { useBestSellingSectionProducts } from "@/hooks/productsCustomHook/useBestSellingSectionProducts";
 
 const BestProducts = () => {
-  // Fetch best selling products using custom hook
   const { products, loading, error } = useBestSellingSectionProducts();
-
-  // Navigation hook to redirect to best-selling page
   const navigate = useNavigate();
+  const swiperRef = useRef<SwiperType | null>(null);
+  const { t } = useTranslation();
+
+  //  navigate to /product/best
   const toSalesPage = () => {
-    navigate("/best");
+    navigate("/product/category/best");
   };
 
-  // Common props to pass into each product card
   const productCardProps = {
     AddToCartBtnFixed: false,
     hasFavouriteIcon: true,
@@ -32,15 +32,8 @@ const BestProducts = () => {
     ratingAndPriceInRow: false,
   };
 
-  // Reference for controlling Swiper navigation externally
-  const swiperRef = useRef<SwiperType | null>(null);
-
-  // i18n translation hook
-  const { t } = useTranslation();
-
   return (
-    <div className="flex flex-col justify-center ">
-      {/* Section Header is always displayed regardless of data or loading state */}
+    <div className="flex flex-col justify-center">
       <div className="flex items-end justify-end w-full mt-20">
         <SectionHeader
           label={t("This Month")}
@@ -50,23 +43,18 @@ const BestProducts = () => {
         />
       </div>
 
-      {/* Content validation and rendering */}
       <div>
         {loading ? (
-          // Loading state
           <p className="text-center text-gray-500">{t("Loading...")}</p>
         ) : error ? (
-          // Error state
-          <p className="text-center text-red-500">
+          <p className="text-center text-main">
             {t("Failed to load products")}
           </p>
         ) : products.length === 0 ? (
-          // Empty data state
           <p className="text-center text-gray-400">
             {t("No products available")}
           </p>
         ) : (
-          // Swiper carousel of products
           <Swiper
             key={i18n.dir()}
             dir={i18n.dir()}
@@ -92,7 +80,6 @@ const BestProducts = () => {
         )}
       </div>
 
-      {/* Button to navigate to best-selling page */}
       <div className="flex justify-center mt-12">
         <Button
           className="h-15 hover transform hover:scale-105 transition duration-300"

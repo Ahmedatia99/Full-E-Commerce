@@ -11,14 +11,12 @@ import i18n from "@/i18n";
 import { useExploreOurProductsSectionProducts } from "@/hooks/productsCustomHook/useExploreOurProductsSectionProducts";
 
 const FlashSales = () => {
-  const { products, loading, error } = useExploreOurProductsSectionProducts();
+  const { products, loading, error } = useExploreOurProductsSectionProducts(); //  + flashSaleEndTime
   const navigate = useNavigate();
   const swiperRef = useRef<SwiperType | null>(null);
   const { t } = useTranslation();
 
-  const toSalesPage = () => {
-    navigate("/sales");
-  };
+  const toSalesPage = () => navigate("/product/category/flashsales");
 
   const productCardProps = {
     hasFavouriteIcon: true,
@@ -26,30 +24,34 @@ const FlashSales = () => {
     hasReview: true,
   };
 
+  // getting the time from the api
+  // const countdownTarget = flashSaleEndTime useExploreOurProductsSectionProducts
+  //   ? new Date(flashSaleEndTime)
+  //   : new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+
   return (
     <div>
-      {/*Section header stays static */}
       <SectionHeader
         label={t("Today's")}
         title={t("Flash Sales")}
         swiperRef={swiperRef}
-        countdownTarget={new Date(new Date().getTime() + 24 * 60 * 60 * 1000)} // 24 hours from now
+        countdownTarget={new Date(new Date().getTime() + 24 * 60 * 60)}
+        // countdownTarget={countdownTarget}
         className="mb-10"
       />
 
-      {/*Handle UI states (loading / error / empty / data) */}
       {loading ? (
-        <div className="flex justify-center items-center h-[300px]">
+        <div className="flex justify-center items-center h-75">
           <p className="text-gray-400 text-lg animate-pulse">
             Loading products...
           </p>
         </div>
       ) : error ? (
-        <div className="flex justify-center items-center h-[300px]">
-          <p className="text-red-500 text-lg">Error: {error}</p>
+        <div className="flex justify-center items-center h-75">
+          <p className="text-main text-lg">Error: {error}</p>
         </div>
       ) : products.length === 0 ? (
-        <div className="flex justify-center items-center h-[300px]">
+        <div className="flex justify-center items-center h-75">
           <p className="text-gray-400 text-lg">No products found</p>
         </div>
       ) : (
