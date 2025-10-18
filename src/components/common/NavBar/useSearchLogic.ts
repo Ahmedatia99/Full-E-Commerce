@@ -8,7 +8,7 @@ export function useSearchLogic() {
   // Handle "Enter" key
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && search.trim()) {
-      navigate(`/product?search=${encodeURIComponent(search)}`);
+      navigate(/product?search=${encodeURIComponent(search)});
       setSearch("");
     }
   };
@@ -17,5 +17,5 @@ export function useSearchLogic() {
     search,
     setSearch,
     handleKeyDown,
-  };
+  };
 }

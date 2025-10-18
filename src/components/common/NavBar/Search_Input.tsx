@@ -17,7 +17,7 @@ export default function Search_Input({
 
   return (
     <div
-      className={`relative w-full ${className || ""}`}
+      className={relative w-full ${className || ""}}
       dir={document.body.dir}
     >
       {/* Search Input */}
@@ -41,6 +41,6 @@ export default function Search_Input({
         }`}
         size={20}
       />
-    </div>
-  );
+    </div>
+  );
 }
