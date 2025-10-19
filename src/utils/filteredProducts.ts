@@ -1,14 +1,5 @@
 import type { productObject } from "@/types/product_Type";
-
-interface Filters {
-  category: string;
-  brand: string[];
-  priceRange: [number, number];
-  search: string;
-  sort: string;
-  // subCategory: string;
-  discountOnly: boolean;
-}
+import type { Filters } from "@/types/product_Type";
 
 export function applyFilters(products: productObject[], filters: Filters): productObject[] {
   return products.filter((p) => {
