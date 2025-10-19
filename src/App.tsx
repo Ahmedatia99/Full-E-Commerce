@@ -35,7 +35,8 @@ function App() {
           <Route path="/Checkout" element={<CheckoutPage />} />
           <Route path="/Favourites" element={<FavouritePage />} />
           <Route path="/category/:categoryName" element={<CategoryPage />} />
-          <Route path="/category" element={<CategoryPage />} />
+          {/* just if user used bredcrum from categroy*/}
+          <Route path="/category" element={<ShowProducts />} />
           <Route path="/product" element={<ShowProducts />} />
           <Route
             path="/product/category/:category"
