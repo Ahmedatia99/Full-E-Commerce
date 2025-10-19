@@ -6,9 +6,9 @@ import { Link, useLocation } from "react-router-dom";
 const categoriesKeys = [
   "Computer",
   "Pets",
-  "Baby Toys",
+  "Babytoys",
   "Home",
-  "Women Fashion",
+  "Menfashion",
   "Sports",
   "Electronics",
   "Perfumes",
@@ -23,7 +23,7 @@ export default function SidebarCategories() {
 
   return (
     <aside
-      className="w-full md:mt-0 mt-5 md:w-60 md:border-0 rtl:md:border-l   ltr:md:border-r"
+      className="w-full md:mt-0 mt-5 md:w-60 md:border-0 rtl:md:border-l ltr:md:border-r"
       aria-label={t("categories")}
       role="navigation"
     >
@@ -76,7 +76,7 @@ export default function SidebarCategories() {
       </div>
 
       {/* Desktop Sidebar */}
-      <ul className="hidden md:flex md:flex-col gap-4 p-2 pt-8 text-sm text-gray-700">
+      <ul className="hidden md:flex md:flex-col gap-3 p-2 pt-8 text-sm text-gray-700">
         {categoriesKeys.map((key, index) => (
           <li key={index}>
             <Link
