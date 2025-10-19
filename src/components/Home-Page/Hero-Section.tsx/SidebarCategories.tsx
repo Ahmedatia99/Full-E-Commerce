@@ -12,6 +12,7 @@ const categoriesKeys = [
   "Sports",
   "Electronics",
   "Perfumes",
+  "FlashSales",
 ];
 
 export default function SidebarCategories() {

@@ -44,4 +44,5 @@ export type Filters = {
   search: string;
   sort: string;
   discountOnly: boolean;
+  flashOnly: boolean;
 };

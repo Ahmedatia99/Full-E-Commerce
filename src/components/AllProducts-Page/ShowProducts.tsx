@@ -27,6 +27,7 @@ export default function ProductsPage() {
     search: "",
     sort: "none",
     discountOnly: false,
+    flashOnly: false,
   });
 
   const { products, loading, error } = useAllProducts();
@@ -42,6 +43,10 @@ export default function ProductsPage() {
       const matchedCategory = products.find((p) =>
         p.category?.toLowerCase().includes(categoryFromUrl)
       );
+
+      if (categoryFromUrl === "flashsales") {
+        return { ...prev, flashOnly: true, category: "All" };
+      }
 
       if (matchedCategory?.category) {
         return { ...prev, category: matchedCategory.category.toLowerCase() };
@@ -68,7 +73,7 @@ export default function ProductsPage() {
     const value = e.target.value.trim();
     setFilters((prev) => ({ ...prev, search: value }));
   };
-console.log(products)
+  console.log(products);
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 container mx-auto">
       {/* Sidebar Filters */}
