@@ -4,15 +4,14 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const categoriesKeys = [
-  "womansFashion",
-  "mensFashion",
-  "electronics",
-  "homeLifestyle",
-  "medicine",
-  "sportsOutdoor",
-  "babysToys",
-  "groceriesPets",
-  "healthBeauty",
+  "Computer",
+  "Pets",
+  "Baby Toys",
+  "Home",
+  "Women Fashion",
+  "Sports",
+  "Electronics",
+  "Perfumes",
 ];
 
 export default function SidebarCategories() {
