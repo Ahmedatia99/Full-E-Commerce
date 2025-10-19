@@ -19,8 +19,16 @@ export default function Hero() {
       <div
         className="w-full cursor-grab bg-black text-white relative flex md:flex-row 
         items-center justify-between flex-col-reverse md:mt-8 ltr:md:ml-4 rtl:md:mr-4
-        px-6 md:px-10 py-12  md:h-125 overflow-hidden"
+        px-6 md:px-10 pt-12 pb-2  md:h-125 overflow-hidden bg-[url('/public/assets/icon-dotted-map-2.png')] bg-cover bg-center rounded-lg relative"
       >
+        <div className="absolute top-1/2 left-1/2 max-sm:right-0 translate-x-1/2 -translate-y-1/2 rotate-180">
+          {" "}
+          <img
+            src="/public/assets/circle-lines.png"
+            alt="Dotted Map"
+            className="w-xl"
+          />
+        </div>
         {loading ? (
           <p className="text-gray-400 text-lg animate-pulse m-auto">
             Loading products...
@@ -50,7 +58,7 @@ export default function Hero() {
           >
             {products.map((slide: hookProductObject) => (
               <SwiperSlide key={slide.id}>
-                <div className="flex flex-col md:flex-row-reverse items-center justify-between h-full">
+                <div className="flex flex-col gap-20 md:flex-row-reverse items-center justify-center md:justify-between h-full">
                   <HeroImage slide={slide} />
                   <HeroContent slide={slide} />
                 </div>
