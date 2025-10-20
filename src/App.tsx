@@ -38,6 +38,8 @@ function App() {
           <Route path="/category/:categoryName" element={<CategoryPage />} />
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/AllProducts" element={<AllProducts_Page />} />
+          <Route path="/AllProducts/:category" element={<AllProducts_Page />} />
+
           <Route
             path="/product/category/:category"
             element={<ShowProducts />}
