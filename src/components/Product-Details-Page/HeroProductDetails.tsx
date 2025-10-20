@@ -13,30 +13,36 @@ import { useProductSize } from "../../hooks/useProductSize";
 import { useProductImages } from "../../hooks/useProductImages";
 import { toCartProduct } from "@/utils/ProductDTO";
 import { CartContext } from "@/hooks/CartContext";
+import { useProductByID } from "@/hooks/productsCustomHook/useProductById";
 
-import Products from "@/product.json";
-import type { productObject } from "@/types/product_Type";
 export default function HeroProductDetails() {
-  const cartContext = useContext(CartContext);
   const { id: idFromParams } = useParams<{ id?: string }>();
   const location = useLocation();
   const navigate = useNavigate();
+  const cartContext = useContext(CartContext);
 
-  // Get Product ID
-  const getProductID = () => {
+  //   Get Product ID
+  const getProductID = useCallback(() => {
     if (idFromParams) return idFromParams;
     const searchParams = new URLSearchParams(location.search);
     return searchParams.get("id") || undefined;
-  };
+  }, [idFromParams, location.search]);
+
   const id = getProductID();
-
-  // Find product
-  const products = Products as productObject[];
-  const product = products.find((p) => p.id.toString() === id);
-
-  // Hooks must always run!
+  //   Fetch product using custom hook
+  const { product, loading, error } = useProductByID(id);
+  //   States
   const [quantity, setQuantity] = useState(1);
   const [selectedPostalCode, setSelectedPostalCode] = useState("");
+
+  //   Handle missing product or error
+  useEffect(() => {
+    if (!loading && (!product || error)) {
+      navigate("/error");
+    }
+  }, [product, error, loading, navigate]);
+
+  //   Hooks must always run after product is defined
   const { selectedColor, setSelectedColor, colorObj } =
     useProductColor(product);
   const { selectedSize, setSelectedSize } = useProductSize(colorObj);
@@ -45,26 +51,28 @@ export default function HeroProductDetails() {
     colorObj
   );
 
+  //   Derived data
+  const sizes = colorObj?.sizes ?? [];
+  const stock = colorObj?.quantity ?? 0;
+  const colorOptions = useMemo(
+    () => (product ? product.colors.map((c) => ({ value: c.color })) : []),
+    [product]
+  );
+  //   Handle Buy Now
   const handleBuyNow = useCallback(() => {
     if (!product) return;
     const productCart = toCartProduct(product, selectedColor, quantity);
     cartContext?.addToCart(productCart);
   }, [product, selectedColor, quantity, cartContext]);
 
-  const colorOptions = useMemo(
-    () => (product ? product.colors.map((c) => ({ value: c.color })) : []),
-    [product]
-  );
-
-  const sizes = colorObj?.sizes ?? [];
-  const stock = colorObj?.quantity ?? 0;
-  useEffect(() => {
-    if (!product) {
-      navigate("/error");
-    }
-  }, [product, navigate]);
+  if (loading) {
+    return (
+      <p className="text-center py-10 text-gray-600">Loading product...</p>
+    );
+  }
 
   if (!product) return null;
+
   return (
     <section className="grid xl:grid-cols-[4fr_2fr] lg:grid-cols-[4fr_2fr] gap-10 xl:gap-20 mb-10">
       {/* Product Images */}

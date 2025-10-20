@@ -61,3 +61,9 @@ export async function getExploreOurProuctsSectionProducts() {
   );
   return response.data;
 }
+export async function getProductById(id: number) {
+  const response = await axios.get<productObject[]>(
+    `${API_URL}/products/${id}`
+  );
+  return response.data;
+}
