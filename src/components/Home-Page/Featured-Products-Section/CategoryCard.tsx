@@ -7,11 +7,13 @@ interface CategoryCardProps {
   image: string;
   buttonText?: string;
   className?: string;
+  category: string;
 }
 
 export default function CategoryCard({
   title,
   description,
+  category,
   image,
   buttonText = t("Shop Now"),
   className = "",
@@ -32,7 +34,7 @@ export default function CategoryCard({
         <h2 className="text-base md:text-xl lg:text-2xl font-bold">{title}</h2>
         {description && <p className="text-xs mt-2 max-w-xs">{description}</p>}
         <Link
-          to="/category"
+          to={`AllProducts/${category}`}
           className="mt-4 text-sm text-white font-medium transition border-b border-gray-600 border-dashed"
         >
           {buttonText}

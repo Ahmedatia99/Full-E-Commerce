@@ -1,5 +1,5 @@
 import ProductsDetails from "@/components/Product-Details-Page/ProductDetails";
-function ProductsPage() {
+function ProductPage() {
   return (
     <div className="container mx-auto flex flex-col gap-10 ">
       <ProductsDetails />
@@ -7,4 +7,4 @@ function ProductsPage() {
   );
 }
 
-export default ProductsPage;
+export default ProductPage;

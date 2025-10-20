@@ -19,7 +19,7 @@ const productCardProps = {
   hasReview: true,
 };
 
-export default function ProductsPage() {
+export default function AllProducts() {
   const [filters, setFilters] = useState<Filters>({
     category: "All",
     brand: [],
@@ -31,14 +31,17 @@ export default function ProductsPage() {
 
   const { products, loading, error } = useAllProducts();
   const location = useLocation();
-
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get("search")?.toLowerCase();
   useEffect(() => {
     if (!products.length) return;
-    // product/category/electronics
     const categoryFromUrl = location.pathname.split("/").pop()?.toLowerCase();
     if (!categoryFromUrl) return;
 
     setFilters((prev) => {
+      if (searchQuery) {
+        return { ...prev, search: searchQuery, category: "All" };
+      }
       const matchedCategory = products.find((p) =>
         p.category?.toLowerCase().includes(categoryFromUrl)
       );
@@ -57,7 +60,7 @@ export default function ProductsPage() {
 
       return { ...prev, category: "All" };
     });
-  }, [location.pathname, products]);
+  }, [location.pathname, location.search, products]);
 
   const filteredProducts = useMemo(
     () => filterProducts(products, filters),
@@ -68,12 +71,13 @@ export default function ProductsPage() {
     const value = e.target.value.trim();
     setFilters((prev) => ({ ...prev, search: value }));
   };
-console.log(products)
+  console.log(products);
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 container mx-auto">
       {/* Sidebar Filters */}
       <aside className="md:col-span-2 space-y-4 md:sticky top-6 h-fit">
         <Input
+          value={searchQuery}
           placeholder="Search products..."
           onChange={handleSearchChange}
           className="border"

@@ -10,11 +10,36 @@ import { useHookProducts } from "@/hooks/productsCustomHook/useHookProducts";
 import type { hookProductObject } from "@/types/product_Type";
 
 export default function Hero() {
+  const categories = [
+    {
+      key: "womansFashion",
+      name: "Womans Fashion",
+      url: "AllProducts/womenfashion",
+    },
+    { key: "mensFashion", name: "Mens Fashion", url: "AllProducts/menfashion" },
+    {
+      key: "electronics",
+      name: "Electronics",
+      url: "AllProducts/electronics",
+    },
+       { key: "home", name: "Home", url: "AllProducts/home" },
+    { key: "pets", name: "Pets", url: "AllProducts/pets" },
+    {
+      key: "Health Beauty",
+      name: "Health Beauty",
+      url: "AllProducts/healthbeauty",
+    },
+    { key: "Baby Toys", name: "Baby Toys", url: "AllProducts/babytoys" },
+    { key: "Sports", name: "Sports", url: "AllProducts/sports" },
+    { key: "Perfumes", name: "Perfumes", url: "AllProducts/perfumes" },
+ 
+    { key: "computer", name: "Computer", url: "AllProducts/computer" },
+  ];
   const { products, loading, error } = useHookProducts();
 
   return (
     <section className="flex flex-col md:flex-row">
-      <SidebarCategories />
+      <SidebarCategories categories={categories} />
 
       <div
         className="w-full cursor-grab bg-black text-white relative flex md:flex-row 

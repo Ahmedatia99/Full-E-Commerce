@@ -17,7 +17,7 @@ export async function getHookProducts() {
 
 export async function getAllProducts(
   pageNumber: number = 1,
-  pageSize: number = 12
+  pageSize: number = 22
 ) {
   const response = await axios.get<productObject[]>(
     `${API_URL}/products?pagenumber=${pageNumber}&pageSize=${pageSize}`
@@ -27,10 +27,10 @@ export async function getAllProducts(
 export async function getProductsByCategory(
   category: string,
   pageNumber: number = 1,
-  pageSize: number = 12
+  pageSize: number = 24
 ) {
   const response = await axios.get<productObject[]>(
-    `${API_URL}/products?category=${category}pagenumber=${pageNumber}&pageSize=${pageSize}`
+    `${API_URL}/products?category=${category}&pagenumber=${pageNumber}&pageSize=${pageSize}`
   );
   return response.data;
 }

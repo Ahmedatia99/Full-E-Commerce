@@ -13,18 +13,15 @@
 /* Label container and variants */
 .section-header__label-container {
   @apply flex items-center;
-
 }
 
 .section-header__label-container--with-inline-controls {
   @apply justify-center sm:justify-start;
-  
-
 }
 
-.section-header__label-container--with-inline-controls .section-header__controls {
+.section-header__label-container--with-inline-controls
+  .section-header__controls {
   @apply sm:ml-auto;
-  
 }
 
 .section-header__label-container--with-title {
@@ -34,26 +31,23 @@
 /* Content wrapper - handles flex layout for label and button */
 .section-header__content-wrapper {
   @apply flex flex-row items-center w-full gap-4 md:gap-0;
-  
 }
 
 /* Only apply right alignment when there's a button */
-.section-header__label-container--with-inline-controls .section-header__content-wrapper {
+.section-header__label-container--with-inline-controls
+  .section-header__content-wrapper {
   @apply md:justify-end;
-  
 }
 
 /* Label wrapper - keeps accent bar and label together */
 .section-header__label-wrapper {
   @apply flex items-center;
-  
 }
 
 /* Accent bar */
 .section-header__accent-bar {
   @apply w-4 h-8 mr-3 rounded-sm;
   background-color: var(--color-main);
-  
 }
 
 /* Label styles */
@@ -70,8 +64,7 @@
 
 /* Main content area */
 .section-header__main {
-  @apply flex sm:flex-row flex-col items-center sm:items-center justify-between gap-4 sm:gap-0  ;
-
+  @apply flex sm:flex-row flex-col items-center sm:items-center justify-between gap-4 sm:gap-0;
 }
 
 /* Title container */
@@ -92,9 +85,7 @@
 
 /* Controls container */
 .section-header__controls {
-  @apply flex items-center gap-3 ;
- 
-  
+  @apply flex items-center gap-3;
 }
 
 /* Navigation container */
@@ -115,4 +106,3 @@
 .section-header__countdown {
   @apply scale-100 sm:scale-100  text-[#000000];
 }
-
