@@ -36,9 +36,9 @@ const CategoryFeature = ({ filters, setFilters }: CategoryFeatureProps) => {
     setFilters((prev) => ({ ...prev, category: v }));
 
     if (v.toLowerCase() === "all") {
-      navigate("/product");
+      navigate("/AllProducts");
     } else {
-      navigate(`/product/category/${v.toLowerCase()}`);
+      navigate(`/AllProducts/${v.toLowerCase()}`);
     }
   };
 
