@@ -1,21 +1,19 @@
-import { useState } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function useSearchLogic() {
-  const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  // Handle "Enter" key
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && search.trim()) {
-      navigate(`/product?search=${encodeURIComponent(search)}`);
-      setSearch("");
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    if (e.key === "Enter" && inputRef.current) {
+      const value: string = inputRef.current.value.trim();
+      if (value !== "") {
+        navigate(`/AllProducts?search=${encodeURIComponent(value)}`);
+        inputRef.current.value = "";
+      }
     }
   };
 
-  return {
-    search,
-    setSearch,
-    handleKeyDown,
-  };
+  return { inputRef, handleKeyDown };
 }

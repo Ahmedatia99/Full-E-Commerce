@@ -28,7 +28,7 @@ function Header() {
         <h2 className="text-sm sm:text-base text-center flex-1">
           {t("summerSale")}
           <Link
-            to={"/summerSale"}
+            to={"/AllProducts"}
             className="underline font-bold hover:text-gray-200 transition-colors mx-3"
           >
             {t("shopNow")}

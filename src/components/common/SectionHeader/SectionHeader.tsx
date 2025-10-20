@@ -6,7 +6,6 @@ import type { SectionHeaderProps } from "./SectionHeader.types";
 import "./SectionHeader.styles.css";
 import type { Swiper as SwiperType } from "swiper";
 
-
 import type { RefObject } from "react";
 
 // Props for SectionHeader with optional swiperRef for navigation
@@ -107,7 +106,15 @@ function SectionHeader({
               <div className="section-header__accent-bar" />
             )}
             {/* Label */}
-            {label && <span className={labelClasses}>{label}</span>}
+            {label && (
+              <span
+                className={`${labelClasses} ${
+                  document.dir === "rtl" ? "" : "pr-2"
+                } `}
+              >
+                {label}
+              </span>
+            )}{" "}
           </div>
           {/* Inline controls */}
           {finalButtonPosition === "inline" && renderControls()}
