@@ -45,10 +45,12 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
 
       {/* Price with discount */}
       <span className="text-3xl font-semibold">
-        ${product.discountPrice}
-        <span className="ml-4 text-lg text-gray-400 line-through font-normal">
-          ${product.price}
-        </span>
+        ${product.price}
+        {product.discountPrice && product.discountPrice > 0 && (
+          <span className="ml-4 text-lg text-gray-400 line-through font-normal">
+            ${product.discountPrice}
+          </span>
+        )}
       </span>
 
       {/* Description */}
