@@ -47,7 +47,7 @@ function Categories() {
         {/* Loop through all categories */}
         {categoriesData.map((category) => (
           <SwiperSlide
-            key={category.id}
+            key={category.key}
             onClick={() => handleNavigate(category.url)} // Go to category page
           >
             {/* Category card */}

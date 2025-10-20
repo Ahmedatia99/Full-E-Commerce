@@ -7,6 +7,7 @@ import { Link, useLocation } from "react-router-dom";
 interface CategoryItem {
   key: string;
   url: string;
+  name: string;
 }
 
 // Component props: array of category items
@@ -65,7 +66,7 @@ export default function SidebarCategories({
                 <Link
                   to={url} // Navigate to category URL
                   onClick={() => setOpen(false)} // Close menu after click
-                  className={`block w-full p-2 rounded font-medium link-underline hover:bg-gray-100 ${
+                  className={`block w-full p-2 rounded font-medium capitalize link-underline hover:bg-gray-100 ${
                     currentCategory === key
                       ? "bg-gray-200 text-black link-underline-active"
                       : ""
@@ -81,7 +82,7 @@ export default function SidebarCategories({
 
       {/* ----------- Desktop Sidebar ----------- */}
       <ul className="hidden md:flex md:flex-col gap-4 p-2 pt-8 text-sm text-gray-700">
-        {categories.map(({ key, url }, index) => (
+        {categories.map(({ key, url, name }, index) => (
           <li key={index}>
             <Link
               to={url} // Navigate directly (desktop)
@@ -91,7 +92,7 @@ export default function SidebarCategories({
                   : ""
               }`}
             >
-              {t(key)}
+              {t(name)}
             </Link>
           </li>
         ))}

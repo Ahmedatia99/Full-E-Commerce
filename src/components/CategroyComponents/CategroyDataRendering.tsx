@@ -42,7 +42,11 @@ export default function CategroyDataRendering() {
       <div className="flex justify-between md:flex-row flex-col gap-5 items-center sm:items-start">
         {/* Sidebar with category links */}
         <SidebarCategories
-          categories={categoriesData.map(({ key, url }) => ({ key, url }))}
+          categories={categoriesData.map(({ key, url, name }) => ({
+            key,
+            url,
+            name,
+          }))}
         />
 
         {/* Product grid */}

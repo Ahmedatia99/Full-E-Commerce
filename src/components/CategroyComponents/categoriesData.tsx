@@ -5,6 +5,10 @@ import { IoHome } from "react-icons/io5";
 import { BsPcDisplay } from "react-icons/bs";
 import { MdPets } from "react-icons/md";
 import { HiMiniShoppingCart } from "react-icons/hi2";
+import { MdOutlineSportsSoccer } from "react-icons/md";
+import { FaBabyCarriage } from "react-icons/fa";
+import { TbSpray } from "react-icons/tb";
+import { RiMentalHealthLine } from "react-icons/ri";
 
 export const categoriesData = [
   {
@@ -12,14 +16,14 @@ export const categoriesData = [
     key: "All Product",
     name: "All Product",
     icon: <HiMiniShoppingCart className="category-icon" />,
-    url: "/product",
+    url: "/AllProducts",
   },
   {
     id: 2,
-    key: "womansFashion",
-    name: "womansFashion",
+    key: "womenfashion",
+    name: "Womans Fashion",
     icon: <GrRestroomWomen className="category-icon" />,
-    url: "/category/womansFashion",
+    url: "/category/womenfashion",
   },
   {
     id: 3,
@@ -31,16 +35,16 @@ export const categoriesData = [
   {
     id: 4,
     key: "home",
-    name: "home",
+    name: "Home",
     icon: <IoHome className="category-icon" />,
     url: "/category/home",
   },
   {
     id: 5,
-    key: "mensFashion",
-    name: "mensFashion",
+    key: "menfashion",
+    name: "Mens Fashion",
     icon: <GiClothes className="category-icon" />,
-    url: "/category/mensFashion",
+    url: "/category/menfashion",
   },
   {
     id: 6,
@@ -55,5 +59,33 @@ export const categoriesData = [
     name: "Pets",
     icon: <MdPets className="category-icon" />,
     url: "/category/pets",
+  },
+  {
+    id: 7,
+    key: "sports",
+    name: "Sports",
+    icon: <MdOutlineSportsSoccer className="category-icon" />,
+    url: "/category/sports",
+  },
+  {
+    id: 8,
+    key: "babytoys",
+    name: "Baby Toys",
+    icon: <FaBabyCarriage className="category-icon" />,
+    url: "/category/babytoys",
+  },
+  {
+    id: 9,
+    key: "healthbeauty",
+    name: "Health Beauty",
+    icon: <RiMentalHealthLine className="category-icon" />,
+    url: "/category/healthbeauty",
+  },
+  {
+    id: 10,
+    key: "perfumes",
+    name: "Perfumes",
+    icon: <TbSpray className="category-icon" />,
+    url: "/category/perfumes",
   },
 ];

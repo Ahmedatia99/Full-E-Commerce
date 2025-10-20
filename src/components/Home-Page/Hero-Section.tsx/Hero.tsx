@@ -11,12 +11,29 @@ import type { hookProductObject } from "@/types/product_Type";
 
 export default function Hero() {
   const categories = [
-    { key: "womansFashion", url: "product/category/womansFashion" },
-    { key: "mensFashion", url: "product/category/mensFashion" },
-    { key: "electronics", url: "product/category/electronics" },
-    { key: "home", url: "product/category/home" },
-    { key: "computer", url: "product/category/computer" },
-    { key: "pets", url: "product/category/pets" },
+    {
+      key: "womansFashion",
+      name: "Womans Fashion",
+      url: "AllProducts/womenfashion",
+    },
+    { key: "mensFashion", name: "Mens Fashion", url: "AllProducts/menfashion" },
+    {
+      key: "electronics",
+      name: "Electronics",
+      url: "AllProducts/electronics",
+    },
+       { key: "home", name: "Home", url: "AllProducts/home" },
+    { key: "pets", name: "Pets", url: "AllProducts/pets" },
+    {
+      key: "Health Beauty",
+      name: "Health Beauty",
+      url: "AllProducts/healthbeauty",
+    },
+    { key: "Baby Toys", name: "Baby Toys", url: "AllProducts/babytoys" },
+    { key: "Sports", name: "Sports", url: "AllProducts/sports" },
+    { key: "Perfumes", name: "Perfumes", url: "AllProducts/perfumes" },
+ 
+    { key: "computer", name: "Computer", url: "AllProducts/computer" },
   ];
   const { products, loading, error } = useHookProducts();
 
