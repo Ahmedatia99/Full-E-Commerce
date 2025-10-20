@@ -1,7 +1,6 @@
 import { Search } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useSearchLogic } from "./useSearchLogic";
-import React from "react";
 
 interface SearchInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -13,7 +12,7 @@ export default function Search_Input({
   ...props
 }: SearchInputProps) {
   const { t } = useTranslation();
-  const { search, setSearch, handleKeyDown } = useSearchLogic();
+  const { inputRef, handleKeyDown } = useSearchLogic();
 
   return (
     <div
@@ -23,10 +22,9 @@ export default function Search_Input({
       {/* Search Input */}
       <input
         id={id}
+        ref={inputRef}
         type="search"
         placeholder={t("search")}
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
         onKeyDown={handleKeyDown}
         className={`peer bg-input rounded-md py-2 px-4 w-full focus:outline-none ${
           document.body.dir === "rtl" ? "text-right" : "text-left"

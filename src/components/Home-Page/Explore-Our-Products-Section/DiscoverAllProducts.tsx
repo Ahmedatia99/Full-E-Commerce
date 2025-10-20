@@ -81,7 +81,7 @@ const DiscoverAllProducts = () => {
 
       {/* Button to navigate to full products page */}
       <div className="flex justify-center">
-        <Link to="/product">
+        <Link to="/AllProducts">
           <Button className="h-15 hover transform hover:scale-105 mt-15 transition duration-300">
             {t("view all products")}
           </Button>

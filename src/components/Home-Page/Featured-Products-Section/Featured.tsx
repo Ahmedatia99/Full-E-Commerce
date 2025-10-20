@@ -22,6 +22,7 @@ function Featured() {
       <div className="grid grid-cols-1  md:grid-cols-2 gap-5 md:gap-8 ">
         {/* Left big card */}
         <CategoryCard
+          category="electronics"
           title="PlayStation 5"
           description="Black and White version of the PS5 coming out on sale."
           image={getCloudinaryUrl(previewProducts[0].mainImgSRC, {
@@ -34,6 +35,7 @@ function Featured() {
         {/* Right side grid */}
         <div className="grid grid-rows-2 gap-5 md:gap-8">
           <CategoryCard
+            category="womenfashion"
             title="Women’s Collections"
             description="Featured woman collections that give you another vibe."
             image={getCloudinaryUrl(previewProducts[1].mainImgSRC, {
@@ -44,6 +46,7 @@ function Featured() {
 
           <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-5 md:gap-8">
             <CategoryCard
+              category="electronics"
               title="Speakers"
               description="Amazon wireless speakers"
               image={getCloudinaryUrl(previewProducts[2].mainImgSRC, {
@@ -53,6 +56,7 @@ function Featured() {
               className="h-full"
             />
             <CategoryCard
+              category=""
               title="Perfume"
               description="GUCCI INTENSE OUD EDP"
               image={getCloudinaryUrl(previewProducts[3].mainImgSRC, {
