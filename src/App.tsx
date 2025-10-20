@@ -9,13 +9,14 @@ import SignUp from "./Pages/Signup-Page";
 import Login from "./Pages/Login-Page";
 import AccountPage from "./Pages/Account-Page";
 import About from "./Pages/About-Page";
-const FavouritePage = React.lazy(() => import("./Pages/FavouritePage"));
-const ProductsPage = React.lazy(() => import("./Pages/ProductsPage"));
-const CategoryPage = React.lazy(() => import("./Pages/CategoryPage"));
+const FavouritePage = React.lazy(() => import("./Pages/Favourite-Page"));
+const ProductsPage = React.lazy(() => import("./Pages/Product-Page"));
+const CategoryPage = React.lazy(() => import("./Pages/Category-Page"));
 const ShowProducts = React.lazy(
-  () => import("@/components/AllProducts-Page/ShowProducts")
+  () => import("@/components/AllProducts-Page/AllProducts")
 );
 import { ScrollToTop } from "./components/common/ScrollTop";
+import AllProducts_Page from "./Pages/AllProducts_Page";
 const HomePage = React.lazy(() => import("./Pages/Home-Page"));
 function App() {
   return (
@@ -36,7 +37,7 @@ function App() {
           <Route path="/Favourites" element={<FavouritePage />} />
           <Route path="/category/:categoryName" element={<CategoryPage />} />
           <Route path="/category" element={<CategoryPage />} />
-          <Route path="/product" element={<ShowProducts />} />
+          <Route path="/AllProducts" element={<AllProducts_Page />} />
           <Route
             path="/product/category/:category"
             element={<ShowProducts />}
