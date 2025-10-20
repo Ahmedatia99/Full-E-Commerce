@@ -4,9 +4,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-body[data-scroll-locked] {
-  overflow: auto !important;
-}
+
 /* =========================
    Theme Variables
 ========================= */
