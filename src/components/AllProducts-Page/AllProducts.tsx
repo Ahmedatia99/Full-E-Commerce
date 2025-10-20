@@ -65,7 +65,7 @@ export default function AllProducts() {
 
       return { ...prev, category: "All" };
     });
-  }, [location.pathname, location.search, products]);
+  }, [location.pathname, location.search, products,searchQuery]);
 
   const filteredProducts = useMemo(
     () => filterProducts(products, filters),
@@ -76,7 +76,7 @@ export default function AllProducts() {
     const value = e.target.value.trim();
     setFilters((prev) => ({ ...prev, search: value }));
   };
-  console.log(products);
+ 
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 container mx-auto">
       {/* Sidebar Filters */}
