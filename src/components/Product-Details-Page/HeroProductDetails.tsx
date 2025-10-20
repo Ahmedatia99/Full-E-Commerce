@@ -30,7 +30,7 @@ export default function HeroProductDetails() {
 
   const id = getProductID();
   //   Fetch product using custom hook
-  const { product, loading, error } = useProductByID(id);
+  const { product, loading, error } = useProductByID(Number(id));
   //   States
   const [quantity, setQuantity] = useState(1);
   const [selectedPostalCode, setSelectedPostalCode] = useState("");

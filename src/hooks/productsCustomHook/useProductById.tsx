@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { getProductById } from "@/services/productsService";
 import type { productObject } from "@/types/product_Type";
 
-export function useProductByID(productId?: string) {
-  const [product, setProduct] = useState<productObject | null>(null);
+export function useProductByID(productId?: number) {
+  const [product, setProduct] = useState<productObject | undefined>(undefined);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
