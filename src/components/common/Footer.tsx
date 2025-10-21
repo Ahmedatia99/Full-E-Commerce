@@ -26,28 +26,28 @@ function Footer() {
     {
       title: t("Support"),
       links: [
-        { label: t("111 Bijoy Sarani, Dhaka, Bangladesh"), url: "#" },
-        { label: "exclusive@gmail.com", url: "mailto:exclusive@gmail.com" },
-        { label: "+88015-88888-9999", url: "tel:+88015888889999" },
+        { label: t("111 Bijoy Sarani, Dhaka, Bangladesh"), url: "/Contact" },
+        { label: "exclusive@gmail.com", url: "/Contact" },
+        { label: "+88015-88888-9999", url: "/Contact" },
       ],
     },
     {
       title: t("Account"),
       links: [
-        { label: t("My Account"), url: "#" },
-        { label: t("Login / Register"), url: "#" },
-        { label: t("Cart"), url: "#" },
-        { label: t("Wishlist"), url: "#" },
-        { label: t("Shop"), url: "#" },
+        { label: t("My Account"), url: "/account" },
+        { label: t("Login / Register"), url: "/SignUp" },
+        { label: t("Cart"), url: "/cart" },
+        { label: t("Wishlist"), url: "/Favourites" },
+        { label: t("Shop"), url: "/AllProducts" },
       ],
     },
     {
       title: t("Quick Links"),
       links: [
-        { label: t("Privacy Policy"), url: "#" },
-        { label: t("Terms Of Use"), url: "#" },
-        { label: t("FAQ"), url: "#" },
-        { label: t("Contact"), url: "#" },
+        { label: t("Privacy Policy"), url: "/about" },
+        { label: t("Terms Of Use"), url: "/about" },
+        { label: t("FAQ"), url: "/about" },
+        { label: t("Contact"), url: "/Contact" },
       ],
     },
   ];
@@ -71,7 +71,8 @@ function Footer() {
               Exclusive
             </h2>
             <p className="mt-6 max-w-md text-center sm:text-left leading-relaxed">
-             {t(" Subscribe to our newsletter and get")} <strong>{t("10% off")}</strong> {t("your first order.")}
+              {t(" Subscribe to our newsletter and get")}{" "}
+              <strong>{t("10% off")}</strong> {t("your first order.")}
             </p>
             <div className="w-full md:max-w-[200px] mt-4">
               <div className="relative">
@@ -186,7 +187,8 @@ function Footer() {
         <div className="mt-12   border-t border-gray-800 pt-6">
           <div className="text-center ">
             <p className="mt-4 text-sm text-gray-400 sm:order-first sm:mt-0">
-             {t(" &copy; copyright Rimel")} {new Date().getFullYear()}{t(". All rights reserved.")}
+              {t("copyright Rimel ")} {new Date().getFullYear()}&
+              {t(" All rights reserved")}
             </p>
           </div>
         </div>
