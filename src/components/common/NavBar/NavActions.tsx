@@ -55,16 +55,34 @@ function NavActions() {
               <User />
             </button>
           </DropdownMenuTrigger>
-
-          <DropdownMenuContent align="end" sideOffset={5} className="w-40">
+          <DropdownMenuContent
+            align="end"
+            sideOffset={6}
+            className="w-44 py-2 px-2 
+               backdrop-blur-md bg-white/50 text-start dark:bg-neutral-900/60 
+               border border-white/20 dark:border-neutral-800/40 
+               shadow-lg rounded-xl 
+               animate-in fade-in-0 zoom-in-95 
+               transition-all duration-300"
+          >
             <Link to={"/Login"}>
-              <DropdownMenuItem className="cursor-pointer capitalize">
+              <DropdownMenuItem
+                className="cursor-pointer capitalize text-sm font-medium 
+        text-neutral-800 dark:text-neutral-100
+        hover:text-red-400 hover:bg-transparent 
+        rounded-md transition-all duration-200"
+              >
                 {t("login")}
               </DropdownMenuItem>
             </Link>
 
             <Link to={"/SignUp"}>
-              <DropdownMenuItem className="cursor-pointer capitalize">
+              <DropdownMenuItem
+                className="cursor-pointer capitalize text-sm font-medium 
+        text-neutral-800 dark:text-neutral-100
+        hover:text-red-400 hover:bg-transparent 
+        rounded-md transition-all duration-200"
+              >
                 {t("signUp")}
               </DropdownMenuItem>
             </Link>
