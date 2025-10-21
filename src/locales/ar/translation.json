@@ -199,5 +199,9 @@
   "total": "الإجمالي",
   "shipping": "الشحن",
   "free": "مجانا",
-  "proceed_checkout": "المتابعة إلى الدفع"
+  "proceed_checkout": "المتابعة إلى الدفع",
+  "AllProducts": "جميع المنتجات",
+  "category": "التصنيف",
+  "loadingCategories": "جارٍ تحميل الفئات...",
+  "selectCategory": "اختر التصنيف"
 }

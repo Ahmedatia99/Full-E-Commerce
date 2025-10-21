@@ -29,8 +29,7 @@ export default function AllProducts() {
     search: "",
     sort: "none",
     discountOnly: false,
-    rating:""
-
+    rating: "",
   });
 
   const { products, loading, error } = useAllProducts();
@@ -47,7 +46,7 @@ export default function AllProducts() {
     const newFilters = getFiltersFromUrl(location, products, searchQuery);
     if (newFilters) setFilters((prev) => ({ ...prev, ...newFilters }));
     setCurrentPage(1); // Reset to first page when filters or URL change
-  }, [location.pathname, location.search, products, searchQuery,location]);
+  }, [location.pathname, location.search, products, searchQuery, location]);
 
   // Apply filters
   const filteredProducts = useMemo(

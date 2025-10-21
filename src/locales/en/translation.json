@@ -147,5 +147,9 @@
   "shipping": "Shipping",
   "total": "Total",
   "free": "Free",
-  "proceed_checkout": "Proceed to Checkout"
+  "proceed_checkout": "Proceed to Checkout",
+  "Allproducts": "AllProducts",
+  "category": "Category",
+  "loadingCategories": "Loading categories...",
+  "selectCategory": "Select category"
 }
