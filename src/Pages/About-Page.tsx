@@ -56,7 +56,6 @@ function About() {
             </p>
           </div>
 
-          {/* الكروت */}
           <section
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full mb-10"
             aria-label={t("aboutHighlights")}

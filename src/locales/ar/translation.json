@@ -166,8 +166,8 @@
   "Terms Of Use": "شروط الاستخدام",
   "FAQ": "الأسئلة الشائعة",
   "Contact": "تواصل معنا",
-  "&copy; copyright Rimel": "&copy; حقوق النشر ريميل",
-  ". All rights reserved.": ". جميع الحقوق محفوظة.",
+  "copyright Rimel ": "حقوق النشر ",
+  " All rights reserved": ". جميع الحقوق محفوظة.",
   " Subscribe to our newsletter and get": " اشترك في نشرتنا الإخبارية واحصل على",
   "10% off": "خصم 10%",
   "your first order.": "على طلبك الأول.",
@@ -200,6 +200,19 @@
   "shipping": "الشحن",
   "free": "مجانا",
   "proceed_checkout": "المتابعة إلى الدفع",
+  "FREE AND FAST DELIVERY": "توصيل مجاني وسريع",
+  "Free delivery for all orders over $140": "شحن مجاني لجميع الطلبات التي تزيد عن 140 دولارًا",
+  "24/7 CUSTOMER SERVICE": "خدمة العملاء على مدار الساعة طوال أيام الأسبوع",
+  "Friendly 24/7 customer support": "دعم العملاء ودود على مدار الساعة طوال أيام الأسبوع",
+  "MONEY BACK GUARANTEE": "ضمان استرداد الأموال",
+  "We return money within 30 days": "نقوم بإرجاع الأموال خلال 30 يومًا",
+
+  "products": "المنتجات",
+
+  "Category": "القسم",
+  "user": "المستخدم",
+  "users": "المستخدمون"
+}
   "AllProducts": "جميع المنتجات",
   "category": "التصنيف",
   "loadingCategories": "جارٍ تحميل الفئات...",

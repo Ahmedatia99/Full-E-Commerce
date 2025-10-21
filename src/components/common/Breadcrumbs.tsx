@@ -11,13 +11,11 @@ function BreadcrumbsComponent() {
   const { id } = useParams<{ id?: string }>();
   const { t } = useTranslation();
 
-  // "/products/1" → ["products", "1"]
   const paths = useMemo(
     () => location.pathname.split("/").filter(Boolean),
     [location.pathname]
   );
 
-  // (products / user)
   const getEntityName = (type: string, id: string): string | undefined => {
     const productsData: productObject[] = projectData as productObject[];
     if (type === "product") {
@@ -38,9 +36,24 @@ function BreadcrumbsComponent() {
     return getEntityName(type, id);
   }, [id, paths]);
 
+  const translationMap: Record<string, string> = {
+    products: t("products"),
+    product: t("product"),
+    Category: t("Category"),
+    categories: t("categories"),
+    user: t("user"),
+    users: t("users"),
+    about: t("about"),
+    contact: t("contact"),
+    favourites: t("favourites"),
+    cart: t("cart"),
+    Login: t("Login"),
+    SignUp: t("SignUp"),
+  };
+
   return (
     <nav
-      className="text-sm text-gray-500 my-7 md:my-10 "
+      className="text-sm text-gray-500 my-7 md:my-10"
       aria-label="Breadcrumb"
       itemScope
       itemType="https://schema.org/BreadcrumbList"
@@ -60,9 +73,9 @@ function BreadcrumbsComponent() {
         {paths.map((path, index) => {
           const fullPath = "/" + paths.slice(0, index + 1).join("/");
           const isLast = index === paths.length - 1;
-
-          // id
           const name = id && path === id && entityName ? entityName : path;
+
+          const translatedName = translationMap[name.toLowerCase()] || name;
 
           return (
             <li
@@ -78,7 +91,7 @@ function BreadcrumbsComponent() {
                   className="font-semibold text-black capitalize"
                   itemProp="name"
                 >
-                  {t(name.charAt(0).toLowerCase() + name.slice(1))}
+                  {translatedName}
                 </span>
               ) : (
                 <Link
@@ -86,7 +99,7 @@ function BreadcrumbsComponent() {
                   className="hover:underline capitalize"
                   itemProp="item"
                 >
-                  {name}
+                  {translatedName}
                 </Link>
               )}
               <meta itemProp="position" content={`${index + 2}`} />
@@ -98,7 +111,5 @@ function BreadcrumbsComponent() {
   );
 }
 
-// 🔹 wrap with React.memo
 const Breadcrumbs = React.memo(BreadcrumbsComponent);
-
 export default Breadcrumbs;
