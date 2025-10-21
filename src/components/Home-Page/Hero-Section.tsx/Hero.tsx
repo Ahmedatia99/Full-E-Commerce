@@ -42,9 +42,9 @@ export default function Hero() {
       <SidebarCategories categories={categories} />
 
       <div
-        className="w-full cursor-grab bg-black text-white relative flex md:flex-row 
+        className="w-full cursor-grab bg-black text-white flex md:flex-row 
         items-center justify-between flex-col-reverse md:mt-8 ltr:md:ml-4 rtl:md:mr-4
-        px-6 md:px-10 pt-12 pb-2  md:h-125 overflow-hidden bg-[url('/public/assets/icon-dotted-map-2.png')] bg-cover bg-center md:rounded-lg sm:rounded-none relative"
+        px-6 md:px-10 pt-12 pb-2  md:h-125 overflow-hidden bg-[url('@/assets/images/icon-dotted-map-2.png')] bg-cover bg-center md:rounded-lg sm:rounded-none relative"
       >
         <div className="absolute top-1/2 left-1/2 max-sm:right-0 translate-x-1/2 -translate-y-1/2">
           <img

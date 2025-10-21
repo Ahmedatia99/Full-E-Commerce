@@ -1,7 +1,4 @@
-import { products } from "./../data/products";
-export interface products {
-  productObject: productObject[];
-}
+
 
 export interface productObject {
   id: number;
@@ -44,5 +41,5 @@ export type Filters = {
   search: string;
   sort: string;
   discountOnly: boolean;
-  flashOnly: boolean;
+  rating: string;
 };

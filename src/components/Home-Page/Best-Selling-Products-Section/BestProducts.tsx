@@ -19,7 +19,7 @@ const BestProducts = () => {
 
   //  navigate to /product/best
   const toSalesPage = () => {
-    navigate("/product/category/best");
+    navigate("/Allproducts/bestselling");
   };
 
   const productCardProps = {
