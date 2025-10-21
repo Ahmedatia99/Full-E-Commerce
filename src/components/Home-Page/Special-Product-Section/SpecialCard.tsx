@@ -7,7 +7,7 @@ import { getCloudinaryUrl } from "@/utils/ProductStats";
 function SpecialCard() {
   const navigate = useNavigate();
   const navigateSpecialProduct = () => {
-    navigate("/product-details");
+    navigate("/product/9");
   };
   const { t } = useTranslation();
 

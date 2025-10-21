@@ -56,7 +56,7 @@ function Featured() {
               className="h-full"
             />
             <CategoryCard
-              category=""
+              category="perfume"
               title="Perfume"
               description="GUCCI INTENSE OUD EDP"
               image={getCloudinaryUrl(previewProducts[3].mainImgSRC, {

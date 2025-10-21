@@ -42,8 +42,8 @@ export function PaginationLink({
   return (
     <a
       className={cn(
-        "flex h-9 w-9  items-center justify-center rounded-md border text-sm font-medium  transition-colors hover:bg-main hover:text-white",
-        isActive ? " bg-black  text-white" : "bg-background",
+        "flex h-9 w-9 text-main items-center justify-center rounded-md border-2 border-main text-sm font-medium  transition-colors hover:bg-main hover:text-white",
+        isActive ? " bg-main  text-white" : "bg-background",
         className
       )}
       {...props}
@@ -58,7 +58,7 @@ export function PaginationPrevious({
   return (
     <a
       className={cn(
-        "flex h-9 items-center  justify-center rounded-md border px-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+        "flex h-9 items-center  justify-center rounded-md border-2 border-main px-2 text-sm font-medium transition-colors hover:bg-accent  text-main",
         className
       )}
       {...props}
@@ -75,7 +75,7 @@ export function PaginationNext({
   return (
     <a
       className={cn(
-        "flex h-9 items-center  justify-center rounded-md border px-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+        "flex h-9 items-center  justify-center rounded-md border-2 border-main px-2 text-sm font-medium transition-colors hover:bg-accent  text-main ",
         className
       )}
       {...props}

@@ -16,9 +16,9 @@ export const PriceRangeFeature = ({
   setFilters,
 }: BrandFeatureProps) => {
   return (
-    <AccordionItem value="price">
-      <AccordionTrigger>Price Range</AccordionTrigger>
-      <AccordionContent>
+    <AccordionItem value="price" >
+      <AccordionTrigger >Price Range</AccordionTrigger>
+      <AccordionContent >
         <div className="px-2">
           <Slider
             defaultValue={[0, 3000]}
