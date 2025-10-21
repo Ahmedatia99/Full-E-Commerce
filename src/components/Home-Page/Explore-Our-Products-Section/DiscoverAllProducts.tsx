@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Grid } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
 import Product_Card from "@/components/common/Product_Card/Product_Card";
@@ -30,7 +30,7 @@ const DiscoverAllProducts = () => {
 
   // Translation hook
   const { t } = useTranslation();
-
+  console.log(products)
   return (
     <div>
       {/* Section Header should always appear regardless of data or status */}
@@ -60,15 +60,14 @@ const DiscoverAllProducts = () => {
         <Swiper
           key={i18n.dir()}
           dir={i18n.dir()}
-          modules={[Grid, Navigation]}
+          modules={[Navigation]}
           slidesPerView={1}
-          grid={{ rows: 2, fill: "row" }}
           spaceBetween={16}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           breakpoints={{
-            640: { slidesPerView: 2, grid: { rows: 2 } },
-            1024: { slidesPerView: 3, grid: { rows: 2 } },
-            1280: { slidesPerView: 5, grid: { rows: 2 } },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+            1280: { slidesPerView: 5 },
           }}
         >
           {products.map((p) => (

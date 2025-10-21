@@ -16,7 +16,7 @@ const FlashSales = () => {
   const swiperRef = useRef<SwiperType | null>(null);
   const { t } = useTranslation();
 
-  const toSalesPage = () => navigate("/product/category/flashsales");
+  const toSalesPage = () => navigate("/AllProducts/flashsales");
 
   const productCardProps = {
     hasFavouriteIcon: true,

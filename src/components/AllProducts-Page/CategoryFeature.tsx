@@ -12,9 +12,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+
 import { useNavigate } from "react-router-dom";
 import type { Filters } from "@/types/product_Type";
 import { useAllProducts } from "@/hooks/productsCustomHook/useAllProducts";
+import { useTranslation } from 'react-i18next';
 
 type CategoryFeatureProps = {
   filters: Filters;
@@ -22,6 +24,7 @@ type CategoryFeatureProps = {
 };
 
 const CategoryFeature = ({ filters, setFilters }: CategoryFeatureProps) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { products, loading, error } = useAllProducts();
 
@@ -36,18 +39,18 @@ const CategoryFeature = ({ filters, setFilters }: CategoryFeatureProps) => {
     setFilters((prev) => ({ ...prev, category: v }));
 
     if (v.toLowerCase() === "all") {
-      navigate("/product");
+      navigate(t("/AllProducts"));
     } else {
-      navigate(`/product/category/${v.toLowerCase()}`);
+      navigate(`/AllProducts/${v.toLowerCase()}`);
     }
   };
 
   if (loading) {
     return (
       <AccordionItem value="category">
-        <AccordionTrigger>Category</AccordionTrigger>
+        <AccordionTrigger>{t("category")}</AccordionTrigger>
         <AccordionContent>
-          <p className="text-sm text-gray-500">Loading categories...</p>
+          <p className="text-sm text-gray-500">{t("loadingCategories")}</p>
         </AccordionContent>
       </AccordionItem>
     );
@@ -56,10 +59,10 @@ const CategoryFeature = ({ filters, setFilters }: CategoryFeatureProps) => {
   if (error) {
     return (
       <AccordionItem value="category">
-        <AccordionTrigger>Category</AccordionTrigger>
+        <AccordionTrigger>{t("category")}</AccordionTrigger>
         <AccordionContent>
           <p className="text-sm text-red-500">
-            Failed to load categories: {error}
+            {t("failedToLoadCategories", { error })}
           </p>
         </AccordionContent>
       </AccordionItem>
@@ -75,7 +78,7 @@ const CategoryFeature = ({ filters, setFilters }: CategoryFeatureProps) => {
           onValueChange={handleCategoryChange}
         >
           <SelectTrigger>
-            <SelectValue placeholder="Select category" />
+            <SelectValue placeholder={t("selectCategory")} />
           </SelectTrigger>
           <SelectContent>
             {categories.map((cat) => (

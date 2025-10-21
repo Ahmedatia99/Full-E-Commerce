@@ -213,3 +213,8 @@
   "user": "المستخدم",
   "users": "المستخدمون"
 }
+  "AllProducts": "جميع المنتجات",
+  "category": "التصنيف",
+  "loadingCategories": "جارٍ تحميل الفئات...",
+  "selectCategory": "اختر التصنيف"
+}

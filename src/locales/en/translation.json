@@ -158,3 +158,8 @@
   "cart": "Shopping Cart",
   "Login": "تسجيل الدخول"
 }
+  "Allproducts": "AllProducts",
+  "category": "Category",
+  "loadingCategories": "Loading categories...",
+  "selectCategory": "Select category"
+}
