@@ -48,7 +48,7 @@ export default function Hero() {
       >
         <div className="absolute top-1/2 left-1/2 max-sm:right-0 translate-x-1/2 -translate-y-1/2">
           <img
-            src="@/assets/images/circle-lines.png"
+            src="/assets/circle-lines.png"
             alt="Dotted Map"
             className="w-xl"
           />
