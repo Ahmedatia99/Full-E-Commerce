@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Grid } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
 import Product_Card from "@/components/common/Product_Card/Product_Card";
@@ -60,7 +60,7 @@ const DiscoverAllProducts = () => {
         <Swiper
           key={i18n.dir()}
           dir={i18n.dir()}
-          modules={Navigation}
+          modules={[Navigation]}
           slidesPerView={1}
           spaceBetween={16}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
