@@ -11,10 +11,14 @@
   "electronics": "Electronics",
   "homeLifestyle": "Home & Lifestyle",
   "medicine": "Medicine",
-  "sportsOutdoor": "Sports & Outdoor",
-  "babysToys": "Baby's & Toys",
-  "groceriesPets": "Groceries & Pets",
-  "healthBeauty": "Health & Beauty",
+  "sports": "Sports & Outdoor",
+  "perfumes": "Perfumes",
+  "computer": "Computer",
+  "homecategory": "Home Furniture",
+  "babytoys": "Baby's & Toys",
+  "pets": "Pets",
+  "allproducts": "All Products",
+  "healthbeauty": "Health & Beauty",
   "option1": "Option 1",
   "option2": "Option 2",
   "search": "Search",
@@ -157,5 +161,6 @@
   "Allproducts": "AllProducts",
   "category": "Category",
   "loadingCategories": "Loading categories...",
-  "selectCategory": "Select category"
+  "selectCategory": "Select category",
+  "signup": "Sign Up"
 }

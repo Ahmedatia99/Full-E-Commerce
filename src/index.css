@@ -4,7 +4,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
 /* =========================
    Theme Variables
 ========================= */
@@ -138,7 +137,7 @@
   }
   [data-sonner-toaster][data-sonner-theme="dark"] [data-description] {
     color: #166534 !important;
-    font-weight :400 !important;
+    font-weight: 400 !important;
   }
 }
 
@@ -188,19 +187,25 @@
   row-gap: 40px;
 }
 
-/* globals.css */
 .link-underline {
   @apply relative inline-block text-gray-700 transition-colors;
 }
 
 .link-underline::after {
   content: "";
-  @apply absolute -bottom-[2px] h-[2px] w-0 bg-black transition-all duration-300;
-  inset-inline-start: 0; /*left / right LTR RTL */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: black;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .link-underline:hover::after {
-  @apply w-full;
+  transform: scaleX(1);
 }
 
 /* Active */
@@ -209,7 +214,7 @@
 }
 /* Active */
 .link-underline-active {
-  @apply text-black font-medium relative; 
+  @apply text-black font-medium relative;
 }
 
 .link-underline-active::after {
@@ -233,19 +238,13 @@
   animation: slideDown 0.4s ease-out forwards;
 }
 
-
-.heading{
-  @apply  font-bold text-3xl  md:text-4xl ;
+.heading {
+  @apply font-bold text-3xl  md:text-4xl;
 }
-.specialHeading{
-   @apply  font-bold text-3xl md:text-4xl  xl:text-6xl ;
+.specialHeading {
+  @apply font-bold text-3xl md:text-4xl  xl:text-6xl;
 }
-.title{
-
+.title {
 }
-.subTitle{
-
+.subTitle {
 }
-
-
-

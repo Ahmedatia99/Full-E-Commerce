@@ -14,7 +14,7 @@ export default function HeroContent({ slide }: HeroContentProps) {
   const navigatHero = useNavigate();
 
   const handelShopNow = () => {
-    navigatHero("/product/category/flashsales");
+    navigatHero("/allproducts");
   };
 
   const { t } = useTranslation();
@@ -36,7 +36,6 @@ export default function HeroContent({ slide }: HeroContentProps) {
         {t("shopNow")}
         <GoArrowRight className="text-2xl transform transition-transform duration-300 group-hover:translate-x-2" />
       </button>
-      <p className="text-gray-400 text-lg m-auto my-3 capitalize">Explore our collections</p>
     </div>
   );
 }

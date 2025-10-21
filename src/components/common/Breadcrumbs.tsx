@@ -1,7 +1,7 @@
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { mockUser } from "../common/mockUser";
+// import { mockUser } from "../common/mockUser";
 import projectData from "../../product.json";
 import React from "react";
 import type { productObject } from "@/types/product_Type";
@@ -22,11 +22,7 @@ function BreadcrumbsComponent() {
       const numericId = Number(id);
       return productsData.find((p) => p.id === numericId)?.title;
     }
-    if (type === "user") {
-      return mockUser.id === Number(id)
-        ? `${mockUser.firstName} ${mockUser.lastName}`
-        : undefined;
-    }
+
     return undefined;
   };
 
@@ -35,21 +31,6 @@ function BreadcrumbsComponent() {
     const type = paths[0];
     return getEntityName(type, id);
   }, [id, paths]);
-
-  const translationMap: Record<string, string> = {
-    products: t("products"),
-    product: t("product"),
-    Category: t("Category"),
-    categories: t("categories"),
-    user: t("user"),
-    users: t("users"),
-    about: t("about"),
-    contact: t("contact"),
-    favourites: t("favourites"),
-    cart: t("cart"),
-    Login: t("Login"),
-    SignUp: t("SignUp"),
-  };
 
   return (
     <nav
@@ -74,8 +55,7 @@ function BreadcrumbsComponent() {
           const fullPath = "/" + paths.slice(0, index + 1).join("/");
           const isLast = index === paths.length - 1;
           const name = id && path === id && entityName ? entityName : path;
-
-          const translatedName = translationMap[name.toLowerCase()] || name;
+          const translatedName = t(name.toLowerCase()) || "";
 
           return (
             <li

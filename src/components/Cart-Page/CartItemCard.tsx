@@ -41,15 +41,20 @@ function CartItemCard({ item }: CartProductProps) {
 
       <div className="flex sm:justify-center justify-between items-center gap-5">
         <span className="max-sm:flex gap-3 sm:justify-end justify-center font-semibold text-base md:text-xl hidden">
-          <span className="sm:hidden text-main font-semibold">Total:</span> $
-          {total}
+          <span className="sm:hidden text-main font-semibold">
+            {t("total")}:
+          </span>{" "}
+          ${total}
         </span>
         <CartQuantity item={item} />
       </div>
 
       <span className="flex justify-center font-semibold text-sm md:text-base max-sm:hidden">
-        <span className="sm:hidden text-main font-semibold">Total:</span> $
-        {total}
+        <span className="sm:hidden text-main font-semibold">
+          {" "}
+          {t("total")}:
+        </span>{" "}
+        ${total}
       </span>
     </article>
   );

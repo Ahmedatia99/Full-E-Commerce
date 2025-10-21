@@ -13,32 +13,32 @@ export default function Hero() {
   const categories = [
     {
       key: "womansFashion",
-      name: "Womans Fashion",
+      name: "womansFashion",
       url: "AllProducts/womenfashion",
     },
-    { key: "mensFashion", name: "Mens Fashion", url: "AllProducts/menfashion" },
+    { key: "mensFashion", name: "mensFashion", url: "AllProducts/menfashion" },
     {
       key: "electronics",
-      name: "Electronics",
+      name: "electronics",
       url: "AllProducts/electronics",
     },
-       { key: "home", name: "Home", url: "AllProducts/home" },
-    { key: "pets", name: "Pets", url: "AllProducts/pets" },
+    { key: "home", name: "homecategory", url: "AllProducts/homecategory" },
+    { key: "pets", name: "pets", url: "AllProducts/pets" },
     {
       key: "Health Beauty",
-      name: "Health Beauty",
+      name: "healthbeauty",
       url: "AllProducts/healthbeauty",
     },
-    { key: "Baby Toys", name: "Baby Toys", url: "AllProducts/babytoys" },
-    { key: "Sports", name: "Sports", url: "AllProducts/sports" },
-    { key: "Perfumes", name: "Perfumes", url: "AllProducts/perfumes" },
- 
-    { key: "computer", name: "Computer", url: "AllProducts/computer" },
+    { key: "Baby Toys", name: "babytoys", url: "AllProducts/babytoys" },
+    { key: "Sports", name: "sports", url: "AllProducts/sports" },
+    { key: "Perfumes", name: "perfumes", url: "AllProducts/perfumes" },
+
+    { key: "computer", name: "computer", url: "AllProducts/computer" },
   ];
   const { products, loading, error } = useHookProducts();
 
   return (
-    <section className="flex flex-col md:flex-row">
+    <section className="flex flex-col md:flex-row  ">
       <SidebarCategories categories={categories} />
 
       <div
@@ -50,7 +50,7 @@ export default function Hero() {
           <img
             src="/assets/circle-lines.png"
             alt="Dotted Map"
-            className="w-xl"
+            className="w-xl hidden xl:block"
           />
         </div>
         {loading ? (
