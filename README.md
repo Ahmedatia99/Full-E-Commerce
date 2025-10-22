@@ -91,11 +91,25 @@ src/
 ## 🧑‍💻 Author
 
 **Ahmed Ateya**
-Frontend Developer | React & Next.js Specialist
+ Mern Developer | Frontend Developer Specialist
 📍 Egypt
 🌐 [Portfolio](https://ahmed-atia-nine.vercel.app/)
 💼 [LinkedIn](https://www.linkedin.com/in/ahmed-atia99/)
 ✉️ [Email](mailto:atyaa629@gmail.com)
+
+**Amr Magdy**
+Full Stack Developer | .NetCore
+📍 Egypt
+🌐 [Portfolio](https://amr-portofolio.vercel.app/)
+💼 [LinkedIn](https://www.linkedin.com/in/amrmagdydb/)
+✉️ [Email](mailto:bamrmagdy@gmail.com)
+
+**Taha Ebrahim**
+Mern Developer 
+📍 Egypt
+🌐 [Portfolio](https://taha-portfolio-rosy-sigma.vercel.app/)
+💼 [LinkedIn](https://www.linkedin.com/in/taha-ibrahim-24918b265/)
+✉️ [Email](mailto:https:tahasniper312@gmail.com)
 
 ---
 
