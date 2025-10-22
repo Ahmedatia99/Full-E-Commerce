@@ -24,11 +24,6 @@ const FlashSales = () => {
     hasReview: true,
   };
 
-  // getting the time from the api
-  // const countdownTarget = flashSaleEndTime useExploreOurProductsSectionProducts
-  //   ? new Date(flashSaleEndTime)
-  //   : new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-
   return (
     <div>
       <SectionHeader
@@ -36,7 +31,6 @@ const FlashSales = () => {
         title={t("Flash Sales")}
         swiperRef={swiperRef}
         countdownTarget={new Date(new Date().getTime() + 24 * 60 * 60)}
-        // countdownTarget={countdownTarget}
         className="mb-10"
       />
 
