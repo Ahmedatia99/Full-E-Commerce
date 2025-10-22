@@ -20,8 +20,8 @@ export default function HeroContent({ slide }: HeroContentProps) {
   const { t } = useTranslation();
   return (
     <div className="z-10 text-center md:text-left mb-6 md:mb-0">
-      <p className="text-xl flex items-center justify-center md:justify-start gap-6">
-        <span className="text-white text-6xl"></span> {t(slide.title)}
+      <p className="text-xl flex items-center justify-center md:justify-start gap-6 ">
+        <span className="text-white text-5xl"> {t(slide.title)}</span>
       </p>
       <h1 className="specialHeading mt-3 leading-snug">
         {t(slide.description)}

@@ -17,6 +17,8 @@
   "homecategory": "Home Furniture",
   "babytoys": "Baby's & Toys",
   "pets": "Pets",
+  "all": "All",
+
   "allproducts": "All Products",
   "healthbeauty": "Health & Beauty",
   "option1": "Option 1",
@@ -162,5 +164,7 @@
   "category": "Category",
   "loadingCategories": "Loading categories...",
   "selectCategory": "Select category",
-  "signup": "Sign Up"
+  "signup": "Sign Up",
+  "downloadapp": "Download App",
+  "saveapp": "Save $3 with App (New Users Only)"
 }

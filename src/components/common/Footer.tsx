@@ -128,11 +128,9 @@ function Footer() {
                 id="footer-download"
                 className="text-lg font-medium text-white"
               >
-                Download App
+                {t("downloadapp")}
               </h3>
-              <p className="text-xs text-gray-300">
-                Save $3 with App (New Users Only)
-              </p>
+              <p className="text-xs text-gray-300">{t("saveapp")}</p>
               <div className="mt-4 flex items-center gap-4">
                 {/* <img src={qrCode} className="w-24 h-24 mt-8 max-sm:hidden md:hidden lg:block" /> */}
                 <div className="mt-6 flex flex-col gap-3">

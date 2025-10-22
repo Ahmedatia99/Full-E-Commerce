@@ -83,7 +83,7 @@ function NavActions() {
         hover:text-red-400 hover:bg-transparent 
         rounded-md transition-all duration-200"
               >
-                {t("signUp")}
+                {t("signup")}
               </DropdownMenuItem>
             </Link>
           </DropdownMenuContent>

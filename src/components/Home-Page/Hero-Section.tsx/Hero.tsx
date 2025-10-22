@@ -8,38 +8,14 @@ import HeroContent from "./HeroContent";
 import HeroImage from "./HeroImage";
 import { useHookProducts } from "@/hooks/productsCustomHook/useHookProducts";
 import type { hookProductObject } from "@/types/product_Type";
+import { categoriesData } from "@/components/CategroyComponents/categoriesData";
 
 export default function Hero() {
-  const categories = [
-    {
-      key: "womansFashion",
-      name: "womansFashion",
-      url: "AllProducts/womenfashion",
-    },
-    { key: "mensFashion", name: "mensFashion", url: "AllProducts/menfashion" },
-    {
-      key: "electronics",
-      name: "electronics",
-      url: "AllProducts/electronics",
-    },
-    { key: "home", name: "homecategory", url: "AllProducts/homecategory" },
-    { key: "pets", name: "pets", url: "AllProducts/pets" },
-    {
-      key: "Health Beauty",
-      name: "healthbeauty",
-      url: "AllProducts/healthbeauty",
-    },
-    { key: "Baby Toys", name: "babytoys", url: "AllProducts/babytoys" },
-    { key: "Sports", name: "sports", url: "AllProducts/sports" },
-    { key: "Perfumes", name: "perfumes", url: "AllProducts/perfumes" },
-
-    { key: "computer", name: "computer", url: "AllProducts/computer" },
-  ];
   const { products, loading, error } = useHookProducts();
 
   return (
     <section className="flex flex-col md:flex-row  ">
-      <SidebarCategories categories={categories} />
+      <SidebarCategories categories={categoriesData} />
 
       <div
         className="w-full cursor-grab bg-black text-white flex md:flex-row 

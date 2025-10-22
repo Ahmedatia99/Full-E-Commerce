@@ -65,7 +65,7 @@ function Product_Card_InfoComponent({
             itemProp="aggregateRating"
             itemScope
             itemType="https://schema.org/AggregateRating"
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 mt-auto"
           >
             <StarRating rating={product.avgRate} />
 
